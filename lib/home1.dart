@@ -46,10 +46,91 @@ class _Home1State extends State<Home1> {
                 width: MediaQuery.of(context).size.width-50,
                 color: Colors.grey[100],
                 alignment: Alignment.center,
-                child: const Text('결과값 표시', style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.deepOrange),  ),
+                child: DataTable(
+                  columns: [
+                    DataColumn(label: Text('등수')),
+                    DataColumn(label: Text('당첨횟수')),
+                    DataColumn(label: Text('회차')),
+                  ],
+                  rows: [
+                    DataRow(cells: [
+                      DataCell(Text('1등')),
+                      DataCell(Text('0')),
+                      DataCell(Text(' ')),
+                    ]),
+
+                    DataRow(cells: [
+                      DataCell(Text('2등')),
+                      DataCell(Text('1')),
+                      DataCell(Text('253,100,101,102,103,104')),
+                    ]),
+
+                    DataRow(cells: [
+                      DataCell(Text('3등')),
+                      DataCell(Text('1')),
+                      DataCell(Text('253,100,101,102,103,104')),
+                    ]),
+
+                    DataRow(cells: [
+                      DataCell(Text('4등')),
+                      DataCell(Text('1')),
+                      DataCell(Container(
+                          width: 250,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Flexible(
+                                  child: RichText(
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 5,
+                                    strutStyle: StrutStyle(fontSize: 16.0),
+                                    text: TextSpan(
+                                        text:
+                                        '253,100,101,102,103,104,105,1000,1001,879,253,100,101,102,103,104,105,1000,1001,879,253,100,101,102,103,104,105,1000,1001,879,253,100,101,102,103,104,105,1000,1001,879끝',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            height: 1.4,
+                                            fontSize: 16.0,
+                                            fontFamily: 'NanumSquareRegular')),
+                                  )),
+                            ],
+                          )),
+                      ),
+                    ]),
+
+                    DataRow(cells: [
+                      DataCell(Text('5등')),
+                      DataCell(Text('1')),
+                      DataCell(Text('253,100,101,102,103,104')),
+                    ]),
+
+                  ],
+                )
 
               ),
             ),
+
+            Container(
+                width: 550,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Flexible(
+                        child: RichText(
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 10,
+                          strutStyle: StrutStyle(fontSize: 16.0),
+                          text: TextSpan(
+                              text:
+                              '253,100,101,102,103,104,105,1000,1001,879,253,100,101,102,103,104,105,1000,1001,879,253,100,101,102,103,104,105,1000,1001,879,253,100,101,102,103,104,105,1000,1001,879끝',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  height: 1.4,
+                                  fontSize: 16.0,
+                                  fontFamily: 'NanumSquareRegular')),
+                        )),
+                  ],
+                )),
 
 
 
