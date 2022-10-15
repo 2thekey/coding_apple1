@@ -62,7 +62,7 @@ class _LottoHomeState extends State<LottoHome> {
         title: const Text('내포 Lotto',
           style: TextStyle(
               fontFamily: 'sandolout',
-              fontSize: 30,
+              fontSize: 40,
               fontWeight: FontWeight.bold,
               color: Colors.deepOrange),
         ),
