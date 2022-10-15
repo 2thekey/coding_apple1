@@ -1,94 +1,41 @@
+import 'package:coding_apple1/lottohome.dart';
 import 'package:flutter/material.dart';
-import 'animal_page.dart';
-import 'model.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'landingpage.dart';
+
+
+//bool isFirebaseReady = true;
+
+// void main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp().catchError((e) {
+//     isFirebaseReady = false;
+//     //print(e);
+//   });
+//   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);  //화면세로고정
+//   runApp(MyApp());
+// }
+
+void main()  {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);  //화면세로고정
+  runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MyPage(),
-    );
-  }
-}
-
-class MyPage extends StatefulWidget {
-  const MyPage({Key? key}) : super(key: key);
-
-  @override
-  State<MyPage> createState() => _MyPageState();
-}
-
-class _MyPageState extends State<MyPage> {
-  static List<String> animalName = [
-    'cat',
-    'cow',
-    'dog',
-    'horse',
-    'lion',
-    'monkey',
-    'rabbit',
-    'tiger',
-  ];
-
-  static List<String> animalImagePath = [
-    'image/cat.png',
-    'image/cow.png',
-    'image/dog.png',
-    'image/horse.png',
-    'image/lion.png',
-    'image/monkey.png',
-    'image/rabbit.png',
-    'image/tiger.png',
-  ];
-
-  static List<String> animalLocation = [
-    'skhouse',
-    'hongseong',
-    'hongbuk',
-    'farm',
-    'zoo',
-    'china',
-    'sik',
-    'russia',
-  ];
-
-  final List<Animal> animalData = List.generate(
-      animalLocation.length,
-      (index) => Animal(
-          animalName[index], animalLocation[index], animalImagePath[index]));
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('ListView'),
-      ),
-      body: ListView.builder(
-        itemCount: animalData.length,
-        itemBuilder: (context, index) {
-          return Card(
-            child: ListTile(
-              title: Text(animalData[index].name),
-              leading: SizedBox(
-                height: 50,
-                width: 50,
-                child: Image.asset((animalData[index].imgPath)),
-              ),
-              onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => AnimalPage(animal: animalData[index],)));
-                debugPrint(animalData[index].name);
-              },
-            ),
-          );
-        },
-      ),
+    return  GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'DongleRegular'),
+      //home: LandingPage(),
+      home: LottoHome(),
     );
   }
 }
