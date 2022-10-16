@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+var ii=0;
+//var choice_Bunho=List<int>.filled(6, 46);
+var choice_Bunho=List<int>.empty(growable: true);
+
+
 class Home1 extends StatefulWidget {
   const Home1({Key? key}) : super(key: key);
 
@@ -10,7 +15,8 @@ class Home1 extends StatefulWidget {
 
 class _Home1State extends State<Home1> {
 
-  List<int> bunhoSangtae = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  var bunhoSangtae =List<int>.filled(46, 0);
+
 
   List<String> bunHoPath = ['0','assets/image/off_1.png','assets/image/off_2.png',
     'assets/image/off_3.png','assets/image/off_4.png','assets/image/off_5.png','assets/image/off_6.png','assets/image/off_7.png','assets/image/off_8.png','assets/image/off_9.png',
@@ -23,8 +29,12 @@ class _Home1State extends State<Home1> {
 
   var imgPath = '';
 
-  @override
+    @override
+
+
+
   Widget build(BuildContext context) {
+      //choice_Bunho.clear();
     return ListView(
       children: [
         Column(
@@ -223,7 +233,7 @@ class _Home1State extends State<Home1> {
                           width: 50,
                           color: Colors.orange,
                           alignment: Alignment.center,
-                          child: Text('5', style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
+                          child: Text(choice_Bunho[0].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
                         ),
                         SizedBox(width: 15,),
                         Container(
@@ -231,7 +241,7 @@ class _Home1State extends State<Home1> {
                           width: 50,
                           color: Colors.orange,
                           alignment: Alignment.center,
-                          child: Text('11', style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
+                          child: Text(choice_Bunho[1].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
                         ),
                         SizedBox(width: 15,),
                         Container(
@@ -239,7 +249,7 @@ class _Home1State extends State<Home1> {
                           width: 50,
                           color: Colors.orange,
                           alignment: Alignment.center,
-                          child: Text('22', style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
+                          child: Text(choice_Bunho[2].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
                         ),
                         SizedBox(width: 15,),
                         Container(
@@ -247,7 +257,7 @@ class _Home1State extends State<Home1> {
                           width: 50,
                           color: Colors.orange,
                           alignment: Alignment.center,
-                          child: Text('29', style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
+                          child: Text(choice_Bunho[3].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
                         ),
                         SizedBox(width: 15,),
                         Container(
@@ -255,7 +265,7 @@ class _Home1State extends State<Home1> {
                           width: 50,
                           color: Colors.orange,
                           alignment: Alignment.center,
-                          child: Text('38', style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
+                          child: Text(choice_Bunho[4].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
                         ),
                         SizedBox(width: 15,),
                         Container(
@@ -263,7 +273,7 @@ class _Home1State extends State<Home1> {
                           width: 50,
                           color: Colors.orange,
                           alignment: Alignment.center,
-                          child: Text('45', style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
+                          child: Text(choice_Bunho[5].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
                         ),
                       ],
                     ),
@@ -275,6 +285,7 @@ class _Home1State extends State<Home1> {
             SizedBox(height: 25,),
 
             Text(bunhoSangtae.toString()),
+            Text(choice_Bunho.toString()),
 
             Center( //결과값 표시 존
               child: Container(
@@ -382,16 +393,31 @@ class _Home1State extends State<Home1> {
     var bunho_gubun;
     var return_Path;
     if (bunhoSangtae[bunho] == 1) {
+      ii--;
       bunho_gubun = 'off';
       bunhoSangtae[bunho]=0;
+
+      choice_Bunho[choice_Bunho.indexOf(bunho)]=46;
+
+
+
     }
 
     else {
       bunho_gubun = 'on';
       bunhoSangtae[bunho]=1;
+      choice_Bunho[ii]=bunho;
+      ii++;
+
+
     }
     return_Path =
         'assets/image/' + bunho_gubun + '_' + bunho.toString() + '.png';
+
+    //print(ii);
+    if(choice_Bunho.length > 0)
+       {choice_Bunho.sort();}
+
     return return_Path;
   }
 
