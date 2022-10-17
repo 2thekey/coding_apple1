@@ -716,14 +716,14 @@ class _Home1State extends State<Home1> {
                           dang=0;
                         }  //for i
 
-                        print('5등:'+dangchum5[0].toString()+',   4등:'+dangchum4[0].toString()+',   3등:'+dangchum3[0].toString()+
-                            ',   2등:'+dangchum2[0].toString()+',   1등:'+dangchum1[0].toString());   //당첨 누적. 3=5등, 4=4등, 5=3등
+                        //print('5등:'+dangchum5[0].toString()+',   4등:'+dangchum4[0].toString()+',   3등:'+dangchum3[0].toString()+
+                          //  ',   2등:'+dangchum2[0].toString()+',   1등:'+dangchum1[0].toString());   //당첨 누적. 3=5등, 4=4등, 5=3등
 
-                        print('5등 회차:  $dangchum5');
-                        print('4등 회차:  $dangchum4');
-                        print('3등 회차:  $dangchum3');
-                        print('2등 회차:  $dangchum2');
-                        print('1등 회차:  $dangchum1');
+                        //print('5등 회차:  $dangchum5');
+                        //print('4등 회차:  $dangchum4');
+                        //print('3등 회차:  $dangchum3');
+                        //print('2등 회차:  $dangchum2');
+                        //print('1등 회차:  $dangchum1');
 
                         setState(() {
 
