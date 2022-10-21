@@ -9,11 +9,11 @@ int last_soonbun=994;
 var choice_Bunho=List<String>.filled(6, ' ');
 var choice_Bunho_Int=List<int>.filled(6, 46);
 var num=List.generate(last_soonbun,(i) => List.filled(8, 0, growable: true), growable:true);
-List<int> dangchum1=[0];
-List<int> dangchum2=[0];
-List<int> dangchum3=[0];
-List<int> dangchum4=[0];
-List<int> dangchum5=[0];
+List<int> dangchum_Count=[0,0,0,0,0,0];
+List<String> dangchum_Soonbun=['','','','','',''];
+// List<int> dangchum3=[0];
+// List<int> dangchum4=[0];
+// List<int> dangchum5=[0];
 
 
 
@@ -671,19 +671,19 @@ class _Home1State extends State<Home1> {
 
 
 
-                        dangchum5.clear();
-                        dangchum4.clear();
-                        dangchum3.clear();
-                        dangchum2.clear();
-                        dangchum1.clear();
+                        // dangchum_Count.clear();
+                        // dangchum_Soonbun.clear();
+                        // dangchum3.clear();
+                        // dangchum2.clear();
+                        // dangchum1.clear();
 
                         int dang=0;
 
-                        dangchum1.add(0);
-                        dangchum2.add(0);
-                        dangchum3.add(0);
-                        dangchum4.add(0);
-                        dangchum5.add(0);
+                        dangchum_Count=[0,0,0,0,0,0];
+                        dangchum_Soonbun=['','','','','',''];
+                        // dangchum3.add(0);
+                        // dangchum4.add(0);
+                        // dangchum5.add(0);
 
                         for (int i =1 ; i < last_soonbun; i++) {
                           for (int j = 1; j < 7; j++) {
@@ -703,14 +703,14 @@ class _Home1State extends State<Home1> {
                             case 0 :
                             case 1 :
                             case 2 : break; //print('NO 당첨'); break;
-                            case 3 : dangchum5[0]++; dangchum5.add(num[i][0]); break;
-                            case 4 : dangchum4[0]++; dangchum4.add(num[i][0]); break;
+                            case 3 : dangchum_Count[5]++; dangchum_Soonbun[5]=dangchum_Soonbun[5]+num[i][0].toString()+','; break;
+                            case 4 : dangchum_Count[4]++; dangchum_Soonbun[4]='$dangchum_Soonbun[4]'+','+'num[i][0].toString()'; break;
                             case 5 : if(num[i][7]==choice_Bunho_Int[0] ||  num[i][7]==choice_Bunho_Int[1] || num[i][7]==choice_Bunho_Int[2] || num[i][7]==choice_Bunho_Int[3] || num[i][7]==choice_Bunho_Int[4] || num[i][7]==choice_Bunho_Int[5])
                             {
-                              dangchum2[0]++; dangchum2.add(num[i][0]); break;
+                              dangchum_Count[2]++; dangchum_Soonbun[2]='$dangchum_Soonbun[2]'+','+'num[i][0].toString()'; break;
                             } //if
-                            dangchum3[0]++; dangchum3.add(num[i][0]); break;
-                            case 6 : dangchum1[0]++; dangchum1.add(num[i][0]); break;
+                            dangchum_Count[3]++; dangchum_Soonbun[3]='$dangchum_Soonbun[3]'+','+'num[i][0].toString()'; break;
+                            case 6 : dangchum_Count[1]++; dangchum_Soonbun[1]='$dangchum_Soonbun[1]'+','+'num[i][0].toString()'; break;
 
                           } //switch
                           dang=0;
@@ -776,32 +776,32 @@ class _Home1State extends State<Home1> {
                     rows: [
                       DataRow(cells: [
                         DataCell(Text('1등')),
-                        DataCell(Text(dangchum1[0].toString())),
-                        DataCell(Text(dangchum1.toString())),
+                        DataCell(Text(dangchum_Count[1].toString())),
+                        DataCell(Text(dangchum_Soonbun[1].toString())),
                       ]),
 
                       DataRow(cells: [
                         DataCell(Text('2등')),
-                        DataCell(Text(dangchum2[0].toString())),
-                        DataCell(Text(dangchum2.toString())),
+                        DataCell(Text(dangchum_Count[2].toString())),
+                        DataCell(Text(dangchum_Soonbun[2].toString())),
                       ]),
 
                       DataRow(cells: [
                         DataCell(Text('3등')),
-                        DataCell(Text(dangchum3[0].toString())),
-                        DataCell(Text(dangchum3.toString())),
+                        DataCell(Text(dangchum_Count[3].toString())),
+                        DataCell(Text(dangchum_Soonbun[3].toString())),
                       ]),
 
                       DataRow(cells: [
                         DataCell(Text('4등')),
-                        DataCell(Text(dangchum4[0].toString())),
-                        DataCell(Text(dangchum4.toString())),
+                        DataCell(Text(dangchum_Count[4].toString())),
+                        DataCell(Text(dangchum_Soonbun[4].toString())),
                       ]),
 
                       DataRow(cells: [
                         DataCell(Text('5등')),
-                        DataCell(Text(dangchum5[0].toString())),
-                        DataCell(Text(dangchum5.toString())),
+                        DataCell(Text(dangchum_Count[5].toString())),
+                        DataCell(Text(dangchum_Soonbun[5].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[5].length.toInt())))),
                       ]),
 
                     ],
