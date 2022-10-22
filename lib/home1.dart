@@ -10,7 +10,7 @@ var choice_Bunho=List<String>.filled(6, ' ');
 var choice_Bunho_Int=List<int>.filled(6, 46);
 var num=List.generate(last_soonbun,(i) => List.filled(8, 0, growable: true), growable:true);
 List<int> dangchum_Count=[0,0,0,0,0,0];
-List<String> dangchum_Soonbun=['','','','','',''];
+List<String> dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
 // List<int> dangchum3=[0];
 // List<int> dangchum4=[0];
 // List<int> dangchum5=[0];
@@ -57,524 +57,550 @@ class _Home1State extends State<Home1> {
                   //height: 300,
                   //width: MediaQuery.of(context).size.width - 50,
                   width: 400,
-                  color: Colors.grey[400],
+                  color: Colors.grey[100],
                   alignment: Alignment.center,
                   child:
-                  //const Text('로또번호 표시 존', style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.deepOrange),  ),
+
                   Column(
                     children: [
-                      SizedBox(height: 10,),
+                      //SizedBox(height: 10,),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+
                         children: [
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[1] = bunHo_Check(1);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[1],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//1
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[2] = bunHo_Check(2);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[2],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//2
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[3] = bunHo_Check(3);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[3],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//3
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[4] = bunHo_Check(4);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[4],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//4
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[5] = bunHo_Check(5);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[5],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//5
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[6] = bunHo_Check(6);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[6],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//6
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[7] = bunHo_Check(7);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[7],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//7
+                          bbbCheck(1),
+                          SizedBox(width: 30,),
+                          bbbCheck(2),
+                          SizedBox(width: 30,),
+                          bbbCheck(3),
+                          SizedBox(width: 30,),
+                          bbbCheck(4),
+                          SizedBox(width: 30,),
+                          bbbCheck(5),
+                          SizedBox(width: 30,),
+                          bbbCheck(6),
+                          SizedBox(width: 30,),
+                          bbbCheck(7),
                         ],
-                      ),//1~7번
-
-                      SizedBox(height: 15,),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[8] = bunHo_Check(8);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[8],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//8
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[9] = bunHo_Check(9);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[9],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//9
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[10] = bunHo_Check(10);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[10],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//10
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[11] = bunHo_Check(11);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[11],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//11
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[12] = bunHo_Check(12);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[12],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//12
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[13] = bunHo_Check(13);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[13],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//13
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[14] = bunHo_Check(14);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[14],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//14
-                        ],
-                      ),//8~14번
-
-                      SizedBox(height: 15,),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[15] = bunHo_Check(15);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[15],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//15
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[16] = bunHo_Check(16);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[16],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//16
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[17] = bunHo_Check(17);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[17],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//17
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[18] = bunHo_Check(18);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[18],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//18
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[19] = bunHo_Check(19);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[19],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//19
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[20] = bunHo_Check(20);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[20],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//20
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[21] = bunHo_Check(21);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[21],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//21
-                        ],
-                      ),//15~21번
-
-                      SizedBox(height: 15,),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[22] = bunHo_Check(22);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[22],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//22
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[23] = bunHo_Check(23);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[23],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//23
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[24] = bunHo_Check(24);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[24],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//24
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[25] = bunHo_Check(25);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[25],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//25
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[26] = bunHo_Check(26);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[26],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//26
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[27] = bunHo_Check(27);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[27],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//27
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[28] = bunHo_Check(28);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[28],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//28
-                        ],
-                      ),//22~28번
-
-                      SizedBox(height: 15,),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[29] = bunHo_Check(29);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[29],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//29
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[30] = bunHo_Check(30);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[30],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//30
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[31] = bunHo_Check(31);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[31],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//31
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[32] = bunHo_Check(32);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[32],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//32
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[33] = bunHo_Check(33);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[33],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//33
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[34] = bunHo_Check(34);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[34],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//34
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[35] = bunHo_Check(35);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[35],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//35
-                        ],
-                      ),//29~35번
-
-                      SizedBox(height: 15,),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[36] = bunHo_Check(36);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[36],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//36
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[37] = bunHo_Check(37);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[37],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//37
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[38] = bunHo_Check(38);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[38],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//38
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[39] = bunHo_Check(39);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[39],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//39
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[40] = bunHo_Check(40);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[40],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//40
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[41] = bunHo_Check(41);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[41],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//41
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[42] = bunHo_Check(42);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[42],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//42
-                        ],
-                      ),//26~42번
-
-                      SizedBox(height: 15,),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[43] = bunHo_Check(43);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[43],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//43
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[44] = bunHo_Check(44);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[44],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//37
-
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                bunHoPath[45] = bunHo_Check(45);
-                              });
-                            },
-                            child: Image.asset(
-                              bunHoPath[45],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                          ),//45
-
-                          Container(width: 24, height: 37,), //46
-                          Container(width: 24, height: 37,), //47
-                          Container(width: 24, height: 37,), //48
-                          Container(width: 24, height: 37,), //49
-
-
-                        ],
-                      ),//43~45번
-
-                      SizedBox(height: 15,),
-
+                      ),
                     ],
-                  )
+                  ),
+
+                  //const Text('로또번호 표시 존', style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.deepOrange),  ),
+                  // Column(
+                  //   children: [
+                  //     SizedBox(height: 10,),
+                  //     Row(
+                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //       children: [
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[1] = bunHo_Check(1);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[1],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//1
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[2] = bunHo_Check(2);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[2],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//2
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[3] = bunHo_Check(3);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[3],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//3
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[4] = bunHo_Check(4);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[4],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//4
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[5] = bunHo_Check(5);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[5],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//5
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[6] = bunHo_Check(6);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[6],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//6
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[7] = bunHo_Check(7);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[7],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//7
+                  //       ],
+                  //     ),//1~7번
+                  //
+                  //     SizedBox(height: 15,),
+                  //
+                  //     Row(
+                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //       children: [
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[8] = bunHo_Check(8);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[8],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//8
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[9] = bunHo_Check(9);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[9],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//9
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[10] = bunHo_Check(10);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[10],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//10
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[11] = bunHo_Check(11);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[11],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//11
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[12] = bunHo_Check(12);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[12],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//12
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[13] = bunHo_Check(13);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[13],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//13
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[14] = bunHo_Check(14);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[14],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//14
+                  //       ],
+                  //     ),//8~14번
+                  //
+                  //     SizedBox(height: 15,),
+                  //
+                  //     Row(
+                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //       children: [
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[15] = bunHo_Check(15);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[15],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//15
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[16] = bunHo_Check(16);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[16],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//16
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[17] = bunHo_Check(17);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[17],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//17
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[18] = bunHo_Check(18);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[18],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//18
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[19] = bunHo_Check(19);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[19],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//19
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[20] = bunHo_Check(20);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[20],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//20
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[21] = bunHo_Check(21);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[21],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//21
+                  //       ],
+                  //     ),//15~21번
+                  //
+                  //     SizedBox(height: 15,),
+                  //
+                  //     Row(
+                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //       children: [
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[22] = bunHo_Check(22);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[22],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//22
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[23] = bunHo_Check(23);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[23],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//23
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[24] = bunHo_Check(24);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[24],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//24
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[25] = bunHo_Check(25);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[25],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//25
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[26] = bunHo_Check(26);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[26],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//26
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[27] = bunHo_Check(27);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[27],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//27
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[28] = bunHo_Check(28);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[28],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//28
+                  //       ],
+                  //     ),//22~28번
+                  //
+                  //     SizedBox(height: 15,),
+                  //
+                  //     Row(
+                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //       children: [
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[29] = bunHo_Check(29);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[29],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//29
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[30] = bunHo_Check(30);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[30],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//30
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[31] = bunHo_Check(31);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[31],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//31
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[32] = bunHo_Check(32);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[32],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//32
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[33] = bunHo_Check(33);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[33],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//33
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[34] = bunHo_Check(34);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[34],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//34
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[35] = bunHo_Check(35);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[35],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//35
+                  //       ],
+                  //     ),//29~35번
+                  //
+                  //     SizedBox(height: 15,),
+                  //
+                  //     Row(
+                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //       children: [
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[36] = bunHo_Check(36);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[36],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//36
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[37] = bunHo_Check(37);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[37],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//37
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[38] = bunHo_Check(38);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[38],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//38
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[39] = bunHo_Check(39);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[39],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//39
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[40] = bunHo_Check(40);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[40],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//40
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[41] = bunHo_Check(41);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[41],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//41
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[42] = bunHo_Check(42);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[42],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//42
+                  //       ],
+                  //     ),//26~42번
+                  //
+                  //     SizedBox(height: 15,),
+                  //
+                  //     Row(
+                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //       children: [
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[43] = bunHo_Check(43);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[43],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//43
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[44] = bunHo_Check(44);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[44],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//37
+                  //
+                  //         InkWell(
+                  //           onTap: () {
+                  //             setState(() {
+                  //               bunHoPath[45] = bunHo_Check(45);
+                  //             });
+                  //           },
+                  //           child: Image.asset(
+                  //             bunHoPath[45],  width: 18, height:28, fit: BoxFit.scaleDown,),
+                  //         ),//45
+                  //
+                  //         Container(width: 24, height: 37,), //46
+                  //         Container(width: 24, height: 37,), //47
+                  //         Container(width: 24, height: 37,), //48
+                  //         Container(width: 24, height: 37,), //49
+                  //
+                  //
+                  //       ],
+                  //     ),//43~45번
+                  //
+                  //     SizedBox(height: 15,),
+                  //
+                  //   ],
+                  // )
 
               ),
-            ),
+            ),//로또번호표시존
 
             SizedBox(height: 5,),
 
@@ -680,7 +706,7 @@ class _Home1State extends State<Home1> {
                         int dang=0;
 
                         dangchum_Count=[0,0,0,0,0,0];
-                        dangchum_Soonbun=['','','','','',''];
+                        dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
                         // dangchum3.add(0);
                         // dangchum4.add(0);
                         // dangchum5.add(0);
@@ -703,8 +729,21 @@ class _Home1State extends State<Home1> {
                             case 0 :
                             case 1 :
                             case 2 : break; //print('NO 당첨'); break;
-                            case 3 : dangchum_Count[5]++; dangchum_Soonbun[5]=dangchum_Soonbun[5]+num[i][0].toString()+','; break;
-                            case 4 : dangchum_Count[4]++; dangchum_Soonbun[4]='$dangchum_Soonbun[4]'+','+'num[i][0].toString()'; break;
+                            case 3 : dangchum_Count[5]++;
+                                     if (dangchum_Count[5]%10 > 0 && dangchum_Count[5] >= 1) {
+                                      dangchum_Soonbun[5]=dangchum_Soonbun[5]+num[i][0].toString()+','; break;
+                                       }
+                                     else {
+                                      dangchum_Soonbun[5]=dangchum_Soonbun[5]+num[i][0].toString()+',\n'; break;
+                                     }
+
+                            case 4 : dangchum_Count[4]++;
+                                     if (dangchum_Count[4]%19 > 0 && dangchum_Count[4] >= 1) {
+                                        dangchum_Soonbun[4]=dangchum_Soonbun[4]+num[i][0].toString()+','; break;
+                                     }
+                                     else {
+                                        dangchum_Soonbun[4]=dangchum_Soonbun[4]+num[i][0].toString()+',\n'; break;
+                                          }
                             case 5 : if(num[i][7]==choice_Bunho_Int[0] ||  num[i][7]==choice_Bunho_Int[1] || num[i][7]==choice_Bunho_Int[2] || num[i][7]==choice_Bunho_Int[3] || num[i][7]==choice_Bunho_Int[4] || num[i][7]==choice_Bunho_Int[5])
                             {
                               dangchum_Count[2]++; dangchum_Soonbun[2]='$dangchum_Soonbun[2]'+','+'num[i][0].toString()'; break;
@@ -752,11 +791,27 @@ class _Home1State extends State<Home1> {
 
             SizedBox(height: 25,),
 
-            Text(bunhoSangtae.toString()),
-            Text(choice_Bunho.toString()),
-            Text(choice_Bunho_Int.toString()),
-            Text('ii='+ii.toString()),
-            Text(num.toString()),
+             Text(bunhoSangtae.toString()),
+            // Text(choice_Bunho.toString()),
+            // Text(choice_Bunho_Int.toString()),
+            // Text('ii='+ii.toString()),
+            Container(
+              height: 30,
+              width: 20,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5.0),
+                  //color: Colors.grey[400],
+                  border: Border.all(
+                      color: Colors.red,
+                      style: BorderStyle.solid,
+                      width: 1
+                  )),
+
+              alignment: Alignment.center,
+              child:
+              Text('3', style: TextStyle(fontFamily: 'sandol', fontSize: 20,   color: Colors.black),),
+            ),
+            //Text('3', style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.black, backgroundColor: Colors.cyan,),),
 
             Center( //결과값 표시 존
               child: Container(
@@ -766,7 +821,8 @@ class _Home1State extends State<Home1> {
                       .size
                       .width - 50,
                   color: Colors.grey[100],
-                  alignment: Alignment.center,
+                  alignment: Alignment.topCenter,
+
                   child: DataTable(
                     columns: [
                       DataColumn(label: Text('등수')),
@@ -801,7 +857,8 @@ class _Home1State extends State<Home1> {
                       DataRow(cells: [
                         DataCell(Text('5등')),
                         DataCell(Text(dangchum_Count[5].toString())),
-                        DataCell(Text(dangchum_Soonbun[5].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[5].length.toInt())))),
+                        DataCell(Wrap(children: [Text(dangchum_Soonbun[5].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[5].length.toInt())-1))],)),
+                        //DataCell(Wrap(children: [Text('sjfhskdhfksjdfhksjfoiekfjehdgoanfrhkqo\n rentksdl akfmrh aekfhghehfkgksmsladlqhdsdfgdgertdfghfgjfgjfjfg\nfhnkgtk')],)),
                       ]),
 
                     ],
@@ -866,7 +923,7 @@ class _Home1State extends State<Home1> {
         'assets/image/' + bunho_gubun + '_' + bunho.toString() + '.png';
 
     //print(ii);
-    if(ii > 0)
+    if(ii > -1)
        {
          for(int i=0; i< ii+mTemp; i++)
          {
@@ -892,6 +949,64 @@ class _Home1State extends State<Home1> {
        }
 
     return return_Path;
+  }
+
+  bbbCheck(int i) {
+      if (bunhoSangtae[i]==0){ //번호가 해제되었을때
+        return InkWell(
+          onTap: (){
+            bunhoSangtae[i]=1;
+            ii--;
+            setState(() {
+
+            });
+          },
+          child: Container(
+            height: 40,
+            width: 30,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5.0),
+                //color: Colors.grey[400],
+                border: Border.all(
+                    color: Colors.red,
+                    style: BorderStyle.solid,
+                    width: 1
+                )),
+
+            alignment: Alignment.center,
+            child:
+            Text('$i', style: TextStyle(fontFamily: 'sandol', fontSize: 30,   color: Colors.black),),
+          ),
+        );
+      }
+
+      else { //번호가 선택되었을때
+        ii++;
+        return InkWell(
+          onTap: (){
+            bunhoSangtae[i]=0;
+            setState(() {
+
+            });
+          },
+          child: Container(
+            height: 40,
+            width: 30,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5.0),
+                color: Colors.black,
+                border: Border.all(
+                    color: Colors.red,
+                    style: BorderStyle.solid,
+                    width: 1
+                )),
+
+            alignment: Alignment.center,
+            child:
+            Text('$i', style: TextStyle(fontFamily: 'sandol', fontSize: 30,   color: Colors.white),),
+          ),
+        );
+      }
   }
 
 }
