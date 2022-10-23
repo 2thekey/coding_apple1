@@ -1000,7 +1000,7 @@ class _Home1State extends State<Home1> {
                             borderRadius: BorderRadius.circular(25.0),
                           color: Colors.grey[400]),
                           alignment: Alignment.center,
-                          child: Text('조회하기(번호 3개이상 선택해 주세요)'),
+                          child: Text('조회하기(번호 3개이상 선택해 주세요)', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),
                     ),
                     ),
                 ],
@@ -1023,23 +1023,6 @@ class _Home1State extends State<Home1> {
 
 
 
-            Container(
-              height: 30,
-              width: 20,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5.0),
-                  //color: Colors.grey[400],
-                  border: Border.all(
-                      color: Colors.red,
-                      style: BorderStyle.solid,
-                      width: 1
-                  )),
-
-              alignment: Alignment.center,
-              child:
-              Text('3', style: TextStyle(fontFamily: 'sandol', fontSize: 20,   color: Colors.black),),
-            ),
-            //Text('3', style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.black, backgroundColor: Colors.cyan,),),
 
             Center( //결과값 표시 존
               child: Container(
@@ -1053,9 +1036,9 @@ class _Home1State extends State<Home1> {
 
                   child: DataTable(
                     columns: [
-                      DataColumn(label: Text('등수')),
-                      DataColumn(label: Text('당첨횟수')),
-                      DataColumn(label: Text('회차')),
+                      DataColumn(label: Text('등수', style: TextStyle(fontFamily: 'sandol', fontSize: 15, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                      DataColumn(label: Text('당첨횟수', style: TextStyle(fontFamily: 'sandol', fontSize: 15, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                      DataColumn(label: Text('회차', style: TextStyle(fontFamily: 'sandol', fontSize: 15, fontWeight: FontWeight.bold,  color: Colors.black))),
                     ],
                     rows: [
                       DataRow(cells: [
