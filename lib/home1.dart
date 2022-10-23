@@ -11,6 +11,8 @@ var choice_Bunho_Int=List<int>.filled(6, 46);
 var num=List.generate(last_soonbun,(i) => List.filled(8, 0, growable: true), growable:true);
 List<int> dangchum_Count=[0,0,0,0,0,0];
 List<String> dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
+var conHeight=50.0;  //숫자한개 컨테이너 높이
+var conWidth=40.0; //숫자한개 컨테이너 넓이
 // List<int> dangchum3=[0];
 // List<int> dangchum4=[0];
 // List<int> dangchum5=[0];
@@ -56,32 +58,226 @@ class _Home1State extends State<Home1> {
               child: Container(
                   //height: 300,
                   //width: MediaQuery.of(context).size.width - 50,
-                  width: 400,
+                  width: 440,
                   color: Colors.grey[100],
                   alignment: Alignment.center,
                   child:
 
                   Column(
+
                     children: [
-                      //SizedBox(height: 10,),
+
                       Row(
 
                         children: [
+                          SizedBox(width: 20,),
                           bbbCheck(1),
-                          SizedBox(width: 30,),
+                          SizedBox(width: 20,),
                           bbbCheck(2),
-                          SizedBox(width: 30,),
+                          SizedBox(width: 20,),
                           bbbCheck(3),
-                          SizedBox(width: 30,),
+                          SizedBox(width: 20,),
                           bbbCheck(4),
-                          SizedBox(width: 30,),
+                          SizedBox(width: 20,),
                           bbbCheck(5),
-                          SizedBox(width: 30,),
+                          SizedBox(width: 20,),
                           bbbCheck(6),
-                          SizedBox(width: 30,),
+                          SizedBox(width: 20,),
                           bbbCheck(7),
+                          SizedBox(width: 20,),
                         ],
                       ),
+
+                      SizedBox(height: 10,),
+
+                      Row(
+
+                        children: [
+                          SizedBox(width: 20,),
+                          bbbCheck(8),
+                          SizedBox(width: 20,),
+                          bbbCheck(9),
+                          SizedBox(width: 20,),
+                          bbbCheck(10),
+                          SizedBox(width: 20,),
+                          bbbCheck(11),
+                          SizedBox(width: 20,),
+                          bbbCheck(12),
+                          SizedBox(width: 20,),
+                          bbbCheck(13),
+                          SizedBox(width: 20,),
+                          bbbCheck(14),
+                          SizedBox(width: 20,),
+                        ],
+                      ),
+
+                      SizedBox(height: 10,),
+
+                      Row(
+
+                        children: [
+                          SizedBox(width: 20,),
+                          bbbCheck(15),
+                          SizedBox(width: 20,),
+                          bbbCheck(16),
+                          SizedBox(width: 20,),
+                          bbbCheck(17),
+                          SizedBox(width: 20,),
+                          bbbCheck(18),
+                          SizedBox(width: 20,),
+                          bbbCheck(19),
+                          SizedBox(width: 20,),
+                          bbbCheck(20),
+                          SizedBox(width: 20,),
+                          bbbCheck(21),
+                          SizedBox(width: 20,),
+                        ],
+                      ),
+
+                      SizedBox(height: 10,),
+
+                      Row(
+
+                        children: [
+                          SizedBox(width: 20,),
+                          bbbCheck(22),
+                          SizedBox(width: 20,),
+                          bbbCheck(23),
+                          SizedBox(width: 20,),
+                          bbbCheck(24),
+                          SizedBox(width: 20,),
+                          bbbCheck(25),
+                          SizedBox(width: 20,),
+                          bbbCheck(26),
+                          SizedBox(width: 20,),
+                          bbbCheck(27),
+                          SizedBox(width: 20,),
+                          bbbCheck(28),
+                          SizedBox(width: 20,),
+                        ],
+                      ),
+
+                      SizedBox(height: 10,),
+
+                      Row(
+
+                        children: [
+                          SizedBox(width: 20,),
+                          bbbCheck(29),
+                          SizedBox(width: 20,),
+                          bbbCheck(30),
+                          SizedBox(width: 20,),
+                          bbbCheck(31),
+                          SizedBox(width: 20,),
+                          bbbCheck(32),
+                          SizedBox(width: 20,),
+                          bbbCheck(33),
+                          SizedBox(width: 20,),
+                          bbbCheck(34),
+                          SizedBox(width: 20,),
+                          bbbCheck(35),
+                          SizedBox(width: 20,),
+                        ],
+                      ),
+
+                      SizedBox(height: 10,),
+
+                      Row(
+
+                        children: [
+                          SizedBox(width: 20,),
+                          bbbCheck(36),
+                          SizedBox(width: 20,),
+                          bbbCheck(37),
+                          SizedBox(width: 20,),
+                          bbbCheck(38),
+                          SizedBox(width: 20,),
+                          bbbCheck(39),
+                          SizedBox(width: 20,),
+                          bbbCheck(40),
+                          SizedBox(width: 20,),
+                          bbbCheck(41),
+                          SizedBox(width: 20,),
+                          bbbCheck(42),
+                          SizedBox(width: 20,),
+                        ],
+                      ),
+
+                      SizedBox(height: 10,),
+
+                      Row(
+
+                        children: [
+                          SizedBox(width: 20,),
+                          bbbCheck(43),
+                          SizedBox(width: 20,),
+                          bbbCheck(44),
+                          SizedBox(width: 20,),
+                          bbbCheck(45),
+                          SizedBox(width: 20,),
+
+                          Container(
+                            height: conHeight,
+                            width: conWidth*2+20,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15.0),
+                                //color: Colors.grey[400],
+                                border: Border.all(
+                                    color: Colors.black,
+                                    style: BorderStyle.solid,
+                                    width: 2
+                                )),
+
+                            alignment: Alignment.center,
+                            child:
+                            Text('자동선택', style: TextStyle(fontFamily: 'sandol', fontSize: 25,   color: Colors.red),),
+                          ),
+
+                          SizedBox(width: 20,),
+
+                          InkWell(
+                            onTap: (){
+
+                              setState(() {
+                                ii=0;
+                                choice_Bunho=List<String>.filled(6, ' ');
+                                choice_Bunho_Int=List<int>.filled(6, 46);
+                                dangchum_Count=[0,0,0,0,0,0];
+                                dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
+                                bunhoSangtae =List<int>.filled(46, 0);
+                              });
+
+                            },
+                            child: Container(
+                              height: conHeight,
+                              width: conWidth*2+20,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  //color: Colors.grey[400],
+                                  border: Border.all(
+                                      color: Colors.red,
+                                      style: BorderStyle.solid,
+                                      width: 2
+                                  )),
+
+                              alignment: Alignment.center,
+                              child:
+                              Text('초기화', style: TextStyle(fontFamily: 'sandol', fontSize: 25,   color: Colors.black),),
+                            ),
+                          ),
+
+
+
+                          // bbbCheck(11),
+                          // SizedBox(width: 30,),
+                          // bbbCheck(12),
+                          // SizedBox(width: 30,),
+                          // bbbCheck(13),
+                          // SizedBox(width: 30,),
+                          // bbbCheck(14),
+                        ],
+                      ),
+
                     ],
                   ),
 
@@ -738,7 +934,7 @@ class _Home1State extends State<Home1> {
                                      }
 
                             case 4 : dangchum_Count[4]++;
-                                     if (dangchum_Count[4]%19 > 0 && dangchum_Count[4] >= 1) {
+                                     if (dangchum_Count[4]%10 > 0 && dangchum_Count[4] >= 1) {
                                         dangchum_Soonbun[4]=dangchum_Soonbun[4]+num[i][0].toString()+','; break;
                                      }
                                      else {
@@ -746,10 +942,32 @@ class _Home1State extends State<Home1> {
                                           }
                             case 5 : if(num[i][7]==choice_Bunho_Int[0] ||  num[i][7]==choice_Bunho_Int[1] || num[i][7]==choice_Bunho_Int[2] || num[i][7]==choice_Bunho_Int[3] || num[i][7]==choice_Bunho_Int[4] || num[i][7]==choice_Bunho_Int[5])
                             {
-                              dangchum_Count[2]++; dangchum_Soonbun[2]='$dangchum_Soonbun[2]'+','+'num[i][0].toString()'; break;
+                              dangchum_Count[2]++;
+                              if (dangchum_Count[2]%10 > 0 && dangchum_Count[2] >= 1) {
+
+                                dangchum_Soonbun[2]=dangchum_Soonbun[2]+num[i][0].toString()+','; break;
+                              }
+                              else {
+
+                                dangchum_Soonbun[2]=dangchum_Soonbun[2]+num[i][0].toString()+',\n'; break;
+                              }
                             } //if
-                            dangchum_Count[3]++; dangchum_Soonbun[3]='$dangchum_Soonbun[3]'+','+'num[i][0].toString()'; break;
-                            case 6 : dangchum_Count[1]++; dangchum_Soonbun[1]='$dangchum_Soonbun[1]'+','+'num[i][0].toString()'; break;
+                            dangchum_Count[3]++;
+                            if (dangchum_Count[3]%10 > 0 && dangchum_Count[3] >= 1) {
+
+                              dangchum_Soonbun[3]=dangchum_Soonbun[3]+num[i][0].toString()+','; break;
+                            }
+                            else {
+
+                              dangchum_Soonbun[3]=dangchum_Soonbun[3]+num[i][0].toString()+',\n'; break;
+                            }
+                            case 6 : dangchum_Count[1]++;
+                              if (dangchum_Count[1]%10 > 0 && dangchum_Count[1] >= 1) {
+                              dangchum_Soonbun[1]=dangchum_Soonbun[1]+num[i][0].toString()+','; break;
+                            }
+                            else {
+                              dangchum_Soonbun[1]=dangchum_Soonbun[1]+num[i][0].toString()+',\n'; break;
+                            }
 
                           } //switch
                           dang=0;
@@ -791,10 +1009,20 @@ class _Home1State extends State<Home1> {
 
             SizedBox(height: 25,),
 
+
+
+
+
              Text(bunhoSangtae.toString()),
-            // Text(choice_Bunho.toString()),
-            // Text(choice_Bunho_Int.toString()),
-            // Text('ii='+ii.toString()),
+             Text(choice_Bunho.toString()),
+             Text(choice_Bunho_Int.toString()),
+             Text('ii='+ii.toString()),
+
+
+
+
+
+
             Container(
               height: 30,
               width: 20,
@@ -833,25 +1061,25 @@ class _Home1State extends State<Home1> {
                       DataRow(cells: [
                         DataCell(Text('1등')),
                         DataCell(Text(dangchum_Count[1].toString())),
-                        DataCell(Text(dangchum_Soonbun[1].toString())),
+                        DataCell(Wrap(children: [Text(dangchum_Soonbun[1].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[1].length.toInt())-1))],)),
                       ]),
 
                       DataRow(cells: [
                         DataCell(Text('2등')),
                         DataCell(Text(dangchum_Count[2].toString())),
-                        DataCell(Text(dangchum_Soonbun[2].toString())),
+                        DataCell(Wrap(children: [Text(dangchum_Soonbun[2].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[2].length.toInt())-1))],)),
                       ]),
 
                       DataRow(cells: [
                         DataCell(Text('3등')),
                         DataCell(Text(dangchum_Count[3].toString())),
-                        DataCell(Text(dangchum_Soonbun[3].toString())),
+                        DataCell(Wrap(children: [Text(dangchum_Soonbun[3].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[3].length.toInt())-1))],)),
                       ]),
 
                       DataRow(cells: [
                         DataCell(Text('4등')),
                         DataCell(Text(dangchum_Count[4].toString())),
-                        DataCell(Text(dangchum_Soonbun[4].toString())),
+                        DataCell(Wrap(children: [Text(dangchum_Soonbun[4].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[4].length.toInt())-1))],)),
                       ]),
 
                       DataRow(cells: [
@@ -951,19 +1179,61 @@ class _Home1State extends State<Home1> {
     return return_Path;
   }
 
-  bbbCheck(int i) {
-      if (bunhoSangtae[i]==0){ //번호가 해제되었을때
+  bbbCheck(int choice_Num) {
+      var mTemp=0;
+
+
+
+      if (bunhoSangtae[choice_Num]==0 ){ //번호가 선택되었을때
+
+
         return InkWell(
           onTap: (){
-            bunhoSangtae[i]=1;
-            ii--;
+            if(ii==6){
+
+              return setState(() {
+
+              });}
+            bunhoSangtae[choice_Num]=1;
+            choice_Bunho[ii]=choice_Num.toString();
+            ii++;
+
+
+
+
+            mTemp=0;
             setState(() {
+
+              if(ii > -1)
+              {
+                for(int i=0; i< ii+mTemp; i++)
+                {
+                  //var aa=choice_Bunho[i].to
+                  choice_Bunho_Int[i]=int.parse(choice_Bunho[i]);
+                }
+
+                choice_Bunho_Int.sort();
+
+                for(int i=0; i< ii+mTemp; i++)
+                {
+                  //var aa=choice_Bunho[i].to
+                  if(choice_Bunho_Int[i]!=46) {
+                    choice_Bunho[i] = choice_Bunho_Int[i].toString();
+                  }
+                  else
+                  {
+                    choice_Bunho[i]=' ';
+                  }
+
+                }
+
+              }
 
             });
           },
           child: Container(
-            height: 40,
-            width: 30,
+            height: conHeight,
+            width: conWidth,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5.0),
                 //color: Colors.grey[400],
@@ -975,23 +1245,62 @@ class _Home1State extends State<Home1> {
 
             alignment: Alignment.center,
             child:
-            Text('$i', style: TextStyle(fontFamily: 'sandol', fontSize: 30,   color: Colors.black),),
+            Text('$choice_Num', style: TextStyle(fontFamily: 'sandol', fontSize: 30,   color: Colors.black),),
           ),
         );
       }
 
-      else { //번호가 선택되었을때
-        ii++;
+      else { //번호가 해제되었을때
+
         return InkWell(
           onTap: (){
-            bunhoSangtae[i]=0;
+            bunhoSangtae[choice_Num]=0;
+
+            //var tempBunho=choice_Num.toString();
+
+
+            var tem1=choice_Bunho.indexOf(choice_Num.toString());
+
+            choice_Bunho[choice_Bunho.indexOf(choice_Num.toString()).toInt()]='46';
+            choice_Bunho_Int[tem1]=46;
+
+
+            ii--;
+            mTemp=1;
+
+
             setState(() {
+
+              if(ii > -1)
+              {
+                for(int i=0; i< ii+mTemp; i++)
+                {
+                  //var aa=choice_Bunho[i].to
+                  choice_Bunho_Int[i]=int.parse(choice_Bunho[i]);
+                }
+
+                choice_Bunho_Int.sort();
+
+                for(int i=0; i< ii+mTemp; i++)
+                {
+                  //var aa=choice_Bunho[i].to
+                  if(choice_Bunho_Int[i]!=46) {
+                    choice_Bunho[i] = choice_Bunho_Int[i].toString();
+                  }
+                  else
+                  {
+                    choice_Bunho[i]=' ';
+                  }
+
+                }
+
+              }
 
             });
           },
           child: Container(
-            height: 40,
-            width: 30,
+            height: conHeight,
+            width: conWidth,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5.0),
                 color: Colors.black,
@@ -1003,7 +1312,7 @@ class _Home1State extends State<Home1> {
 
             alignment: Alignment.center,
             child:
-            Text('$i', style: TextStyle(fontFamily: 'sandol', fontSize: 30,   color: Colors.white),),
+            Text('$choice_Num', style: TextStyle(fontFamily: 'sandol', fontSize: 30,   color: Colors.white),),
           ),
         );
       }
