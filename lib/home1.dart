@@ -4,14 +4,15 @@ import 'package:toast/toast_web.dart';
 import 'package:toast/toast.dart';
 
 var ii=0;
-int last_soonbun=994;
+
 //var choice_Bunho=List<int>.filled(6, 46);
 var choice_Bunho=List<String>.filled(6, ' ');
 var choice_Bunho_Int=List<int>.filled(6, 46);
 var num=List.generate(last_soonbun,(i) => List.filled(8, 0, growable: true), growable:true);
+int last_soonbun=1039;
 List<int> dangchum_Count=[0,0,0,0,0,0];
 List<String> dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
-var conHeight=50.0;  //숫자한개 컨테이너 높이
+var conHeight=45.0;  //숫자한개 컨테이너 높이
 var conWidth=40.0; //숫자한개 컨테이너 넓이
 // List<int> dangchum3=[0];
 // List<int> dangchum4=[0];
@@ -29,16 +30,6 @@ class Home1 extends StatefulWidget {
 class _Home1State extends State<Home1> {
 
   var bunhoSangtae =List<int>.filled(46, 0);
-
-
-  List<String> bunHoPath = ['0','assets/image/off_1.png','assets/image/off_2.png',
-    'assets/image/off_3.png','assets/image/off_4.png','assets/image/off_5.png','assets/image/off_6.png','assets/image/off_7.png','assets/image/off_8.png','assets/image/off_9.png',
-    'assets/image/off_10.png','assets/image/off_11.png','assets/image/off_12.png','assets/image/off_13.png','assets/image/off_14.png','assets/image/off_15.png','assets/image/off_16.png',
-    'assets/image/off_17.png','assets/image/off_18.png','assets/image/off_19.png','assets/image/off_20.png','assets/image/off_21.png','assets/image/off_22.png','assets/image/off_23.png',
-    'assets/image/off_24.png','assets/image/off_25.png','assets/image/off_26.png','assets/image/off_27.png','assets/image/off_28.png','assets/image/off_29.png','assets/image/off_30.png',
-    'assets/image/off_31.png','assets/image/off_32.png','assets/image/off_33.png','assets/image/off_34.png','assets/image/off_35.png','assets/image/off_36.png','assets/image/off_37.png',
-    'assets/image/off_38.png','assets/image/off_39.png','assets/image/off_40.png','assets/image/off_41.png','assets/image/off_42.png','assets/image/off_43.png','assets/image/off_44.png',
-    'assets/image/off_45.png' ];
 
   var imgPath = '';
 
@@ -58,14 +49,24 @@ class _Home1State extends State<Home1> {
               child: Container(
                   //height: 300,
                   //width: MediaQuery.of(context).size.width - 50,
-                  width: 440,
-                  color: Colors.grey[100],
+                  width: 444,
+                  //color: Colors.grey[100],
                   alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    //color: Colors.grey[400],
+                    border: Border.all(
+                        color: Colors.black,
+                        style: BorderStyle.solid,
+                        width: 2
+                    )),
                   child:
 
                   Column(
 
                     children: [
+
+                      SizedBox(height: 15,),
 
                       Row(
 
@@ -216,21 +217,75 @@ class _Home1State extends State<Home1> {
                           bbbCheck(45),
                           SizedBox(width: 20,),
 
-                          Container(
-                            height: conHeight,
-                            width: conWidth*2+20,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15.0),
-                                //color: Colors.grey[400],
-                                border: Border.all(
-                                    color: Colors.black,
-                                    style: BorderStyle.solid,
-                                    width: 2
-                                )),
+                          InkWell(
+                            onTap: (){
 
-                            alignment: Alignment.center,
+                              //자동선택 초기화
+                              ii=0;
+                              choice_Bunho=List<String>.filled(6, ' ');
+                              choice_Bunho_Int=List<int>.filled(6, 46);
+                              dangchum_Count=[0,0,0,0,0,0];
+                              dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
+                              bunhoSangtae =List<int>.filled(46, 0);
+                              //자동선택 초기화 끝
+
+
+                              var autoNumber = (List<int>.generate(45, (i) =>
+                              i+1)..shuffle()).sublist(0,6);
+                              //var number = (List<int>.generate(45, (i) =>
+                              //                               ++i)..shuffle()).sublist(0,6);
+
+                              autoNumber.sort();
+                              // print('당첨번호');
+                              // print(autoNumber);
+                              //  print(autoNumber[1]);
+
+
+                              bunhoSangtae[autoNumber[0]]=1;
+                              bunhoSangtae[autoNumber[1]]=1;
+                              bunhoSangtae[autoNumber[2]]=1;
+                              bunhoSangtae[autoNumber[3]]=1;
+                              bunhoSangtae[autoNumber[4]]=1;
+                              bunhoSangtae[autoNumber[5]]=1;
+
+                              choice_Bunho_Int[0]=autoNumber[0];
+                              choice_Bunho_Int[1]=autoNumber[1];
+                              choice_Bunho_Int[2]=autoNumber[2];
+                              choice_Bunho_Int[3]=autoNumber[3];
+                              choice_Bunho_Int[4]=autoNumber[4];
+                              choice_Bunho_Int[5]=autoNumber[5];
+
+                              choice_Bunho[0]=choice_Bunho_Int[0].toString();
+                              choice_Bunho[1]=choice_Bunho_Int[1].toString();
+                              choice_Bunho[2]=choice_Bunho_Int[2].toString();
+                              choice_Bunho[3]=choice_Bunho_Int[3].toString();
+                              choice_Bunho[4]=choice_Bunho_Int[4].toString();
+                              choice_Bunho[5]=choice_Bunho_Int[5].toString();
+
+                              ii=6;
+
+                              setState(() {
+
+                              });
+
+                            },
                             child:
-                            Text('자동선택', style: TextStyle(fontFamily: 'sandol', fontSize: 25,   color: Colors.red),),
+                            Container(
+                              height: conHeight,
+                              width: conWidth*2+20,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  //color: Colors.grey[400],
+                                  border: Border.all(
+                                      color: Colors.black,
+                                      style: BorderStyle.solid,
+                                      width: 2
+                                  )),
+
+                              alignment: Alignment.center,
+                              child:
+                              Text('자동선택', style: TextStyle(fontFamily: 'sandolout', fontSize: 25,   color: Colors.black),),
+                            ),
                           ),
 
                           SizedBox(width: 20,),
@@ -255,14 +310,14 @@ class _Home1State extends State<Home1> {
                                   borderRadius: BorderRadius.circular(15.0),
                                   //color: Colors.grey[400],
                                   border: Border.all(
-                                      color: Colors.red,
+                                      color: Colors.black,
                                       style: BorderStyle.solid,
                                       width: 2
                                   )),
 
                               alignment: Alignment.center,
                               child:
-                              Text('초기화', style: TextStyle(fontFamily: 'sandol', fontSize: 25,   color: Colors.black),),
+                              Text('초 기 화', style: TextStyle(fontFamily: 'sandolout', fontSize: 25,   color: Colors.black),),
                             ),
                           ),
 
@@ -278,527 +333,17 @@ class _Home1State extends State<Home1> {
                         ],
                       ),
 
+                      SizedBox(height: 15,),
+
                     ],
                   ),
 
-                  //const Text('로또번호 표시 존', style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.deepOrange),  ),
-                  // Column(
-                  //   children: [
-                  //     SizedBox(height: 10,),
-                  //     Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //       children: [
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[1] = bunHo_Check(1);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[1],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//1
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[2] = bunHo_Check(2);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[2],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//2
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[3] = bunHo_Check(3);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[3],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//3
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[4] = bunHo_Check(4);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[4],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//4
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[5] = bunHo_Check(5);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[5],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//5
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[6] = bunHo_Check(6);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[6],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//6
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[7] = bunHo_Check(7);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[7],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//7
-                  //       ],
-                  //     ),//1~7번
-                  //
-                  //     SizedBox(height: 15,),
-                  //
-                  //     Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //       children: [
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[8] = bunHo_Check(8);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[8],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//8
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[9] = bunHo_Check(9);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[9],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//9
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[10] = bunHo_Check(10);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[10],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//10
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[11] = bunHo_Check(11);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[11],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//11
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[12] = bunHo_Check(12);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[12],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//12
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[13] = bunHo_Check(13);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[13],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//13
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[14] = bunHo_Check(14);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[14],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//14
-                  //       ],
-                  //     ),//8~14번
-                  //
-                  //     SizedBox(height: 15,),
-                  //
-                  //     Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //       children: [
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[15] = bunHo_Check(15);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[15],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//15
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[16] = bunHo_Check(16);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[16],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//16
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[17] = bunHo_Check(17);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[17],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//17
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[18] = bunHo_Check(18);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[18],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//18
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[19] = bunHo_Check(19);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[19],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//19
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[20] = bunHo_Check(20);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[20],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//20
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[21] = bunHo_Check(21);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[21],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//21
-                  //       ],
-                  //     ),//15~21번
-                  //
-                  //     SizedBox(height: 15,),
-                  //
-                  //     Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //       children: [
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[22] = bunHo_Check(22);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[22],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//22
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[23] = bunHo_Check(23);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[23],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//23
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[24] = bunHo_Check(24);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[24],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//24
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[25] = bunHo_Check(25);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[25],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//25
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[26] = bunHo_Check(26);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[26],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//26
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[27] = bunHo_Check(27);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[27],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//27
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[28] = bunHo_Check(28);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[28],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//28
-                  //       ],
-                  //     ),//22~28번
-                  //
-                  //     SizedBox(height: 15,),
-                  //
-                  //     Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //       children: [
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[29] = bunHo_Check(29);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[29],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//29
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[30] = bunHo_Check(30);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[30],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//30
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[31] = bunHo_Check(31);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[31],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//31
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[32] = bunHo_Check(32);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[32],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//32
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[33] = bunHo_Check(33);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[33],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//33
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[34] = bunHo_Check(34);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[34],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//34
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[35] = bunHo_Check(35);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[35],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//35
-                  //       ],
-                  //     ),//29~35번
-                  //
-                  //     SizedBox(height: 15,),
-                  //
-                  //     Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //       children: [
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[36] = bunHo_Check(36);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[36],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//36
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[37] = bunHo_Check(37);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[37],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//37
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[38] = bunHo_Check(38);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[38],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//38
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[39] = bunHo_Check(39);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[39],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//39
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[40] = bunHo_Check(40);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[40],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//40
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[41] = bunHo_Check(41);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[41],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//41
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[42] = bunHo_Check(42);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[42],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//42
-                  //       ],
-                  //     ),//26~42번
-                  //
-                  //     SizedBox(height: 15,),
-                  //
-                  //     Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //       children: [
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[43] = bunHo_Check(43);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[43],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//43
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[44] = bunHo_Check(44);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[44],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//37
-                  //
-                  //         InkWell(
-                  //           onTap: () {
-                  //             setState(() {
-                  //               bunHoPath[45] = bunHo_Check(45);
-                  //             });
-                  //           },
-                  //           child: Image.asset(
-                  //             bunHoPath[45],  width: 18, height:28, fit: BoxFit.scaleDown,),
-                  //         ),//45
-                  //
-                  //         Container(width: 24, height: 37,), //46
-                  //         Container(width: 24, height: 37,), //47
-                  //         Container(width: 24, height: 37,), //48
-                  //         Container(width: 24, height: 37,), //49
-                  //
-                  //
-                  //       ],
-                  //     ),//43~45번
-                  //
-                  //     SizedBox(height: 15,),
-                  //
-                  //   ],
-                  // )
+
 
               ),
             ),//로또번호표시존
 
-            SizedBox(height: 5,),
+            SizedBox(height: 20,),
 
 
 
@@ -813,76 +358,174 @@ class _Home1State extends State<Home1> {
 
             Center( //선택된 로또번호와 조회버튼
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
                     height: 50,
                     //width: MediaQuery.of(context).size.width - 50,
-                    width: 400,
+                    width: 444,
                     color: Colors.grey[100],
                     alignment: Alignment.center,
                     child: //const Text('선택된 로또번호', style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.deepOrange),  ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            SizedBox(width: 15,),
+                            //SizedBox(width: 15,),
 
 
 
 
 
-                            Container(
-                              height: 30,
-                              width: 50,
-                              color: Colors.orange,
-                              alignment: Alignment.center,
-                              child: Text(choice_Bunho[0].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.black),  ),
+                            InkWell(
+                              onTap: (){
+
+                                if(choice_Bunho_Int[0]!=46){
+                                  bbbCheck2(choice_Bunho_Int[0]);
+                                }
+
+
+                              },
+                              child: Container(
+                                height: 45,
+                                width: 55,
+                                //color: Colors.orange,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    color: Colors.black,
+                                    shape: BoxShape.circle
+                                ),
+                                child: Text(choice_Bunho[0].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
+                              ),
                             ),
+
                             SizedBox(width: 15,),
-                            Container(
-                              height: 30,
-                              width: 50,
-                              color: Colors.orange,
-                              alignment: Alignment.center,
-                              child: Text(choice_Bunho[1].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.black),  ),
+
+                            InkWell(
+                              onTap: (){
+
+                                if(choice_Bunho_Int[1]!=46){
+                                  bbbCheck2(choice_Bunho_Int[1]);
+                                }
+
+
+                              },
+                              child: Container(
+                                height: 45,
+                                width: 55,
+                                //color: Colors.orange,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    color: Colors.black,
+                                    shape: BoxShape.circle
+                                ),
+                                child: Text(choice_Bunho[1].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
+                              ),
                             ),
+
                             SizedBox(width: 15,),
-                            Container(
-                              height: 30,
-                              width: 50,
-                              color: Colors.orange,
-                              alignment: Alignment.center,
-                              child: Text(choice_Bunho[2].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.black),  ),
+
+                            InkWell(
+                              onTap: (){
+
+                                if(choice_Bunho_Int[2]!=46){
+                                  bbbCheck2(choice_Bunho_Int[2]);
+                                }
+
+
+                              },
+                              child: Container(
+                                height: 45,
+                                width: 55,
+                                //color: Colors.orange,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    color: Colors.black,
+                                    shape: BoxShape.circle
+                                ),
+                                child: Text(choice_Bunho[2].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
+                              ),
                             ),
+
                             SizedBox(width: 15,),
-                            Container(
-                              height: 30,
-                              width: 50,
-                              color: Colors.orange,
-                              alignment: Alignment.center,
-                              child: Text(choice_Bunho[3].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.black),  ),
+
+                            InkWell(
+                              onTap: (){
+
+                                if(choice_Bunho_Int[3]!=46){
+                                  bbbCheck2(choice_Bunho_Int[3]);
+                                }
+
+
+                              },
+                              child: Container(
+                                height: 45,
+                                width: 55,
+                                //color: Colors.orange,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    color: Colors.black,
+                                    shape: BoxShape.circle
+                                ),
+                                child: Text(choice_Bunho[3].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
+                              ),
                             ),
+
                             SizedBox(width: 15,),
-                            Container(
-                              height: 30,
-                              width: 50,
-                              color: Colors.orange,
-                              alignment: Alignment.center,
-                              child: Text(choice_Bunho[4].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.black),  ),
+
+                            InkWell(
+                              onTap: (){
+
+                                if(choice_Bunho_Int[4]!=46){
+                                  bbbCheck2(choice_Bunho_Int[4]);
+                                }
+
+
+                              },
+                              child: Container(
+                                height: 45,
+                                width: 55,
+                                //color: Colors.orange,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    color: Colors.black,
+                                    shape: BoxShape.circle
+                                ),
+                                child: Text(choice_Bunho[4].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
+                              ),
                             ),
+
                             SizedBox(width: 15,),
-                            Container(
-                              height: 30,
-                              width: 50,
-                              color: Colors.orange,
-                              alignment: Alignment.center,
-                              child: Text(choice_Bunho[5].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.black),  ),
+
+                            InkWell(
+                              onTap: (){
+
+                                if(choice_Bunho_Int[5]!=46){
+                                  bbbCheck2(choice_Bunho_Int[5]);
+                                }
+
+
+                              },
+                              child: Container(
+                                height: 45,
+                                width: 55,
+                                //color: Colors.orange,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    color: Colors.black,
+                                    shape: BoxShape.circle
+                                ),
+                                child: Text(choice_Bunho[5].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
+                              ),
                             ),
                           ],
                         ),
 
 
                   ),
+
+                    SizedBox(height: 20,),
 
                   
                     InkWell(
@@ -926,7 +569,7 @@ class _Home1State extends State<Home1> {
                             case 1 :
                             case 2 : break; //print('NO 당첨'); break;
                             case 3 : dangchum_Count[5]++;
-                                     if (dangchum_Count[5]%10 > 0 && dangchum_Count[5] >= 1) {
+                                     if (dangchum_Count[5]%7 > 0 && dangchum_Count[5] >= 1) {
                                       dangchum_Soonbun[5]=dangchum_Soonbun[5]+num[i][0].toString()+','; break;
                                        }
                                      else {
@@ -934,7 +577,7 @@ class _Home1State extends State<Home1> {
                                      }
 
                             case 4 : dangchum_Count[4]++;
-                                     if (dangchum_Count[4]%10 > 0 && dangchum_Count[4] >= 1) {
+                                     if (dangchum_Count[4]%7 > 0 && dangchum_Count[4] >= 1) {
                                         dangchum_Soonbun[4]=dangchum_Soonbun[4]+num[i][0].toString()+','; break;
                                      }
                                      else {
@@ -943,7 +586,7 @@ class _Home1State extends State<Home1> {
                             case 5 : if(num[i][7]==choice_Bunho_Int[0] ||  num[i][7]==choice_Bunho_Int[1] || num[i][7]==choice_Bunho_Int[2] || num[i][7]==choice_Bunho_Int[3] || num[i][7]==choice_Bunho_Int[4] || num[i][7]==choice_Bunho_Int[5])
                             {
                               dangchum_Count[2]++;
-                              if (dangchum_Count[2]%10 > 0 && dangchum_Count[2] >= 1) {
+                              if (dangchum_Count[2]%7 > 0 && dangchum_Count[2] >= 1) {
 
                                 dangchum_Soonbun[2]=dangchum_Soonbun[2]+num[i][0].toString()+','; break;
                               }
@@ -953,7 +596,7 @@ class _Home1State extends State<Home1> {
                               }
                             } //if
                             dangchum_Count[3]++;
-                            if (dangchum_Count[3]%10 > 0 && dangchum_Count[3] >= 1) {
+                            if (dangchum_Count[3]%7 > 0 && dangchum_Count[3] >= 1) {
 
                               dangchum_Soonbun[3]=dangchum_Soonbun[3]+num[i][0].toString()+','; break;
                             }
@@ -962,7 +605,7 @@ class _Home1State extends State<Home1> {
                               dangchum_Soonbun[3]=dangchum_Soonbun[3]+num[i][0].toString()+',\n'; break;
                             }
                             case 6 : dangchum_Count[1]++;
-                              if (dangchum_Count[1]%10 > 0 && dangchum_Count[1] >= 1) {
+                              if (dangchum_Count[1]%7 > 0 && dangchum_Count[1] >= 1) {
                               dangchum_Soonbun[1]=dangchum_Soonbun[1]+num[i][0].toString()+','; break;
                             }
                             else {
@@ -994,13 +637,18 @@ class _Home1State extends State<Home1> {
                       },
                         child:
                         Container(
-                          width: 400,
-                          height: 50,
+                          width: 444,
+                          height: 40,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25.0),
-                          color: Colors.grey[400]),
+                              borderRadius: BorderRadius.circular(25.0),
+                              border: Border.all(
+                                  color: Colors.black,
+                                  style: BorderStyle.solid,
+                                  width: 2
+                              )
+                          ),
                           alignment: Alignment.center,
-                          child: Text('조회하기(번호 3개이상 선택해 주세요)', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),
+                          child: Text('그동안 당첨내역 조회하기 (번호 3개 이상 선택)', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),
                     ),
                     ),
                 ],
@@ -1013,67 +661,62 @@ class _Home1State extends State<Home1> {
 
 
 
-             Text(bunhoSangtae.toString()),
-             Text(choice_Bunho.toString()),
-             Text(choice_Bunho_Int.toString()),
-             Text('ii='+ii.toString()),
-
-
-
-
+             // Text(bunhoSangtae.toString()),
+             // Text(choice_Bunho.toString()),
+              //Text(choice_Bunho_Int.toString()),
+             // Text('ii='+ii.toString()),
+             //
 
 
 
             Center( //결과값 표시 존
               child: Container(
                   height: 600,
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width - 50,
+                  width:444,
+                  //MediaQuery.of(context).size.width - 50,
                   color: Colors.grey[100],
                   alignment: Alignment.topCenter,
 
                   child: DataTable(
-                    columns: [
-                      DataColumn(label: Text('등수', style: TextStyle(fontFamily: 'sandol', fontSize: 15, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                      DataColumn(label: Text('당첨횟수', style: TextStyle(fontFamily: 'sandol', fontSize: 15, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                      DataColumn(label: Text('회차', style: TextStyle(fontFamily: 'sandol', fontSize: 15, fontWeight: FontWeight.bold,  color: Colors.black))),
+                    columns: const [
+                      DataColumn(label: Text('등수', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                      DataColumn(label: Text('당첨횟수', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                      DataColumn(label: Text('회차', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
                     ],
                     rows: [
                       DataRow(cells: [
-                        DataCell(Text('1등')),
-                        DataCell(Text(dangchum_Count[1].toString())),
+                        const DataCell(Text('1등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
+                        DataCell(Center(child: Text(dangchum_Count[1].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black)))),
                         DataCell(Wrap(children: [Text(dangchum_Soonbun[1].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[1].length.toInt())-1))],)),
                       ]),
 
                       DataRow(cells: [
-                        DataCell(Text('2등')),
-                        DataCell(Text(dangchum_Count[2].toString())),
+                        const DataCell(Text('2등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
+                        DataCell(Center(child: Text(dangchum_Count[2].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black)))),
                         DataCell(Wrap(children: [Text(dangchum_Soonbun[2].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[2].length.toInt())-1))],)),
                       ]),
 
                       DataRow(cells: [
-                        DataCell(Text('3등')),
-                        DataCell(Text(dangchum_Count[3].toString())),
+                        const DataCell(Text('3등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
+                        DataCell(Center(child: Text(dangchum_Count[3].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black)))),
                         DataCell(Wrap(children: [Text(dangchum_Soonbun[3].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[3].length.toInt())-1))],)),
                       ]),
 
                       DataRow(cells: [
-                        DataCell(Text('4등')),
-                        DataCell(Text(dangchum_Count[4].toString())),
+                        const DataCell(Text('4등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
+                        DataCell(Center(child: Text(dangchum_Count[4].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black)))),
                         DataCell(Wrap(children: [Text(dangchum_Soonbun[4].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[4].length.toInt())-1))],)),
                       ]),
 
                       DataRow(cells: [
-                        DataCell(Text('5등')),
-                        DataCell(Text(dangchum_Count[5].toString())),
+                        const DataCell(Text('5등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
+                        DataCell(Center(child: Text(dangchum_Count[5].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black)))),
                         DataCell(Wrap(children: [Text(dangchum_Soonbun[5].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[5].length.toInt())-1))],)),
-                        //DataCell(Wrap(children: [Text('sjfhskdhfksjdfhksjfoiekfjehdgoanfrhkqo\n rentksdl akfmrh aekfhghehfkgksmsladlqhdsdfgdgertdfghfgjfgjfjfg\nfhnkgtk')],)),
+
                       ]),
 
                     ],
-                  )
+                  ),
 
               ),
             ),
@@ -1087,87 +730,14 @@ class _Home1State extends State<Home1> {
     );
   }
 
-  bunHo_Check(int bunho) {
-    var bunho_gubun;
-    var return_Path;
-    var mTemp=0;
 
 
-
-    if (bunhoSangtae[bunho] == 1) {
-
-      bunho_gubun = 'off';
-      bunhoSangtae[bunho]=0;
-
-      var tempBunho=bunho.toString();
-
-
-      var tem1=choice_Bunho.indexOf(tempBunho);
-      //print(tem1);
-
-      choice_Bunho[choice_Bunho.indexOf(tempBunho).toInt()]='46';
-      choice_Bunho_Int[tem1]=46;
-
-      //print(choice_Bunho[tem1]);
-
-      ii--;
-      mTemp=1;
-
-
-
-    }
-
-    else {
-      if(ii==6) {
-        //print('assets/image/off' + '_' + bunho.toString() + '.png');
-        return 'assets/image/off' + '_' + bunho.toString() + '.png';
-      }
-      bunho_gubun = 'on';
-      bunhoSangtae[bunho]=1;
-      choice_Bunho[ii]=bunho.toString();
-      ii++;
-      mTemp=0;
-
-
-    }
-    return_Path =
-        'assets/image/' + bunho_gubun + '_' + bunho.toString() + '.png';
-
-    //print(ii);
-    if(ii > -1)
-       {
-         for(int i=0; i< ii+mTemp; i++)
-         {
-           //var aa=choice_Bunho[i].to
-           choice_Bunho_Int[i]=int.parse(choice_Bunho[i]);
-         }
-
-         choice_Bunho_Int.sort();
-
-         for(int i=0; i< ii+mTemp; i++)
-         {
-           //var aa=choice_Bunho[i].to
-           if(choice_Bunho_Int[i]!=46) {
-             choice_Bunho[i] = choice_Bunho_Int[i].toString();
-           }
-           else
-             {
-               choice_Bunho[i]=' ';
-             }
-
-         }
-
-       }
-
-    return return_Path;
-  }
-
-  bbbCheck(int choice_Num) {
+  bbbCheck(int choiceNum) {
       var mTemp=0;
 
 
 
-      if (bunhoSangtae[choice_Num]==0 ){ //번호가 선택되었을때
+      if (bunhoSangtae[choiceNum]==0 ){ //번호가 선택되었을때
 
 
         return InkWell(
@@ -1177,8 +747,8 @@ class _Home1State extends State<Home1> {
               return setState(() {
 
               });}
-            bunhoSangtae[choice_Num]=1;
-            choice_Bunho[ii]=choice_Num.toString();
+            bunhoSangtae[choiceNum]=1;
+            choice_Bunho[ii]=choiceNum.toString();
             ii++;
 
 
@@ -1228,7 +798,7 @@ class _Home1State extends State<Home1> {
 
             alignment: Alignment.center,
             child:
-            Text('$choice_Num', style: TextStyle(fontFamily: 'sandol', fontSize: 30,   color: Colors.black),),
+            Text('$choiceNum', style: const TextStyle(fontFamily: 'sandol', fontSize: 30,   color: Colors.black),),
           ),
         );
       }
@@ -1237,14 +807,14 @@ class _Home1State extends State<Home1> {
 
         return InkWell(
           onTap: (){
-            bunhoSangtae[choice_Num]=0;
+            bunhoSangtae[choiceNum]=0;
 
             //var tempBunho=choice_Num.toString();
 
 
-            var tem1=choice_Bunho.indexOf(choice_Num.toString());
+            var tem1=choice_Bunho.indexOf(choiceNum.toString());
 
-            choice_Bunho[choice_Bunho.indexOf(choice_Num.toString()).toInt()]='46';
+            choice_Bunho[choice_Bunho.indexOf(choiceNum.toString()).toInt()]='46';
             choice_Bunho_Int[tem1]=46;
 
 
@@ -1295,10 +865,58 @@ class _Home1State extends State<Home1> {
 
             alignment: Alignment.center,
             child:
-            Text('$choice_Num', style: TextStyle(fontFamily: 'sandol', fontSize: 30,   color: Colors.white),),
+            Text('$choiceNum', style: const TextStyle(fontFamily: 'sandol', fontSize: 30,   color: Colors.white),),
           ),
         );
       }
+  }
+
+  void bbbCheck2(int choice_bunho_int) {
+    var mTemp=0;
+
+    bunhoSangtae[choice_bunho_int]=0;
+
+    //var tempBunho=choice_Num.toString();
+
+
+    var tem1=choice_Bunho.indexOf(choice_bunho_int.toString());
+
+    choice_Bunho[choice_Bunho.indexOf(choice_bunho_int.toString()).toInt()]='46';
+    choice_Bunho_Int[tem1]=46;
+
+
+    ii--;
+    mTemp=1;
+
+
+    setState(() {
+
+      if(ii > -1)
+      {
+        for(int i=0; i< ii+mTemp; i++)
+        {
+          //var aa=choice_Bunho[i].to
+          choice_Bunho_Int[i]=int.parse(choice_Bunho[i]);
+        }
+
+        choice_Bunho_Int.sort();
+
+        for(int i=0; i< ii+mTemp; i++)
+        {
+          //var aa=choice_Bunho[i].to
+          if(choice_Bunho_Int[i]!=46) {
+            choice_Bunho[i] = choice_Bunho_Int[i].toString();
+          }
+          else
+          {
+            choice_Bunho[i]=' ';
+          }
+
+        }
+
+      }
+
+    });
   }
 
 }
@@ -2300,7 +1918,53 @@ class _Home1State extends State<Home1> {
       990,2,4,25,26,36,37,28,
       991,13,18,25,31,33,44,38,
       992,12,20,26,33,44,45,24,
-      993,6,14,16,18,24,42,44];
+      993,6,14,16,18,24,42,44,
+      994,1,3,8,24,27,35,28,
+      995,1,4,13,29,38,39,7,
+      996,6,11,15,24,32,39,28,
+      997,4,7,14,16,24,44,20,
+      998,13,17,18,20,42,45,41,
+      999,1,3,9,14,18,28,34,
+      1000,2,8,19,22,32,42,39,
+      1001,6,10,12,14,20,42,15,
+      1002,17,25,33,35,38,45,15,
+      1003,1,4,29,39,43,45,31,
+      1004,7,15,30,37,39,44,18,
+      1005,8,13,18,24,27,29,17,
+      1006,8,11,15,16,17,37,36,
+      1007,8,11,16,19,21,25,40,
+      1008,9,11,30,31,41,44,33,
+      1009,15,23,29,34,40,44,20,
+      1010,9,12,15,25,34,36,3,
+      1011,1,9,12,26,35,38,42,
+      1012,5,11,18,20,35,45,3,
+      1013,21,22,26,34,36,41,32,
+      1014,3,11,14,18,26,27,21,
+      1015,14,23,31,33,37,40,44,
+      1016,15,26,28,34,41,42,44,
+      1017,12,18,22,23,30,34,32,
+      1018,3,19,21,25,37,45,35,
+      1019,1,4,13,17,34,39,6,
+      1020,12,27,29,38,41,45,6,
+      1021,12,15,17,24,29,45,16,
+      1022,5,6,11,29,42,45,28,
+      1023,10,14,16,18,29,35,25,
+      1024,9,18,20,22,38,44,10,
+      1025,8,9,20,25,29,33,7,
+      1026,5,12,13,31,32,41,34,
+      1027,14,16,27,35,39,45,5,
+      1028,5,7,12,13,18,35,23,
+      1029,12,30,32,37,39,41,24,
+      1030,2,5,11,17,24,29,9,
+      1031,6,7,22,32,35,36,19,
+      1032,1,6,12,19,36,42,28,
+      1033,3,11,15,20,35,44,10,
+      1034,26,31,32,33,38,40,11,
+      1035,9,14,34,35,41,42,2,
+      1036,2,5,22,32,34,45,39,
+      1037,2,14,15,22,27,33,31,
+      1038,7,16,24,27,37,44,2
+    ];
 
     int ij=0;
     for (int i = 0; i < last_soonbun; i++) {

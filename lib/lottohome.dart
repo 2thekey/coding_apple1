@@ -59,12 +59,12 @@ class _LottoHomeState extends State<LottoHome> {
     return Scaffold(
 
       appBar: AppBar(
-        title: const Text('내포 Lotto',
+        title: const Text('로또만이 살 길이다!!!',
           style: TextStyle(
               fontFamily: 'sandolout',
               fontSize: 40,
               fontWeight: FontWeight.bold,
-              color: Colors.deepOrange),
+              color: Colors.black),
         ),
         actions: <Widget>[
           IconButton(
