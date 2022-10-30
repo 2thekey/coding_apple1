@@ -11,6 +11,7 @@ var ii=0;
 //var choice_Bunho=List<int>.filled(6, 46);
 var choice_Bunho=List<String>.filled(6, ' ');
 var choice_Bunho_Int=List<int>.filled(6, 46);
+var resultBunho=List<int>.filled(46, 0);
 var num=List.generate(last_soonbun,(i) => List.filled(8, 0, growable: true), growable:true);
 int last_soonbun=1040;
 List<int> dangchum_Count=[0,0,0,0,0,0];
@@ -692,8 +693,45 @@ class _Home1State extends State<Home1> {
 
                             //showToast('준비중입니다!!');
 
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                content: Text("준비중입니다!!!")));
+                            // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            //     content: Text("준비중입니다!!!")));
+                            resultBunho=List<int>.filled(46, 0);
+                            var resultA = -1;
+
+                            switch(ii) {
+
+                              case 0:  {ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("번호를 1개 이상 5개 이하로 선택해주세요."))); break;}
+                              case 1:
+
+                                for (int i = 1; i < last_soonbun ; i++) {
+
+                                  if((num[i][0]!=choice_Bunho_Int[0]) && (num[i][7]!=choice_Bunho_Int[0])) {
+
+                                    resultA = num[i].indexOf(choice_Bunho_Int[0]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
+                                    if(resultA!=-1){
+
+                                      for (int j=1; j<7; j++){
+                                        // print(num[i][j].toString());
+                                        resultBunho[num[i][j]]++;     //해당번호 카운트
+                                      }
+
+                                      resultBunho[num[i][resultA]]--;  //선택된 번호는 카운트에서 제외
+                                      print('i='+i.toString()+','+resultBunho[num[i][resultA]].toString());
+
+                                    }
+
+                                  }
+
+                                }
+                                print(resultBunho.toString());
+                                break;
+                          }
+
+
+
+
+
+
 
                             // setState(() {
                             //
@@ -737,8 +775,8 @@ class _Home1State extends State<Home1> {
 
              // Text(bunhoSangtae.toString()),
              // Text(choice_Bunho.toString()),
-              //Text(choice_Bunho_Int.toString()),
-             // Text('ii='+ii.toString()),
+              Text(choice_Bunho_Int.toString()),
+             Text('ii='+ii.toString()),
              //
 
 
