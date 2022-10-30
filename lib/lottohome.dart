@@ -69,7 +69,7 @@ class _LottoHomeState extends State<LottoHome> {
               TextSpan(text: '이', style: TextStyle(fontFamily: 'sandolout',fontSize: 28,fontWeight: FontWeight.bold, color: Colors.black),),
               TextSpan(text: ' 살', style: TextStyle(fontFamily: 'sandolout',fontSize: 40,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
               TextSpan(text: '길이다', style: TextStyle(fontFamily: 'sandolout',fontSize: 28,fontWeight: FontWeight.bold, color: Colors.black),),
-              TextSpan(text: '!', style: TextStyle(fontFamily: 'sandolout',fontSize: 35,fontWeight: FontWeight.bold, color: Colors.black),),
+              //TextSpan(text: '!', style: TextStyle(fontFamily: 'sandolout',fontSize: 35,fontWeight: FontWeight.bold, color: Colors.black),),
             ],
           ),
         ),
