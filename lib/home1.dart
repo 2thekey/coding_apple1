@@ -716,7 +716,7 @@ class _Home1State extends State<Home1> {
                                       }
 
                                       resultBunho[num[i][resultA]]--;  //선택된 번호는 카운트에서 제외
-                                      print('i='+i.toString()+','+resultBunho[num[i][resultA]].toString());
+                                      //print('i='+i.toString()+','+resultBunho[num[i][resultA]].toString());
 
                                     }
 
