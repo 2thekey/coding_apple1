@@ -59,13 +59,23 @@ class _LottoHomeState extends State<LottoHome> {
     return Scaffold(
 
       appBar: AppBar(
-        title: const Text('로또만이 살 길이다!!!',
-          style: TextStyle(
-              fontFamily: 'sandolout',
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-              color: Colors.black),
+        title: const Text.rich(
+          TextSpan(
+            text: 'Hello', // default text style
+            children: <TextSpan>[
+              TextSpan(text: '로', style: TextStyle(fontFamily: 'sandolout',fontSize: 40,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+              TextSpan(text: '또', style: TextStyle(fontFamily: 'sandolout',fontSize: 28,fontWeight: FontWeight.bold, color: Colors.black),),
+              TextSpan(text: '만', style: TextStyle(fontFamily: 'sandolout',fontSize: 40,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+              TextSpan(text: '이', style: TextStyle(fontFamily: 'sandolout',fontSize: 28,fontWeight: FontWeight.bold, color: Colors.black),),
+              TextSpan(text: ' 살', style: TextStyle(fontFamily: 'sandolout',fontSize: 40,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+              TextSpan(text: '길이다', style: TextStyle(fontFamily: 'sandolout',fontSize: 28,fontWeight: FontWeight.bold, color: Colors.black),),
+              TextSpan(text: '!', style: TextStyle(fontFamily: 'sandolout',fontSize: 35,fontWeight: FontWeight.bold, color: Colors.black),),
+            ],
+          ),
         ),
+
+
+       //Text('로또만이 살 길이다!!!', style: TextStyle(fontFamily: 'sandolout',fontSize: 40,fontWeight: FontWeight.bold, color: Colors.black), ),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search, color: Color(0xFF545D68)),
@@ -90,25 +100,25 @@ class _LottoHomeState extends State<LottoHome> {
       //   child: Icon(Icons.home),
       // ),
       //floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      bottomNavigationBar:BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.white,
-        selectedItemColor: Colors.deepOrange,
-        unselectedItemColor: Colors.grey.withOpacity(.60),
-        selectedFontSize: 22,
-        unselectedFontSize: 13,
-        currentIndex: _selectedIndex,
-
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-
-        onTap: (int index){
-          setState(() {
-            _selectedIndex=index;
-          });
-        },
-        items: bottomItems,
-      ),
+      // bottomNavigationBar:BottomNavigationBar(
+      //   type: BottomNavigationBarType.fixed,
+      //   backgroundColor: Colors.white,
+      //   selectedItemColor: Colors.deepOrange,
+      //   unselectedItemColor: Colors.grey.withOpacity(.60),
+      //   selectedFontSize: 22,
+      //   unselectedFontSize: 13,
+      //   currentIndex: _selectedIndex,
+      //
+      //   showSelectedLabels: true,
+      //   showUnselectedLabels: true,
+      //
+      //   onTap: (int index){
+      //     setState(() {
+      //       _selectedIndex=index;
+      //     });
+      //   },
+      //   items: bottomItems,
+      // ),
 
       body: pages[_selectedIndex],
     );

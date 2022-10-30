@@ -1,7 +1,10 @@
+//import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:toast/toast_web.dart';
-import 'package:toast/toast.dart';
+// import 'package:fluttertoast/fluttertoast.dart';
+// import 'package:fluttertoast/fluttertoast_web.dart';
+
 
 var ii=0;
 
@@ -9,11 +12,16 @@ var ii=0;
 var choice_Bunho=List<String>.filled(6, ' ');
 var choice_Bunho_Int=List<int>.filled(6, 46);
 var num=List.generate(last_soonbun,(i) => List.filled(8, 0, growable: true), growable:true);
-int last_soonbun=1039;
+int last_soonbun=1040;
 List<int> dangchum_Count=[0,0,0,0,0,0];
 List<String> dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
 var conHeight=45.0;  //숫자한개 컨테이너 높이
 var conWidth=40.0; //숫자한개 컨테이너 넓이
+
+double disWidthSize=420; //화면 사이즈
+double sizeboxWidth=16;
+
+int resultSangtae=0;
 // List<int> dangchum3=[0];
 // List<int> dangchum4=[0];
 // List<int> dangchum5=[0];
@@ -43,13 +51,30 @@ class _Home1State extends State<Home1> {
       children: [
         Column(
           children: [
+            Container(
+              width: disWidthSize,
+              height: 100,
+              //color: Colors.grey[100],
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  //color: Colors.grey[400],
+                  border: Border.all(
+                      color: Colors.black,
+                      style: BorderStyle.solid,
+                      width: 2
+                  )),
+
+              child: Text('AD1'),
+
+            ),
             SizedBox(height: 15,),
 
             Center( //로또번호 표시 존
               child: Container(
                   //height: 300,
                   //width: MediaQuery.of(context).size.width - 50,
-                  width: 444,
+                  width: disWidthSize,
                   //color: Colors.grey[100],
                   alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -73,17 +98,17 @@ class _Home1State extends State<Home1> {
                         children: [
                           SizedBox(width: 20,),
                           bbbCheck(1),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(2),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(3),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(4),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(5),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(6),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(7),
                           SizedBox(width: 20,),
                         ],
@@ -96,17 +121,17 @@ class _Home1State extends State<Home1> {
                         children: [
                           SizedBox(width: 20,),
                           bbbCheck(8),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(9),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(10),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(11),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(12),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(13),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(14),
                           SizedBox(width: 20,),
                         ],
@@ -119,19 +144,19 @@ class _Home1State extends State<Home1> {
                         children: [
                           SizedBox(width: 20,),
                           bbbCheck(15),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(16),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(17),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(18),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(19),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(20),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(21),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                         ],
                       ),
 
@@ -142,17 +167,17 @@ class _Home1State extends State<Home1> {
                         children: [
                           SizedBox(width: 20,),
                           bbbCheck(22),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(23),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(24),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(25),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(26),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(27),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(28),
                           SizedBox(width: 20,),
                         ],
@@ -165,17 +190,17 @@ class _Home1State extends State<Home1> {
                         children: [
                           SizedBox(width: 20,),
                           bbbCheck(29),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(30),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(31),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(32),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(33),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(34),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(35),
                           SizedBox(width: 20,),
                         ],
@@ -188,17 +213,17 @@ class _Home1State extends State<Home1> {
                         children: [
                           SizedBox(width: 20,),
                           bbbCheck(36),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(37),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(38),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(39),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(40),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(41),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(42),
                           SizedBox(width: 20,),
                         ],
@@ -211,11 +236,11 @@ class _Home1State extends State<Home1> {
                         children: [
                           SizedBox(width: 20,),
                           bbbCheck(43),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(44),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
                           bbbCheck(45),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sizeboxWidth,),
 
                           InkWell(
                             onTap: (){
@@ -300,6 +325,7 @@ class _Home1State extends State<Home1> {
                                 dangchum_Count=[0,0,0,0,0,0];
                                 dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
                                 bunhoSangtae =List<int>.filled(46, 0);
+                                resultSangtae=0;
                               });
 
                             },
@@ -364,7 +390,7 @@ class _Home1State extends State<Home1> {
                   Container(
                     height: 50,
                     //width: MediaQuery.of(context).size.width - 50,
-                    width: 444,
+                    width: disWidthSize,
                     color: Colors.grey[100],
                     alignment: Alignment.center,
                     child: //const Text('선택된 로또번호', style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.deepOrange),  ),
@@ -528,128 +554,176 @@ class _Home1State extends State<Home1> {
                     SizedBox(height: 20,),
 
                   
-                    InkWell(
-                      onTap: (){
+                    Column(
+                      children: [
+                        InkWell(
+                          onTap: (){
 
 
 
 
 
 
-                        // dangchum_Count.clear();
-                        // dangchum_Soonbun.clear();
-                        // dangchum3.clear();
-                        // dangchum2.clear();
-                        // dangchum1.clear();
+                            // dangchum_Count.clear();
+                            // dangchum_Soonbun.clear();
+                            // dangchum3.clear();
+                            // dangchum2.clear();
+                            // dangchum1.clear();
 
-                        int dang=0;
+                            int dang=0;
 
-                        dangchum_Count=[0,0,0,0,0,0];
-                        dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
-                        // dangchum3.add(0);
-                        // dangchum4.add(0);
-                        // dangchum5.add(0);
+                            dangchum_Count=[0,0,0,0,0,0];
+                            dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
+                            // dangchum3.add(0);
+                            // dangchum4.add(0);
+                            // dangchum5.add(0);
 
-                        for (int i =1 ; i < last_soonbun; i++) {
-                          for (int j = 1; j < 7; j++) {
-                            for (int k = 0; k < 6; k++) {
-                              if (num[i][j] == choice_Bunho_Int[k]) {
-                                dang++;
-                                break;
-                              }  //if
+                            for (int i =1 ; i < last_soonbun; i++) {
+                              for (int j = 1; j < 7; j++) {
+                                for (int k = 0; k < 6; k++) {
+                                  if (num[i][j] == choice_Bunho_Int[k]) {
+                                    dang++;
+                                    break;
+                                  }  //if
 
-                              //  print('i:'+i.toString()+',j:'+j.toString()+',k:'+k.toString());
-
-
-                            } //for k
-                          }  //for j
-
-                          switch(dang) {
-                            case 0 :
-                            case 1 :
-                            case 2 : break; //print('NO 당첨'); break;
-                            case 3 : dangchum_Count[5]++;
-                                     if (dangchum_Count[5]%7 > 0 && dangchum_Count[5] >= 1) {
-                                      dangchum_Soonbun[5]=dangchum_Soonbun[5]+num[i][0].toString()+','; break;
-                                       }
-                                     else {
-                                      dangchum_Soonbun[5]=dangchum_Soonbun[5]+num[i][0].toString()+',\n'; break;
-                                     }
-
-                            case 4 : dangchum_Count[4]++;
-                                     if (dangchum_Count[4]%7 > 0 && dangchum_Count[4] >= 1) {
-                                        dangchum_Soonbun[4]=dangchum_Soonbun[4]+num[i][0].toString()+','; break;
-                                     }
-                                     else {
-                                        dangchum_Soonbun[4]=dangchum_Soonbun[4]+num[i][0].toString()+',\n'; break;
-                                          }
-                            case 5 : if(num[i][7]==choice_Bunho_Int[0] ||  num[i][7]==choice_Bunho_Int[1] || num[i][7]==choice_Bunho_Int[2] || num[i][7]==choice_Bunho_Int[3] || num[i][7]==choice_Bunho_Int[4] || num[i][7]==choice_Bunho_Int[5])
-                            {
-                              dangchum_Count[2]++;
-                              if (dangchum_Count[2]%7 > 0 && dangchum_Count[2] >= 1) {
-
-                                dangchum_Soonbun[2]=dangchum_Soonbun[2]+num[i][0].toString()+','; break;
-                              }
-                              else {
-
-                                dangchum_Soonbun[2]=dangchum_Soonbun[2]+num[i][0].toString()+',\n'; break;
-                              }
-                            } //if
-                            dangchum_Count[3]++;
-                            if (dangchum_Count[3]%7 > 0 && dangchum_Count[3] >= 1) {
-
-                              dangchum_Soonbun[3]=dangchum_Soonbun[3]+num[i][0].toString()+','; break;
-                            }
-                            else {
-
-                              dangchum_Soonbun[3]=dangchum_Soonbun[3]+num[i][0].toString()+',\n'; break;
-                            }
-                            case 6 : dangchum_Count[1]++;
-                              if (dangchum_Count[1]%7 > 0 && dangchum_Count[1] >= 1) {
-                              dangchum_Soonbun[1]=dangchum_Soonbun[1]+num[i][0].toString()+','; break;
-                            }
-                            else {
-                              dangchum_Soonbun[1]=dangchum_Soonbun[1]+num[i][0].toString()+',\n'; break;
-                            }
-
-                          } //switch
-                          dang=0;
-                        }  //for i
-
-                        //print('5등:'+dangchum5[0].toString()+',   4등:'+dangchum4[0].toString()+',   3등:'+dangchum3[0].toString()+
-                          //  ',   2등:'+dangchum2[0].toString()+',   1등:'+dangchum1[0].toString());   //당첨 누적. 3=5등, 4=4등, 5=3등
-
-                        //print('5등 회차:  $dangchum5');
-                        //print('4등 회차:  $dangchum4');
-                        //print('3등 회차:  $dangchum3');
-                        //print('2등 회차:  $dangchum2');
-                        //print('1등 회차:  $dangchum1');
-
-                        setState(() {
-
-                        });
+                                  //  print('i:'+i.toString()+',j:'+j.toString()+',k:'+k.toString());
 
 
+                                } //for k
+                              }  //for j
+
+                              switch(dang) {
+                                case 0 :
+                                case 1 :
+                                case 2 : break; //print('NO 당첨'); break;
+                                case 3 : dangchum_Count[5]++;
+                                         if (dangchum_Count[5]%7 > 0 && dangchum_Count[5] >= 1) {
+                                          dangchum_Soonbun[5]=dangchum_Soonbun[5]+num[i][0].toString()+','; break;
+                                           }
+                                         else {
+                                          dangchum_Soonbun[5]=dangchum_Soonbun[5]+num[i][0].toString()+',\n'; break;
+                                         }
+
+                                case 4 : dangchum_Count[4]++;
+                                         if (dangchum_Count[4]%7 > 0 && dangchum_Count[4] >= 1) {
+                                            dangchum_Soonbun[4]=dangchum_Soonbun[4]+num[i][0].toString()+','; break;
+                                         }
+                                         else {
+                                            dangchum_Soonbun[4]=dangchum_Soonbun[4]+num[i][0].toString()+',\n'; break;
+                                              }
+                                case 5 : if(num[i][7]==choice_Bunho_Int[0] ||  num[i][7]==choice_Bunho_Int[1] || num[i][7]==choice_Bunho_Int[2] || num[i][7]==choice_Bunho_Int[3] || num[i][7]==choice_Bunho_Int[4] || num[i][7]==choice_Bunho_Int[5])
+                                {
+                                  dangchum_Count[2]++;
+                                  if (dangchum_Count[2]%7 > 0 && dangchum_Count[2] >= 1) {
+
+                                    dangchum_Soonbun[2]=dangchum_Soonbun[2]+num[i][0].toString()+','; break;
+                                  }
+                                  else {
+
+                                    dangchum_Soonbun[2]=dangchum_Soonbun[2]+num[i][0].toString()+',\n'; break;
+                                  }
+                                } //if
+                                dangchum_Count[3]++;
+                                if (dangchum_Count[3]%7 > 0 && dangchum_Count[3] >= 1) {
+
+                                  dangchum_Soonbun[3]=dangchum_Soonbun[3]+num[i][0].toString()+','; break;
+                                }
+                                else {
+
+                                  dangchum_Soonbun[3]=dangchum_Soonbun[3]+num[i][0].toString()+',\n'; break;
+                                }
+                                case 6 : dangchum_Count[1]++;
+                                  if (dangchum_Count[1]%7 > 0 && dangchum_Count[1] >= 1) {
+                                  dangchum_Soonbun[1]=dangchum_Soonbun[1]+num[i][0].toString()+','; break;
+                                }
+                                else {
+                                  dangchum_Soonbun[1]=dangchum_Soonbun[1]+num[i][0].toString()+',\n'; break;
+                                }
+
+                              } //switch
+                              dang=0;
+                            }  //for i
+
+                            //print('5등:'+dangchum5[0].toString()+',   4등:'+dangchum4[0].toString()+',   3등:'+dangchum3[0].toString()+
+                              //  ',   2등:'+dangchum2[0].toString()+',   1등:'+dangchum1[0].toString());   //당첨 누적. 3=5등, 4=4등, 5=3등
+
+                            //print('5등 회차:  $dangchum5');
+                            //print('4등 회차:  $dangchum4');
+                            //print('3등 회차:  $dangchum3');
+                            //print('2등 회차:  $dangchum2');
+                            //print('1등 회차:  $dangchum1');
+
+                            setState(() {
+
+                              resultSangtae=1;
+
+                            });
 
 
 
 
-                      },
-                        child:
-                        Container(
-                          width: 444,
-                          height: 40,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(25.0),
-                              border: Border.all(
-                                  color: Colors.black,
-                                  style: BorderStyle.solid,
-                                  width: 2
-                              )
+
+
+                          },
+                            child:
+                            Container(
+                              width: disWidthSize,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(25.0),
+                                  border: Border.all(
+                                      color: Colors.black,
+                                      style: BorderStyle.solid,
+                                      width: 2
+                                  )
+                              ),
+                              alignment: Alignment.center,
+                              child: Text('그동안 당첨내역 조회하기 (번호 3개 이상 선택)', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
+                        ),
+                        ),
+
+                        SizedBox(height: 15,),
+
+
+                        InkWell(
+                          onTap: (){
+
+                            //함께나온 수 처리
+
+                            //showToast('준비중입니다!!');
+
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                content: Text("준비중입니다!!!")));
+
+                            // setState(() {
+                            //
+                            // });
+
+
+
+
+
+
+                          },
+                          child:
+                          Container(
+                            width: disWidthSize,
+                            height: 50,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25.0),
+                                border: Border.all(
+                                    color: Colors.black,
+                                    style: BorderStyle.solid,
+                                    width: 2
+                                )
+                            ),
+                            alignment: Alignment.center,
+                            child: Text('함께나온 번호 조회 (번호 5개 이하 선택)', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
                           ),
-                          alignment: Alignment.center,
-                          child: Text('그동안 당첨내역 조회하기 (번호 3개 이상 선택)', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),
-                    ),
+                        ),
+
+
+                      ],
                     ),
                 ],
               ),
@@ -669,57 +743,27 @@ class _Home1State extends State<Home1> {
 
 
 
-            Center( //결과값 표시 존
-              child: Container(
-                  height: 600,
-                  width:444,
-                  //MediaQuery.of(context).size.width - 50,
-                  color: Colors.grey[100],
-                  alignment: Alignment.topCenter,
+            resultScreen(resultSangtae),
 
-                  child: DataTable(
-                    columns: const [
-                      DataColumn(label: Text('등수', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                      DataColumn(label: Text('당첨횟수', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                      DataColumn(label: Text('회차', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
-                    ],
-                    rows: [
-                      DataRow(cells: [
-                        const DataCell(Text('1등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
-                        DataCell(Center(child: Text(dangchum_Count[1].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black)))),
-                        DataCell(Wrap(children: [Text(dangchum_Soonbun[1].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[1].length.toInt())-1))],)),
-                      ]),
+            Container(
+              width: disWidthSize,
+              height: 100,
+              //color: Colors.grey[100],
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  //color: Colors.grey[400],
+                  border: Border.all(
+                      color: Colors.black,
+                      style: BorderStyle.solid,
+                      width: 2
+                  )),
 
-                      DataRow(cells: [
-                        const DataCell(Text('2등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
-                        DataCell(Center(child: Text(dangchum_Count[2].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black)))),
-                        DataCell(Wrap(children: [Text(dangchum_Soonbun[2].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[2].length.toInt())-1))],)),
-                      ]),
+              child: Text('AD2'),
 
-                      DataRow(cells: [
-                        const DataCell(Text('3등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
-                        DataCell(Center(child: Text(dangchum_Count[3].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black)))),
-                        DataCell(Wrap(children: [Text(dangchum_Soonbun[3].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[3].length.toInt())-1))],)),
-                      ]),
-
-                      DataRow(cells: [
-                        const DataCell(Text('4등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
-                        DataCell(Center(child: Text(dangchum_Count[4].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black)))),
-                        DataCell(Wrap(children: [Text(dangchum_Soonbun[4].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[4].length.toInt())-1))],)),
-                      ]),
-
-                      DataRow(cells: [
-                        const DataCell(Text('5등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
-                        DataCell(Center(child: Text(dangchum_Count[5].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black)))),
-                        DataCell(Wrap(children: [Text(dangchum_Soonbun[5].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[5].length.toInt())-1))],)),
-
-                      ]),
-
-                    ],
-                  ),
-
-              ),
             ),
+
+            SizedBox(height: 25,),
 
 
 
@@ -917,6 +961,189 @@ class _Home1State extends State<Home1> {
       }
 
     });
+  }
+
+  resultScreen(int screen) {
+
+    switch(screen) {
+      case 0 : {
+        return Center( //결과값 표시 존
+
+
+          child: Container(
+            height: 100,
+            width:disWidthSize,
+            //MediaQuery.of(context).size.width - 50,
+            color: Colors.grey[100],
+            alignment: Alignment.center,
+
+            child:
+              Text('번호 선택 후 조회버튼 대기중...', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)
+
+          ),
+        );
+      }
+
+      case 1:{
+        return Center( //결과값 표시 존
+
+
+          child: Container(
+            //height: 350,
+            width:disWidthSize,
+            //MediaQuery.of(context).size.width - 50,
+            color: Colors.grey[100],
+            alignment: Alignment.topCenter,
+
+            child:
+              Column(
+
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(width: 70, height:30, alignment : Alignment.center, child:Text('등  수', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),),
+
+                      Container(width:100, height:30, alignment : Alignment.center, child: Text('당첨횟수', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                      Container(width:250, height:30, alignment : Alignment.center, child: Text('회           차', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+
+                    ],
+                  ),
+
+                 Divider(thickness: 1, height: 1, color: Colors.black45),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(width: 70, height:30, alignment : Alignment.center, child:Text('1등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),),
+
+                      Container(width:100, height:30, alignment : Alignment.center, child: Text(dangchum_Count[1].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
+                      //Container(width:250, height:30, alignment : Alignment.center, child: Wrap(children: [Text(dangchum_Soonbun[1].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[1].length.toInt())-1))],)),
+                      Container(width:250, height:30, alignment : Alignment.centerLeft, child: Wrap(children: [Text(dangchum_Soonbun[1])],)),
+
+                    ],
+                  ),
+
+                  Divider(thickness: 1, height: 1, color: Colors.black45),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(width: 70, height:30, alignment : Alignment.center, child:Text('2등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),),
+
+                      Container(width:100, height:30, alignment : Alignment.center, child: Text(dangchum_Count[2].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
+                      //Container(width:250, height:30, alignment : Alignment.center, child: Wrap(children: [Text(dangchum_Soonbun[2].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[1].length.toInt())-1))],)),
+                      Container(width:250, height:30, alignment : Alignment.centerLeft, child: Wrap(children: [Text(dangchum_Soonbun[2])],)),
+
+                    ],
+                  ),
+
+                  Divider(thickness: 1, height: 1, color: Colors.black45),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(width: 70, height:30, alignment : Alignment.center, child:Text('3등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),),
+
+                      Container(width:100, height:30, alignment : Alignment.center, child: Text(dangchum_Count[3].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
+                      //Container(width:250, height:30, alignment : Alignment.center, child: Wrap(children: [Text(dangchum_Soonbun[3].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[1].length.toInt())-1))],)),
+                      Container(width:250, height:30, alignment : Alignment.centerLeft, child: Wrap(children: [Text(dangchum_Soonbun[3])],)),
+
+                    ],
+                  ),
+
+                  Divider(thickness: 1, height: 1, color: Colors.black45),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(width: 70, height:40, alignment : Alignment.center, child:Text('4등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),),
+
+                      Container(width:100, height:40, alignment : Alignment.center, child: Text(dangchum_Count[4].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
+                      //Container(width:250, height:30, alignment : Alignment.center, child: Wrap(children: [Text(dangchum_Soonbun[4].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[1].length.toInt())-1))],)),
+                      Container(width:250, height:40, alignment : Alignment.centerLeft, child: Wrap(children: [Text(dangchum_Soonbun[4])],)),
+
+                    ],
+                  ),
+
+                  Divider(thickness: 1, height: 1, color: Colors.black45),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(width: 70, height:110, alignment : Alignment.center, child:Text('5등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),),
+
+                      Container(width:100, height:110, alignment : Alignment.center, child: Text(dangchum_Count[5].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
+                      //Container(width:250, height:30, alignment : Alignment.center, child: Wrap(children: [Text(dangchum_Soonbun[5].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[1].length.toInt())-1))],)),
+                      Container(width:250, height:110, alignment : Alignment.centerLeft, child: Wrap(children: [Text(dangchum_Soonbun[5])],)),
+
+                    ],
+                  ),
+
+                  Divider(thickness: 1, height: 1, color: Colors.black45),
+
+                  SizedBox(height: 15,),
+
+
+                ],
+
+              ),
+
+            // DataTable(
+            //   columns: const [
+            //     DataColumn(label: Text('등수', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+            //     DataColumn(label: Text('당첨횟수', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+            //     DataColumn(label: Text('회차', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
+            //   ],
+            //   rows: [
+            //     DataRow(cells: [
+            //       const DataCell(Text('1등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
+            //       DataCell(Center(child: Text(dangchum_Count[1].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black)))),
+             //      DataCell(Wrap(children: [Text(dangchum_Soonbun[1].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[1].length.toInt())-1))],)),
+            //     ]),
+            //
+            //     DataRow(cells: [
+            //       const DataCell(Text('2등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
+            //       DataCell(Center(child: Text(dangchum_Count[2].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black)))),
+            //       DataCell(Wrap(children: [Text(dangchum_Soonbun[2].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[2].length.toInt())-1))],)),
+            //     ]),
+            //
+            //     DataRow(cells: [
+            //       const DataCell(Text('3등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
+            //       DataCell(Center(child: Text(dangchum_Count[3].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black)))),
+            //       DataCell(Wrap(children: [Text(dangchum_Soonbun[3].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[3].length.toInt())-1))],)),
+            //     ]),
+            //
+            //     DataRow(cells: [
+            //       const DataCell(Text('4등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
+            //       DataCell(Center(child: Text(dangchum_Count[4].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black)))),
+            //       DataCell(Wrap(children: [Text(dangchum_Soonbun[4].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[4].length.toInt())-1))],)),
+            //     ]),
+            //
+            //     DataRow(cells: [
+            //       const DataCell(Text('5등', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black))),
+            //       DataCell(Center(child: Text(dangchum_Count[5].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black)))),
+            //       DataCell(Wrap(children: [Text(dangchum_Soonbun[5].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[5].length.toInt())-1))],)),
+            //
+            //     ]),
+            //
+            //   ],
+            // ),
+
+          ),
+        );
+      }
+    }
+
+
   }
 
 }
@@ -1963,7 +2190,8 @@ class _Home1State extends State<Home1> {
       1035,9,14,34,35,41,42,2,
       1036,2,5,22,32,34,45,39,
       1037,2,14,15,22,27,33,31,
-      1038,7,16,24,27,37,44,2
+      1038,7,16,24,27,37,44,2,
+      1039,2,3,6,19,36,39,26
     ];
 
     int ij=0;
@@ -1975,3 +2203,11 @@ class _Home1State extends State<Home1> {
     }
 
   }
+
+// void showToast(String message) {
+//   Fluttertoast.showToast(
+//       msg: message,
+//       backgroundColor: Colors.red,
+//       toastLength: Toast.LENGTH_SHORT,
+//       gravity: ToastGravity.BOTTOM_LEFT);
+// }
