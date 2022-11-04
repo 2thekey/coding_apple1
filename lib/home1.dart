@@ -25,6 +25,7 @@ List<MyScore> resultBunho=[];
 
 var num=List.generate(last_soonbun,(i) => List.filled(8, 0, growable: true), growable:true);
 int last_soonbun=1040;
+//int last_soonbun=6;
 List<int> dangchum_Count=[0,0,0,0,0,0];
 List<String> dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
 var conHeight=45.0;  //숫자한개 컨테이너 높이
@@ -63,23 +64,23 @@ class _Home1State extends State<Home1> {
       children: [
         Column(
           children: [
-            Container(
-              width: disWidthSize,
-              height: 100,
-              //color: Colors.grey[100],
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  //color: Colors.grey[400],
-                  border: Border.all(
-                      color: Colors.black,
-                      style: BorderStyle.solid,
-                      width: 2
-                  )),
-
-              child: Text('AD1'),
-
-            ),
+            // Container(
+            //   width: disWidthSize,
+            //   height: 100,
+            //   //color: Colors.grey[100],
+            //   alignment: Alignment.center,
+            //   decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.circular(10.0),
+            //       //color: Colors.grey[400],
+            //       border: Border.all(
+            //           color: Colors.black,
+            //           style: BorderStyle.solid,
+            //           width: 2
+            //       )),
+            //
+            //   child: Text('AD1'),
+            //
+            // ),
             SizedBox(height: 15,),
 
             Center( //로또번호 표시 존
@@ -337,6 +338,7 @@ class _Home1State extends State<Home1> {
                                 dangchum_Count=[0,0,0,0,0,0];
                                 dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
                                 bunhoSangtae =List<int>.filled(46, 0);
+                                resultBunho.clear();
                                 resultSangtae=0;
                               });
 
@@ -434,7 +436,7 @@ class _Home1State extends State<Home1> {
                                     color: Colors.black,
                                     shape: BoxShape.circle
                                 ),
-                                child: Text(choice_Bunho[0].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 30, fontWeight: FontWeight.bold,  color: Colors.white),  ),
+                                child: Text(choice_Bunho[0].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 25, fontWeight: FontWeight.bold,  color: Colors.white),  ),
                               ),
                             ),
 
@@ -704,7 +706,7 @@ class _Home1State extends State<Home1> {
                             // showToast('준비중입니다!!');
                             // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("준비중입니다!!!")));
 
-                            //resultBunho.clear();
+                            resultBunho.clear();
                             for(int jj=0; jj<46; jj++) {
                               // resultBunho[jj].numLotto = jj;
                               // resultBunho[jj].countLotto=0;
@@ -713,10 +715,14 @@ class _Home1State extends State<Home1> {
                             }
 
                             var resultA = -1;
+                            var resultB = -1;
+                            var resultC = -1;
+                            var resultD = -1;
+                            var resultE = -1;
 
                             switch(ii) {
-                              case 0: {ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("번호를 1개 이상 5개 이하로 선택해주세요."))); break;}
-                              case 1:
+                              case 0: { break;}
+                              case 1:{
                                 for (int i = 1; i < last_soonbun ; i++) {
                                   if((num[i][0]!=choice_Bunho_Int[0]) && (num[i][7]!=choice_Bunho_Int[0])) {
                                     resultA = num[i].indexOf(choice_Bunho_Int[0]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
@@ -734,15 +740,149 @@ class _Home1State extends State<Home1> {
                                  } //for
 
                                 resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));
-                                print(resultBunho);
-
-
+                               // print(resultBunho);
+                                resultBunho.removeWhere((item) => item.countLotto==0);
+                               // print(resultBunho);
                             break;
+                              } //case 1
+
+                              case 2:{
+                                for (int i = 1; i < last_soonbun ; i++) {
+                                  if((num[i][0]!=choice_Bunho_Int[0]) && (num[i][7]!=choice_Bunho_Int[0]) &&
+                                     (num[i][0]!=choice_Bunho_Int[1]) && (num[i][7]!=choice_Bunho_Int[1])) {
+                                    resultA = num[i].indexOf(choice_Bunho_Int[0]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
+                                    resultB = num[i].indexOf(choice_Bunho_Int[1]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
+                                    if(resultA!=-1 && resultB!=-1){
+                                      for (int j=1; j<7; j++){
+                                        // print(num[i][j].toString());
+                                        resultBunho[num[i][j]].countLotto++; //해당번호 카운트
+                                      } //for
+
+                                      resultBunho[num[i][resultA]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      resultBunho[num[i][resultB]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      //print('i='+i.toString()+','+resultBunho[num[i][resultA]].toString());
+
+                                    } //if
+                                  } //if
+                                } //for
+
+                                resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));
+                                // print(resultBunho);
+                                resultBunho.removeWhere((item) => item.countLotto==0);
+                                // print(resultBunho);
+                                break;
+                              }
+
+                              case 3:{
+                                for (int i = 1; i < last_soonbun ; i++) {
+                                  if((num[i][0]!=choice_Bunho_Int[0]) && (num[i][7]!=choice_Bunho_Int[0]) &&
+                                     (num[i][0]!=choice_Bunho_Int[1]) && (num[i][7]!=choice_Bunho_Int[1]) &&
+                                      (num[i][0]!=choice_Bunho_Int[2]) && (num[i][7]!=choice_Bunho_Int[2]) ) {
+                                    resultA = num[i].indexOf(choice_Bunho_Int[0]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
+                                    resultB = num[i].indexOf(choice_Bunho_Int[1]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
+                                    resultC = num[i].indexOf(choice_Bunho_Int[2]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
+                                    if(resultA!=-1 && resultB!=-1 && resultC!=-1){
+                                      for (int j=1; j<7; j++){
+                                        // print(num[i][j].toString());
+                                        resultBunho[num[i][j]].countLotto++; //해당번호 카운트
+                                      } //for
+
+                                      resultBunho[num[i][resultA]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      resultBunho[num[i][resultB]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      resultBunho[num[i][resultC]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      //print('i='+i.toString()+','+resultBunho[num[i][resultA]].toString());
+
+                                    } //if
+                                  } //if
+                                } //for
+
+                                resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));
+                                // print(resultBunho);
+                                resultBunho.removeWhere((item) => item.countLotto==0);
+                                // print(resultBunho);
+                                break;
+                              }//case 3
+
+                              case 4:{
+                                for (int i = 1; i < last_soonbun ; i++) {
+                                  if((num[i][0]!=choice_Bunho_Int[0]) && (num[i][7]!=choice_Bunho_Int[0]) &&
+                                      (num[i][0]!=choice_Bunho_Int[1]) && (num[i][7]!=choice_Bunho_Int[1]) &&
+                                      (num[i][0]!=choice_Bunho_Int[2]) && (num[i][7]!=choice_Bunho_Int[2]) &&
+                                      (num[i][0]!=choice_Bunho_Int[3]) && (num[i][7]!=choice_Bunho_Int[3])) {
+                                    resultA = num[i].indexOf(choice_Bunho_Int[0]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
+                                    resultB = num[i].indexOf(choice_Bunho_Int[1]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
+                                    resultC = num[i].indexOf(choice_Bunho_Int[2]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
+                                    resultD = num[i].indexOf(choice_Bunho_Int[3]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
+                                    if(resultA!=-1 && resultB!=-1 && resultC!=-1 && resultD!=-1 ){
+                                      for (int j=1; j<7; j++){
+                                        // print(num[i][j].toString());
+                                        resultBunho[num[i][j]].countLotto++; //해당번호 카운트
+                                      } //for
+
+                                      resultBunho[num[i][resultA]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      resultBunho[num[i][resultB]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      resultBunho[num[i][resultC]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      resultBunho[num[i][resultD]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      //print('i='+i.toString()+','+resultBunho[num[i][resultA]].toString());
+
+                                    } //if
+                                  } //if
+                                } //for
+
+                                resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));
+                                // print(resultBunho);
+                                resultBunho.removeWhere((item) => item.countLotto==0);
+                                // print(resultBunho);
+                                break;
+                              }//case 4
+
+                              case 5:{
+                                for (int i = 1; i < last_soonbun ; i++) {
+                                  if((num[i][0]!=choice_Bunho_Int[0]) && (num[i][7]!=choice_Bunho_Int[0]) &&
+                                      (num[i][0]!=choice_Bunho_Int[1]) && (num[i][7]!=choice_Bunho_Int[1]) &&
+                                      (num[i][0]!=choice_Bunho_Int[2]) && (num[i][7]!=choice_Bunho_Int[2]) &&
+                                      (num[i][0]!=choice_Bunho_Int[3]) && (num[i][7]!=choice_Bunho_Int[3]) &&
+                                      (num[i][0]!=choice_Bunho_Int[4]) && (num[i][7]!=choice_Bunho_Int[4])) {
+                                    resultA = num[i].indexOf(choice_Bunho_Int[0]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
+                                    resultB = num[i].indexOf(choice_Bunho_Int[1]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
+                                    resultC = num[i].indexOf(choice_Bunho_Int[2]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
+                                    resultD = num[i].indexOf(choice_Bunho_Int[3]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
+                                    resultE = num[i].indexOf(choice_Bunho_Int[4]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
+                                    if(resultA!=-1 && resultB!=-1 && resultC!=-1 && resultD!=-1 && resultE!=-1){
+                                      for (int j=1; j<7; j++){
+                                        // print(num[i][j].toString());
+                                        resultBunho[num[i][j]].countLotto++; //해당번호 카운트
+                                      } //for
+
+                                      resultBunho[num[i][resultA]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      resultBunho[num[i][resultB]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      resultBunho[num[i][resultC]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      resultBunho[num[i][resultD]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      resultBunho[num[i][resultE]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      //print('i='+i.toString()+','+resultBunho[num[i][resultA]].toString());
+
+                                    } //if
+                                  } //if
+                                } //for
+
+                                resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));
+                                // print(resultBunho);
+                                resultBunho.removeWhere((item) => item.countLotto==0);
+                                // print(resultBunho);
+                                break;
+                              }//case 5
+                              case 6 : { break;}
+
                             } //switch
 
                             setState(() {
 
-                              resultSangtae=2;
+                              if(ii==0 || ii==6) {
+                                resultSangtae = 0;
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("번호를 1개 이상 5개 이하로 선택해주세요.")));
+                              }
+                              else
+                                resultSangtae=2;
 
                             });
 
@@ -760,7 +900,7 @@ class _Home1State extends State<Home1> {
                                 )
                             ),
                             alignment: Alignment.center,
-                            child: Text('함께나온 번호 조회 (번호 5개 이하 선택)', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
+                            child: Text('함께 나온 번호 조회 (번호 5개 이하 선택)', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
                           ),
                         ),
 
@@ -777,33 +917,33 @@ class _Home1State extends State<Home1> {
 
 
 
-             // Text(bunhoSangtae.toString()),
+              //Text(bunhoSangtae.toString()),   //중간결과표시
              // Text(choice_Bunho.toString()),
               //Text(choice_Bunho_Int.toString()),
-             // Text('ii='+ii.toString()),
+              //Text('ii='+ii.toString()),
              //
 
 
 
             resultScreen(resultSangtae),
 
-            Container(
-              width: disWidthSize,
-              height: 100,
-              //color: Colors.grey[100],
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  //color: Colors.grey[400],
-                  border: Border.all(
-                      color: Colors.black,
-                      style: BorderStyle.solid,
-                      width: 2
-                  )),
-
-              child: Text('AD2'),
-
-            ),
+            // Container(
+            //   width: disWidthSize,
+            //   height: 100,
+            //   //color: Colors.grey[100],
+            //   alignment: Alignment.center,
+            //   decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.circular(10.0),
+            //       //color: Colors.grey[400],
+            //       border: Border.all(
+            //           color: Colors.black,
+            //           style: BorderStyle.solid,
+            //           width: 2
+            //       )),
+            //
+            //   child: Text('AD2'),
+            //
+            // ),
 
             SizedBox(height: 25,),
 
@@ -821,9 +961,11 @@ class _Home1State extends State<Home1> {
   bbbCheck(int choiceNum) {
       var mTemp=0;
 
+      //print(choiceNum);
 
 
       if (bunhoSangtae[choiceNum]==0 ){ //번호가 선택되었을때
+
 
 
         return InkWell(
@@ -884,7 +1026,7 @@ class _Home1State extends State<Home1> {
 
             alignment: Alignment.center,
             child:
-            Text('$choiceNum', style: const TextStyle(fontFamily: 'sandol', fontSize: 30,   color: Colors.black),),
+            Text('$choiceNum', style: const TextStyle(fontFamily: 'sandol', fontSize: 20,   color: Colors.black),),
           ),
         );
       }
@@ -951,14 +1093,15 @@ class _Home1State extends State<Home1> {
 
             alignment: Alignment.center,
             child:
-            Text('$choiceNum', style: const TextStyle(fontFamily: 'sandol', fontSize: 30,   color: Colors.white),),
+            Text('$choiceNum', style: const TextStyle(fontFamily: 'sandol', fontSize: 25,   color: Colors.white),),
           ),
         );
       }
   }
 
-  void bbbCheck2(int choice_bunho_int) {
+  void bbbCheck2(int choice_bunho_int) {  //선택된 번호 클릭시 번호 무조건 해제
     var mTemp=0;
+
 
     bunhoSangtae[choice_bunho_int]=0;
 
@@ -1184,20 +1327,122 @@ class _Home1State extends State<Home1> {
         );
       }
 
-      case 2: {
+      case 2: {  //함께 나온 수
         return Center( //결과값 표시 존
 
 
           child: Container(
-              height: 100,
+              //height: 100,
               width:disWidthSize,
               //MediaQuery.of(context).size.width - 50,
               color: Colors.grey[100],
               alignment: Alignment.center,
 
               child:
+              Column(
 
-              Text('함께나온 수 표시', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(width: 100, height:30, alignment : Alignment.center, child:Text('번  호', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),),
+
+                      Container(width:150, height:30, alignment : Alignment.center, child: Text('함께 나온 횟수', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                      Container(width:170, height:30, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+
+                    ],
+                  ),
+
+                  Divider(thickness: 1, height: 1, color: Colors.black45),
+
+
+                 for(int iji=0; iji<resultBunho.length; iji++)
+                   Column(
+                     children: [
+                       Row(
+                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                         crossAxisAlignment: CrossAxisAlignment.center,
+                         children: [
+                           Container(width: 100, height:30, alignment : Alignment.center, child:Text(resultBunho[iji].numLotto.toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),),
+
+                           Container(width:150, height:30, alignment : Alignment.center, child: Text(resultBunho[iji].countLotto.toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                           InkWell(
+                             onTap: (){ //함께 나온 수 선택클릭시
+
+
+                               // setState(() {
+                               //   bbbCheck(resultBunho[iji].numLotto.toInt());
+                               //   print(resultBunho[iji].numLotto);
+                               // });
+
+                               if(ii==6){
+
+                                 return setState(() {
+
+                                 });}
+                               bunhoSangtae[resultBunho[iji].numLotto]=1;
+                               choice_Bunho[ii]=resultBunho[iji].numLotto.toString();
+                               ii++;
+
+
+
+
+                               var mTemp=0;
+                               setState(() {
+
+                                 if(ii > -1)
+                                 {
+                                   for(int i=0; i< ii+mTemp; i++)
+                                   {
+                                     //var aa=choice_Bunho[i].to
+                                     choice_Bunho_Int[i]=int.parse(choice_Bunho[i]);
+                                   }
+
+                                   choice_Bunho_Int.sort();
+
+                                   for(int i=0; i< ii+mTemp; i++)
+                                   {
+                                     //var aa=choice_Bunho[i].to
+                                     if(choice_Bunho_Int[i]!=46) {
+                                       choice_Bunho[i] = choice_Bunho_Int[i].toString();
+                                     }
+                                     else
+                                     {
+                                       choice_Bunho[i]=' ';
+                                     }
+
+                                   }
+
+                                 }
+
+                               });
+
+
+                             },
+                             child: Container(width:170, height:30, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+
+                           ),
+
+
+                         ],
+                       ),
+                       Divider(thickness: 1, height: 1, color: Colors.grey),
+                     ],
+                   ),
+
+
+
+                  SizedBox(height: 15,),
+
+
+                ],
+
+              ),
+
+              //Text('함께나온 수 표시', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)
 
           ),
         );
@@ -1208,6 +1453,8 @@ class _Home1State extends State<Home1> {
 
 
   }
+
+
 
 }
 
