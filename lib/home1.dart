@@ -1386,7 +1386,7 @@ class _Home1State extends State<Home1> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(naonTotal, style: TextStyle(fontFamily: 'sandol', fontSize: 19, fontWeight: FontWeight.bold,  color: Colors.blueAccent),),   //함께 나온 수와 몇번 나왔는지 표시함
+                      Text(naonTotal, style: TextStyle(fontFamily: 'sandolout', fontSize: 19, fontWeight: FontWeight.bold,  color: Colors.blueAccent),),   //함께 나온 수와 몇번 나왔는지 표시함
                               ],
 
                   ),
