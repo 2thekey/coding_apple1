@@ -35,6 +35,10 @@ double disWidthSize=420; //화면 사이즈
 double sizeboxWidth=16;
 
 int resultSangtae=0;
+
+int naonCount=0;  //함께 나온 수에서 선택한 번호가 출현한 횟수
+String naonTotal=''; //함께 나온 수 처리시, 선택한 번호묶어서 표시하기 위함
+
 // List<int> dangchum3=[0];
 // List<int> dangchum4=[0];
 // List<int> dangchum5=[0];
@@ -682,7 +686,7 @@ class _Home1State extends State<Home1> {
                             child:
                             Container(
                               width: disWidthSize,
-                              height: 50,
+                              height: 40,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(25.0),
                                   border: Border.all(
@@ -706,6 +710,9 @@ class _Home1State extends State<Home1> {
                             // showToast('준비중입니다!!');
                             // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("준비중입니다!!!")));
 
+                            naonCount=0;
+                            naonTotal='';
+
                             resultBunho.clear();
                             for(int jj=0; jj<46; jj++) {
                               // resultBunho[jj].numLotto = jj;
@@ -723,6 +730,7 @@ class _Home1State extends State<Home1> {
                             switch(ii) {
                               case 0: { break;}
                               case 1:{
+
                                 for (int i = 1; i < last_soonbun ; i++) {
                                   if((num[i][0]!=choice_Bunho_Int[0]) && (num[i][7]!=choice_Bunho_Int[0])) {
                                     resultA = num[i].indexOf(choice_Bunho_Int[0]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
@@ -733,11 +741,14 @@ class _Home1State extends State<Home1> {
                                       } //for
 
                                       resultBunho[num[i][resultA]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      naonCount++;
                                       //print('i='+i.toString()+','+resultBunho[num[i][resultA]].toString());
 
                                                  } //if
                                    } //if
                                  } //for
+
+                                naonTotal=choice_Bunho_Int[0].toString()+'번은 지금까지 '+naonCount.toString()+'번 출현했습니다.';
 
                                 resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));
                                // print(resultBunho);
@@ -760,11 +771,14 @@ class _Home1State extends State<Home1> {
 
                                       resultBunho[num[i][resultA]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
                                       resultBunho[num[i][resultB]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      naonCount++;
                                       //print('i='+i.toString()+','+resultBunho[num[i][resultA]].toString());
 
                                     } //if
                                   } //if
                                 } //for
+
+                                naonTotal=choice_Bunho_Int[0].toString()+','+ choice_Bunho_Int[1].toString()+'번은 지금까지 '+naonCount.toString()+'번 함께 출현했습니다.';
 
                                 resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));
                                 // print(resultBunho);
@@ -790,11 +804,18 @@ class _Home1State extends State<Home1> {
                                       resultBunho[num[i][resultA]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
                                       resultBunho[num[i][resultB]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
                                       resultBunho[num[i][resultC]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      naonCount++;
                                       //print('i='+i.toString()+','+resultBunho[num[i][resultA]].toString());
 
                                     } //if
                                   } //if
                                 } //for
+
+                                naonTotal=
+                                    choice_Bunho_Int[0].toString()+','+
+                                    choice_Bunho_Int[1].toString()+','+
+                                    choice_Bunho_Int[2].toString()+
+                                    '번은 지금까지 '+naonCount.toString()+'번 함께 출현했습니다.';
 
                                 resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));
                                 // print(resultBunho);
@@ -823,11 +844,19 @@ class _Home1State extends State<Home1> {
                                       resultBunho[num[i][resultB]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
                                       resultBunho[num[i][resultC]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
                                       resultBunho[num[i][resultD]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      naonCount++;
                                       //print('i='+i.toString()+','+resultBunho[num[i][resultA]].toString());
 
                                     } //if
                                   } //if
                                 } //for
+
+                                naonTotal=
+                                    choice_Bunho_Int[0].toString()+','+
+                                        choice_Bunho_Int[1].toString()+','+
+                                        choice_Bunho_Int[2].toString()+','+
+                                        choice_Bunho_Int[3].toString()+
+                                        '번은 지금까지 '+naonCount.toString()+'번 함께 출현했습니다.';
 
                                 resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));
                                 // print(resultBunho);
@@ -848,6 +877,7 @@ class _Home1State extends State<Home1> {
                                     resultC = num[i].indexOf(choice_Bunho_Int[2]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
                                     resultD = num[i].indexOf(choice_Bunho_Int[3]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
                                     resultE = num[i].indexOf(choice_Bunho_Int[4]); //1회차부터 해당번호가 존재하는지 확인 //없으면 -1 반환
+
                                     if(resultA!=-1 && resultB!=-1 && resultC!=-1 && resultD!=-1 && resultE!=-1){
                                       for (int j=1; j<7; j++){
                                         // print(num[i][j].toString());
@@ -859,11 +889,20 @@ class _Home1State extends State<Home1> {
                                       resultBunho[num[i][resultC]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
                                       resultBunho[num[i][resultD]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
                                       resultBunho[num[i][resultE]].countLotto--; //선택된 번호는 카운트에서 제외 해야함
+                                      naonCount++;
                                       //print('i='+i.toString()+','+resultBunho[num[i][resultA]].toString());
 
                                     } //if
                                   } //if
                                 } //for
+
+                                naonTotal=
+                                    choice_Bunho_Int[0].toString()+','+
+                                        choice_Bunho_Int[1].toString()+','+
+                                        choice_Bunho_Int[2].toString()+','+
+                                        choice_Bunho_Int[3].toString()+','+
+                                        choice_Bunho_Int[4].toString()+
+                                        '번은 지금까지 '+naonCount.toString()+'번 함께 출현했습니다.';
 
                                 resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));
                                 // print(resultBunho);
@@ -890,7 +929,7 @@ class _Home1State extends State<Home1> {
                           child:
                           Container(
                             width: disWidthSize,
-                            height: 50,
+                            height: 40,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(25.0),
                                 border: Border.all(
@@ -1344,6 +1383,15 @@ class _Home1State extends State<Home1> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(naonTotal, style: TextStyle(fontFamily: 'sandol', fontSize: 19, fontWeight: FontWeight.bold,  color: Colors.blueAccent),),   //함께 나온 수와 몇번 나왔는지 표시함
+                              ],
+
+                  ),
+                  Divider(thickness: 2, height: 1, color: Colors.blueAccent),
+                  SizedBox(height: 15,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
