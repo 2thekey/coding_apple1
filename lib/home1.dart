@@ -24,7 +24,7 @@ var choice_Bunho_Int=List<int>.filled(6, 46);
 List<MyScore> resultBunho=[];
 
 var num=List.generate(last_soonbun,(i) => List.filled(8, 0, growable: true), growable:true);
-int last_soonbun=1040;
+int last_soonbun=1041;
 //int last_soonbun=6;
 List<int> dangchum_Count=[0,0,0,0,0,0];
 List<String> dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
@@ -36,8 +36,8 @@ double sizeboxWidth=16;
 
 int resultSangtae=0;
 
-int naonCount=0;  //함께 나온 수에서 선택한 번호가 출현한 횟수
-String naonTotal=''; //함께 나온 수 처리시, 선택한 번호묶어서 표시하기 위함
+int naonCount=0;  //함께 출현한 수에서 선택한 번호가 출현한 횟수
+String naonTotal=''; //함께 출현한 수 처리시, 선택한 번호묶어서 표시하기 위함
 
 // List<int> dangchum3=[0];
 // List<int> dangchum4=[0];
@@ -706,7 +706,7 @@ class _Home1State extends State<Home1> {
                         InkWell(
                           onTap: (){
 
-                            //함께나온 수 처리
+                            //함께출현한 수 처리
                             // showToast('준비중입니다!!');
                             // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("준비중입니다!!!")));
 
@@ -939,9 +939,41 @@ class _Home1State extends State<Home1> {
                                 )
                             ),
                             alignment: Alignment.center,
-                            child: Text('함께 나온 번호 조회 (번호 5개 이하 선택)', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
+                            child: Text('함께 출현한 번호 조회 (번호 5개 이하 선택)', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
                           ),
                         ),
+
+                        SizedBox(height: 15,),
+
+
+                        InkWell(  //그동안 출현한 번호별 통계
+                          onTap: (){
+
+                            setState(() {
+                              
+                                resultSangtae=3;
+
+                            });
+
+                          },
+                          child:
+                          Container(
+                            width: disWidthSize,
+                            height: 40,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25.0),
+                                border: Border.all(
+                                    color: Colors.black,
+                                    style: BorderStyle.solid,
+                                    width: 2
+                                )
+                            ),
+                            alignment: Alignment.center,
+                            child: Text('그동안 출현한 번호별 통계', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
+                          ),
+                        ),
+
+
 
 
                       ],
@@ -1366,7 +1398,7 @@ class _Home1State extends State<Home1> {
         );
       }
 
-      case 2: {  //함께 나온 수
+      case 2: {  //함께 출현한 수
         return Center( //결과값 표시 존
 
 
@@ -1386,7 +1418,7 @@ class _Home1State extends State<Home1> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(naonTotal, style: TextStyle(fontFamily: 'sandolout', fontSize: 19, fontWeight: FontWeight.bold,  color: Colors.blueAccent),),   //함께 나온 수와 몇번 나왔는지 표시함
+                      Text(naonTotal, style: TextStyle(fontFamily: 'sandolout', fontSize: 19, fontWeight: FontWeight.bold,  color: Colors.blueAccent),),   //함께 출현한 수와 몇번 나왔는지 표시함
                               ],
 
                   ),
@@ -1396,10 +1428,11 @@ class _Home1State extends State<Home1> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(width: 100, height:30, alignment : Alignment.center, child:Text('번  호', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),),
+                      Container(width: 80, height:30, alignment : Alignment.center, child:Text('번  호', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),),
 
-                      Container(width:150, height:30, alignment : Alignment.center, child: Text('함께 나온 횟수', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                      Container(width:170, height:30, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                      Container(width:150, height:30, alignment : Alignment.center, child: Text('함께 출현한 횟수', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                      Container(width:60, height:30, alignment : Alignment.center, child: Text('확  률', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                      Container(width:130, height:30, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
 
                     ],
                   ),
@@ -1414,11 +1447,13 @@ class _Home1State extends State<Home1> {
                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                          crossAxisAlignment: CrossAxisAlignment.center,
                          children: [
-                           Container(width: 100, height:30, alignment : Alignment.center, child:Text(resultBunho[iji].numLotto.toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),),
+                           Container(width: 80, height:30, alignment : Alignment.center, child:Text(resultBunho[iji].numLotto.toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),),
 
                            Container(width:150, height:30, alignment : Alignment.center, child: Text(resultBunho[iji].countLotto.toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                           Container(width:60, height:30, alignment : Alignment.center, child: Text(((resultBunho[iji].countLotto/naonCount)*100).toStringAsFixed(2)+'%',
+                             style: TextStyle(fontFamily: 'sandol', fontSize: 15, fontWeight: FontWeight.bold,  color: Colors.deepOrange),)),
                            InkWell(
-                             onTap: (){ //함께 나온 수 선택클릭시
+                             onTap: (){ //함께 출현한 수 선택클릭시
 
 
                                // setState(() {
@@ -1470,7 +1505,7 @@ class _Home1State extends State<Home1> {
 
 
                              },
-                             child: Container(width:170, height:30, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                             child: Container(width:130, height:30, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
 
                            ),
 
@@ -1490,7 +1525,124 @@ class _Home1State extends State<Home1> {
 
               ),
 
-              //Text('함께나온 수 표시', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)
+              //Text('함께출현한 수 표시', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)
+
+          ),
+        );
+
+
+      }
+
+      case 3: {  //그동안 출현한 번호별 통계
+        return Center( //결과값 표시 존
+
+
+          child: Container(
+            //height: 100,
+            width:disWidthSize,
+            //MediaQuery.of(context).size.width - 50,
+            color: Colors.grey[100],
+            alignment: Alignment.center,
+
+            child:
+            Column(
+
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+
+                SizedBox(height: 15,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(width: 80, height:30, alignment : Alignment.center, child:Text('번  호', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),),
+
+                    Container(width:150, height:30, alignment : Alignment.center, child: Text('출현 횟수', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                    Container(width:60, height:30, alignment : Alignment.center, child: Text('확  률', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                    Container(width:130, height:30, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+
+                  ],
+                ),
+
+                Divider(thickness: 1, height: 1, color: Colors.black45),
+
+
+                for(int iji=0; iji<resultBunho.length; iji++)
+                  Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(width: 80, height:30, alignment : Alignment.center, child:Text(resultBunho[iji].numLotto.toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),),
+
+                          Container(width:150, height:30, alignment : Alignment.center, child: Text(resultBunho[iji].countLotto.toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                          Container(width:60, height:30, alignment : Alignment.center, child: Text(((resultBunho[iji].countLotto/naonCount)*100).toStringAsFixed(2)+'%',
+                            style: TextStyle(fontFamily: 'sandol', fontSize: 15, fontWeight: FontWeight.bold,  color: Colors.deepOrange),)),
+                          InkWell(
+                            onTap: (){ //그동안 출현한 번호별 클릭시
+
+
+                              // setState(() {
+                              //   bbbCheck(resultBunho[iji].numLotto.toInt());
+                              //   print(resultBunho[iji].numLotto);
+                              // });
+
+                             
+                              var mTemp=0;
+                              setState(() {
+
+                                if(ii > -1)
+                                {
+                                  for(int i=0; i< ii+mTemp; i++)
+                                  {
+                                    //var aa=choice_Bunho[i].to
+                                    choice_Bunho_Int[i]=int.parse(choice_Bunho[i]);
+                                  }
+
+                                  choice_Bunho_Int.sort();
+
+                                  for(int i=0; i< ii+mTemp; i++)
+                                  {
+                                    //var aa=choice_Bunho[i].to
+                                    if(choice_Bunho_Int[i]!=46) {
+                                      choice_Bunho[i] = choice_Bunho_Int[i].toString();
+                                    }
+                                    else
+                                    {
+                                      choice_Bunho[i]=' ';
+                                    }
+
+                                  }
+
+                                }
+
+                              });
+
+
+                            },
+                            child: Container(width:130, height:30, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+
+                          ),
+
+
+                        ],
+                      ),
+                      Divider(thickness: 1, height: 1, color: Colors.grey),
+                    ],
+                  ),
+
+
+
+                SizedBox(height: 15,),
+
+
+              ],
+
+            ),
+
+            //Text('함께출현한 수 표시', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)
 
           ),
         );
@@ -2549,7 +2701,8 @@ class _Home1State extends State<Home1> {
       1036,2,5,22,32,34,45,39,
       1037,2,14,15,22,27,33,31,
       1038,7,16,24,27,37,44,2,
-      1039,2,3,6,19,36,39,26
+      1039,2,3,6,19,36,39,26,
+      1040,8,16,26,29,31,36,11
     ];
 
     int ij=0;
