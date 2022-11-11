@@ -263,12 +263,7 @@ class _Home1State extends State<Home1> {
                             onTap: (){
 
                               //자동선택 초기화
-                              ii=0;
-                              choice_Bunho=List<String>.filled(6, ' ');
-                              choice_Bunho_Int=List<int>.filled(6, 46);
-                              dangchum_Count=[0,0,0,0,0,0];
-                              dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
-                              bunhoSangtae =List<int>.filled(46, 0);
+                              all_clear();
                               //자동선택 초기화 끝
 
 
@@ -335,13 +330,10 @@ class _Home1State extends State<Home1> {
                           InkWell(
                             onTap: (){
 
+                              all_clear();
+
                               setState(() {
-                                ii=0;
-                                choice_Bunho=List<String>.filled(6, ' ');
-                                choice_Bunho_Int=List<int>.filled(6, 46);
-                                dangchum_Count=[0,0,0,0,0,0];
-                                dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
-                                bunhoSangtae =List<int>.filled(46, 0);
+
                                 resultBunho.clear();
                                 resultSangtae=0;
                               });
@@ -949,9 +941,34 @@ class _Home1State extends State<Home1> {
                         InkWell(  //그동안 출현한 번호별 통계
                           onTap: (){
 
+                            all_clear();
+
+
+
+
+                            for (int i = 1; i < last_soonbun ; i++) {
+                              for(int j=1; j<7; j++){
+
+                              }
+
+                            } //for
+
+                            // naonTotal=choice_Bunho_Int[0].toString()+'번은 지금까지 '+naonCount.toString()+'번 출현했습니다.';
+                            //
+                            // resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));
+                            // // print(resultBunho);
+                            // resultBunho.removeWhere((item) => item.countLotto==0);
+
+
+
                             setState(() {
-                              
-                                resultSangtae=3;
+
+
+                              resultBunho.clear();
+                              //그동안 나온 번호 통계내기
+
+
+                              resultSangtae=3;
 
                             });
 
@@ -1652,6 +1669,16 @@ class _Home1State extends State<Home1> {
     }
 
 
+  }
+
+  void all_clear() {
+
+    ii=0;
+    choice_Bunho=List<String>.filled(6, ' ');
+    choice_Bunho_Int=List<int>.filled(6, 46);
+    dangchum_Count=[0,0,0,0,0,0];
+    dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
+    bunhoSangtae =List<int>.filled(46, 0);
   }
 
 
