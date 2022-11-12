@@ -23,6 +23,8 @@ var choice_Bunho=List<String>.filled(6, ' ');
 var choice_Bunho_Int=List<int>.filled(6, 46);
 List<MyScore> resultBunho=[];
 
+var tonggyeCount=List<int>.filled(46, 0);
+
 var num=List.generate(last_soonbun,(i) => List.filled(8, 0, growable: true), growable:true);
 int last_soonbun=1041;
 //int last_soonbun=6;
@@ -569,9 +571,46 @@ class _Home1State extends State<Home1> {
                         InkWell(
                           onTap: (){
 
+                            if(ii<3){   //선택된 번호가 2개 이하인 경우 경고 출력 후 상태0
+                              //resultSangtae = 0;
+                              showDialog(   //경고창
+                                  context: context,
+                                  //barrierDismissible - Dialog를 제외한 다른 화면 터치 x
+                                  barrierDismissible: false,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      // RoundedRectangleBorder - Dialog 화면 모서리 둥글게 조절
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(10.0)),
+                                      //Dialog Main Title
+                                      title: Column(
+                                        children: <Widget>[
+                                          new Text("'번호 선택 오류'", style: TextStyle(fontFamily: 'sandol', fontSize: 18, fontWeight: FontWeight.bold,  color: Colors.red),),
+                                        ],
+                                      ),
+                                      //
+                                      content: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                            "번호를 3개 이상 선택해주세요.", style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.red),
+                                          ),
+                                        ],
+                                      ),
+                                      actions: <Widget>[
+                                        new ElevatedButton(
+                                          child: new Text("확인"),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                        ),
+                                      ],
+                                    );
+                                  });
+                            }
 
-
-
+                            else{
 
 
                             // dangchum_Count.clear();
@@ -653,6 +692,8 @@ class _Home1State extends State<Home1> {
                               } //switch
                               dang=0;
                             }  //for i
+                            resultSangtae=1;
+                            }   //if-else 번호가 3개이상 선택시
 
                             //print('5등:'+dangchum5[0].toString()+',   4등:'+dangchum4[0].toString()+',   3등:'+dangchum3[0].toString()+
                               //  ',   2등:'+dangchum2[0].toString()+',   1등:'+dangchum1[0].toString());   //당첨 누적. 3=5등, 4=4등, 5=3등
@@ -665,7 +706,7 @@ class _Home1State extends State<Home1> {
 
                             setState(() {
 
-                              resultSangtae=1;
+
 
                             });
 
@@ -910,7 +951,45 @@ class _Home1State extends State<Home1> {
 
                               if(ii==0 || ii==6) {
                                 resultSangtae = 0;
-                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("번호를 1개 이상 5개 이하로 선택해주세요.")));
+
+
+                                showDialog(   //경고창
+                                    context: context,
+                                    //barrierDismissible - Dialog를 제외한 다른 화면 터치 x
+                                    barrierDismissible: false,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        // RoundedRectangleBorder - Dialog 화면 모서리 둥글게 조절
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(10.0)),
+                                        //Dialog Main Title
+                                        title: Column(
+                                          children: <Widget>[
+                                            new Text("'번호 선택 오류'", style: TextStyle(fontFamily: 'sandol', fontSize: 18, fontWeight: FontWeight.bold,  color: Colors.red),),
+                                          ],
+                                        ),
+                                        //
+                                        content: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Text(
+                                              "번호를 1개 이상 5개 이하로 선택해주세요.", style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.red),
+                                            ),
+                                          ],
+                                        ),
+                                        actions: <Widget>[
+                                          new ElevatedButton(
+                                            child: new Text("확인"),
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                          ),
+                                        ],
+                                      );
+                                    });
+
+                                //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("번호를 1개 이상 5개 이하로 선택해주세요.")));
                               }
                               else
                                 resultSangtae=2;
@@ -931,7 +1010,7 @@ class _Home1State extends State<Home1> {
                                 )
                             ),
                             alignment: Alignment.center,
-                            child: Text('함께 출현한 번호 조회 (번호 5개 이하 선택)', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
+                            child: Text('함께 출현한 번호 조회 (번호 5개 이하 선택)', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.blueAccent),),
                           ),
                         ),
 
@@ -942,31 +1021,23 @@ class _Home1State extends State<Home1> {
                           onTap: (){
 
                             all_clear();
-
-
+                            for(int jj=0; jj<46; jj++) {
+                              // resultBunho[jj].numLotto = jj;
+                              // resultBunho[jj].countLotto=0;
+                              resultBunho.add(MyScore(jj, 0));
+                              //print(resultBunho[jj].numLotto);
+                            }
 
 
                             for (int i = 1; i < last_soonbun ; i++) {
-                              for(int j=1; j<7; j++){
-
-                              }
-
-                            } //for
-
-                            // naonTotal=choice_Bunho_Int[0].toString()+'번은 지금까지 '+naonCount.toString()+'번 출현했습니다.';
-                            //
-                            // resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));
-                            // // print(resultBunho);
-                            // resultBunho.removeWhere((item) => item.countLotto==0);
-
-
+                              for (int j=1; j<7; j++){
+                                resultBunho[num[i][j]].countLotto++; //해당번호 카운트
+                                } //for
+                              } //for
+                            resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));
+                            resultBunho.removeWhere((item) => item.countLotto==0);
 
                             setState(() {
-
-
-                              resultBunho.clear();
-                              //그동안 나온 번호 통계내기
-
 
                               resultSangtae=3;
 
@@ -986,13 +1057,11 @@ class _Home1State extends State<Home1> {
                                 )
                             ),
                             alignment: Alignment.center,
-                            child: Text('그동안 출현한 번호별 통계', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
+                            child: Text('그동안 출현한 번호별 통계', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepPurple),),
                           ),
                         ),
-
-
-
-
+                        SizedBox(height: 15,),
+                        Text('※ 모든 통계는 보너스번호를 제외한 통계입니다.', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.redAccent),),
                       ],
                     ),
                 ],
@@ -1551,6 +1620,7 @@ class _Home1State extends State<Home1> {
       }
 
       case 3: {  //그동안 출현한 번호별 통계
+
         return Center( //결과값 표시 존
 
 
@@ -1595,10 +1665,10 @@ class _Home1State extends State<Home1> {
                           Container(width: 80, height:30, alignment : Alignment.center, child:Text(resultBunho[iji].numLotto.toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),),
 
                           Container(width:150, height:30, alignment : Alignment.center, child: Text(resultBunho[iji].countLotto.toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                          Container(width:60, height:30, alignment : Alignment.center, child: Text(((resultBunho[iji].countLotto/naonCount)*100).toStringAsFixed(2)+'%',
+                          Container(width:60, height:30, alignment : Alignment.center, child: Text(((resultBunho[iji].countLotto/(last_soonbun-1))*100).toStringAsFixed(2)+'%',
                             style: TextStyle(fontFamily: 'sandol', fontSize: 15, fontWeight: FontWeight.bold,  color: Colors.deepOrange),)),
                           InkWell(
-                            onTap: (){ //그동안 출현한 번호별 클릭시
+                            onTap: (){ //통계별 번호 선택클릭시
 
 
                               // setState(() {
@@ -1606,7 +1676,18 @@ class _Home1State extends State<Home1> {
                               //   print(resultBunho[iji].numLotto);
                               // });
 
-                             
+                              if(ii==6){
+
+                                return setState(() {
+
+                                });}
+                              bunhoSangtae[resultBunho[iji].numLotto]=1;
+                              choice_Bunho[ii]=resultBunho[iji].numLotto.toString();
+                              ii++;
+
+
+
+
                               var mTemp=0;
                               setState(() {
 
@@ -1659,8 +1740,6 @@ class _Home1State extends State<Home1> {
 
             ),
 
-            //Text('함께출현한 수 표시', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)
-
           ),
         );
 
@@ -1674,6 +1753,7 @@ class _Home1State extends State<Home1> {
   void all_clear() {
 
     ii=0;
+    resultBunho.clear();
     choice_Bunho=List<String>.filled(6, ' ');
     choice_Bunho_Int=List<int>.filled(6, 46);
     dangchum_Count=[0,0,0,0,0,0];

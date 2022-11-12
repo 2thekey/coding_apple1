@@ -29,22 +29,22 @@ class _LottoHomeState extends State<LottoHome> {
 
   List<BottomNavigationBarItem> bottomItems=[
     const BottomNavigationBarItem(
-      label: '홈1',
+      label: 'HOME',
       icon: Icon(Icons.home),
     ),
 
     const BottomNavigationBarItem(
-      label: '홈2',
+      label: '제외수 찾기',
       icon: Icon(Icons.search),
     ),
 
     const BottomNavigationBarItem(
-      label: '홈3',
+      label: '로또소개',
       icon: Icon(Icons.maps_ugc),
     ),
 
     const BottomNavigationBarItem(
-      label: '홈4',
+      label: '개인정보 보호정책',
       icon: Icon(Icons.folder_copy),
     ),
 
@@ -78,7 +78,7 @@ class _LottoHomeState extends State<LottoHome> {
        //Text('로또만이 살 길이다!!!', style: TextStyle(fontFamily: 'sandolout',fontSize: 40,fontWeight: FontWeight.bold, color: Colors.black), ),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search, color: Color(0xFF545D68)),
+            icon: Icon(Icons.info_outline, color: Color(0xFF545D68)),
             onPressed: () {},
           ),
         ],
@@ -94,31 +94,79 @@ class _LottoHomeState extends State<LottoHome> {
       //하단플로팅 버튼 시작
 
       // floatingActionButton: FloatingActionButton(onPressed: () {
-      //   Get.offAll(() => const MainPage());
+      //   //Get.offAll(() => const MainPage());
       // },
       //   backgroundColor: Color(0xFFEF7532),
       //   child: Icon(Icons.home),
       // ),
-      //floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      // bottomNavigationBar:BottomNavigationBar(
-      //   type: BottomNavigationBarType.fixed,
-      //   backgroundColor: Colors.white,
-      //   selectedItemColor: Colors.deepOrange,
-      //   unselectedItemColor: Colors.grey.withOpacity(.60),
-      //   selectedFontSize: 22,
-      //   unselectedFontSize: 13,
-      //   currentIndex: _selectedIndex,
-      //
-      //   showSelectedLabels: true,
-      //   showUnselectedLabels: true,
-      //
-      //   onTap: (int index){
-      //     setState(() {
-      //       _selectedIndex=index;
-      //     });
-      //   },
-      //   items: bottomItems,
-      // ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      bottomNavigationBar:BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.deepOrange,
+        unselectedItemColor: Colors.grey.withOpacity(.60),
+        selectedFontSize: 14,
+        unselectedFontSize: 12,
+        currentIndex: _selectedIndex,
+
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+
+        onTap: (int index) {
+          if (index > 0) {
+            showDialog( //경고창
+                context: context,
+                //barrierDismissible - Dialog를 제외한 다른 화면 터치 x
+                barrierDismissible: false,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    // RoundedRectangleBorder - Dialog 화면 모서리 둥글게 조절
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    //Dialog Main Title
+                    title: Column(
+                      children: <Widget>[
+                        new Text("'준비중....'", style: TextStyle(
+                            fontFamily: 'sandol',
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.red),),
+                      ],
+                    ),
+                    //
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "준비중입니다.", style: TextStyle(
+                            fontFamily: 'sandol',
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.red),
+                        ),
+                      ],
+                    ),
+                    actions: <Widget>[
+                      new ElevatedButton(
+                        child: new Text("확인"),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ],
+                  );
+                });
+          } //if
+        else {
+            setState(() {
+              _selectedIndex = index;
+            });
+          } //else
+          },
+
+        items: bottomItems,
+      ),
 
       body: pages[_selectedIndex],
     );
