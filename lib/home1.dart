@@ -26,7 +26,7 @@ List<MyScore> resultBunho=[];
 var tonggyeCount=List<int>.filled(46, 0);
 
 var num=List.generate(last_soonbun,(i) => List.filled(8, 0, growable: true), growable:true);
-int last_soonbun=1041;
+int last_soonbun=1042;
 //int last_soonbun=6;
 List<int> dangchum_Count=[0,0,0,0,0,0];
 List<String> dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
@@ -1547,7 +1547,7 @@ class _Home1State extends State<Home1> {
                                //   print(resultBunho[iji].numLotto);
                                // });
 
-                               if(ii==6){
+                               if(ii==6 || bunhoSangtae[resultBunho[iji].numLotto]==1){
 
                                  return setState(() {
 
@@ -1676,7 +1676,7 @@ class _Home1State extends State<Home1> {
                               //   print(resultBunho[iji].numLotto);
                               // });
 
-                              if(ii==6){
+                              if(ii==6 || bunhoSangtae[resultBunho[iji].numLotto]==1){
 
                                 return setState(() {
 
@@ -2809,7 +2809,8 @@ class _Home1State extends State<Home1> {
       1037,2,14,15,22,27,33,31,
       1038,7,16,24,27,37,44,2,
       1039,2,3,6,19,36,39,26,
-      1040,8,16,26,29,31,36,11
+      1040,8,16,26,29,31,36,11,
+      1041,6,7,9,11,17,18,45
     ];
 
     int ij=0;
