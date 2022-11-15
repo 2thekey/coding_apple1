@@ -1668,7 +1668,7 @@ class _Home1State extends State<Home1> {
                           Container(width:60, height:30, alignment : Alignment.center, child: Text(((resultBunho[iji].countLotto/(last_soonbun-1))*100).toStringAsFixed(2)+'%',
                             style: TextStyle(fontFamily: 'sandol', fontSize: 15, fontWeight: FontWeight.bold,  color: Colors.deepOrange),)),
                           InkWell(
-                            onTap: (){ //통계별 번호 선택클릭시
+                            onTap: () { //통계별 번호 선택클릭시 동작
 
 
                               // setState(() {
