@@ -43,7 +43,7 @@ String naonTotal=''; //함께 출현한 수 처리시, 선택한 번호묶어서
 
 // List<int> dangchum3=[0];
 // List<int> dangchum4=[0];
-// List<int> dangchum5=[0];
+// List<int> dangchum5=[0]; //배열로 이용
 
 
 
