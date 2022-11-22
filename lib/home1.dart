@@ -26,7 +26,7 @@ List<MyScore> resultBunho=[];
 var tonggyeCount=List<int>.filled(46, 0);
 
 var num=List.generate(last_soonbun,(i) => List.filled(8, 0, growable: true), growable:true);
-int last_soonbun=1042;
+int last_soonbun=1043;
 //int last_soonbun=6;
 List<int> dangchum_Count=[0,0,0,0,0,0];
 List<String> dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
@@ -61,6 +61,7 @@ class _Home1State extends State<Home1> {
   var imgPath = '';
 
     @override
+
 
 
 
@@ -1034,8 +1035,8 @@ class _Home1State extends State<Home1> {
                                 resultBunho[num[i][j]].countLotto++; //해당번호 카운트
                                 } //for
                               } //for
-                            resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));
-                            resultBunho.removeWhere((item) => item.countLotto==0);
+                            resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));  // 역순정렬
+                            resultBunho.removeWhere((item) => item.countLotto==0);  //0번 출현한 번호는 제거
 
                             setState(() {
 
@@ -1060,6 +1061,40 @@ class _Home1State extends State<Home1> {
                             child: Text('그동안 출현한 번호별 통계', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepPurple),),
                           ),
                         ),
+
+                        SizedBox(height: 15,),
+
+
+                        InkWell(  //지난주 당첨 번호로 분석
+                          onTap: (){
+
+                            all_clear();
+
+
+                            setState(() {
+
+                              resultSangtae=4;
+
+                            });
+
+                          },
+                          child:
+                          Container(
+                            width: disWidthSize,
+                            height: 40,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25.0),
+                                border: Border.all(
+                                    color: Colors.black,
+                                    style: BorderStyle.solid,
+                                    width: 2
+                                )
+                            ),
+                            alignment: Alignment.center,
+                            child: Text('지난주 당첨 번호로 분석', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.green),),
+                          ),
+                        ),
+
                         SizedBox(height: 15,),
                         Text('※ 모든 통계는 보너스번호를 제외한 통계입니다.', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.redAccent),),
                       ],
@@ -1324,7 +1359,7 @@ class _Home1State extends State<Home1> {
 
           ),
         );
-      }
+      }  //case 0 아무것도 선택 안했을때 출력
 
       case 1:{
         return Center( //결과값 표시 존
@@ -1482,7 +1517,7 @@ class _Home1State extends State<Home1> {
 
           ),
         );
-      }
+      }  //case 1 그동안 당첨내역 출력
 
       case 2: {  //함께 출현한 수
         return Center( //결과값 표시 존
@@ -1617,7 +1652,7 @@ class _Home1State extends State<Home1> {
         );
 
 
-      }
+      } //case 2 함께 출현한 수 출력
 
       case 3: {  //그동안 출현한 번호별 통계
 
@@ -1744,7 +1779,37 @@ class _Home1State extends State<Home1> {
         );
 
 
-      }
+      } //case 3 그동안 출현한 번호별 통계 출력
+
+      case 4 : {
+        return Center( //결과값 표시 존
+
+
+          child: Container(
+              height: 100,
+              width:disWidthSize,
+              //MediaQuery.of(context).size.width - 50,
+              color: Colors.grey[100],
+              alignment: Alignment.center,
+
+              child:
+              Column(
+                children: [
+                  Text('지난주 당첨 번호  '+
+                      num[last_soonbun-1][1].toString()+', '+
+                      num[last_soonbun-1][2].toString()+', '+
+                      num[last_soonbun-1][3].toString()+', '+
+                      num[last_soonbun-1][4].toString()+', '+
+                      num[last_soonbun-1][5].toString()+', '+
+                      num[last_soonbun-1][6].toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: 23, fontWeight: FontWeight.bold,  color: Colors.black),),
+                ],
+              ),
+
+          ),
+        );
+      }  //case 4 지난주 당첨번호로 분석 출력
+
+
     }
 
 
@@ -2810,7 +2875,8 @@ class _Home1State extends State<Home1> {
       1038,7,16,24,27,37,44,2,
       1039,2,3,6,19,36,39,26,
       1040,8,16,26,29,31,36,11,
-      1041,6,7,9,11,17,18,45
+      1041,6,7,9,11,17,18,45,
+      1042,5,14,15,23,34,43,4
     ];
 
     int ij=0;
