@@ -113,7 +113,7 @@ class _LottoHomeState extends State<LottoHome> {
         showUnselectedLabels: true,
 
         onTap: (int index) {
-          if (index > 0) {
+          if (index > 1) {
             showDialog( //경고창
                 context: context,
                 //barrierDismissible - Dialog를 제외한 다른 화면 터치 x
