@@ -26,7 +26,7 @@ List<MyScore> resultBunho=[];
 var tonggyeCount=List<int>.filled(46, 0);
 
 var num=List.generate(last_soonbun,(i) => List.filled(8, 0, growable: true), growable:true);
-int last_soonbun=1043;
+int last_soonbun=1044;
 //int last_soonbun=6;
 List<int> dangchum_Count=[0,0,0,0,0,0];
 List<String> dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
@@ -1069,6 +1069,75 @@ class _Home1State extends State<Home1> {
                           onTap: (){
 
                             all_clear();
+                            for(int jj=0; jj<46; jj++) {
+                              resultBunho.add(MyScore(jj, 0));
+                              }
+
+                            for(int i=1; i<last_soonbun-2;i++) {
+                              if(num[i][1]==num[last_soonbun-1][1] || num[i][2]==num[last_soonbun-1][1] || num[i][3]==num[last_soonbun-1][1] ||
+                                  num[i][4]==num[last_soonbun-1][1] || num[i][5]==num[last_soonbun-1][1] || num[i][6]==num[last_soonbun-1][1]
+                              )
+                              {  //지난주 당천번호 첫번째 번호가 해당 회차에 있으면 그다음주 출현번호를 카운트
+                                for (int j=1; j<7; j++){
+                                  resultBunho[num[i+1][j]].countLotto++; //해당번호 카운트
+                                } //for j
+                              } //if
+
+                              if(
+                                  num[i][1]==num[last_soonbun-1][2] || num[i][2]==num[last_soonbun-1][2] || num[i][3]==num[last_soonbun-1][2] ||
+                                  num[i][4]==num[last_soonbun-1][2] || num[i][5]==num[last_soonbun-1][2] || num[i][6]==num[last_soonbun-1][2]
+                              )
+                              {  //지난주 당천번호 두번째 번호가 해당 회차에 있으면 그다음주 출현번호를 카운트
+                                for (int j=1; j<7; j++){
+                                  resultBunho[num[i+1][j]].countLotto++; //해당번호 카운트
+                                } //for j
+                              } //if
+
+                              if(
+                                  num[i][1]==num[last_soonbun-1][3] || num[i][2]==num[last_soonbun-1][3] || num[i][3]==num[last_soonbun-1][3] ||
+                                  num[i][4]==num[last_soonbun-1][3] || num[i][5]==num[last_soonbun-1][3] || num[i][6]==num[last_soonbun-1][3]
+                              )
+                              {  //지난주 당천번호 세번재 번호가 해당 회차에 있으면 그다음주 출현번호를 카운트
+                                for (int j=1; j<7; j++){
+                                  resultBunho[num[i+1][j]].countLotto++; //해당번호 카운트
+                                } //for j
+                              } //if
+
+                              if(
+                                  num[i][1]==num[last_soonbun-1][4] || num[i][2]==num[last_soonbun-1][4] || num[i][3]==num[last_soonbun-1][4] ||
+                                  num[i][4]==num[last_soonbun-1][4] || num[i][5]==num[last_soonbun-1][4] || num[i][6]==num[last_soonbun-1][4]
+                              )
+                              {  //지난주 당천번호 네번재 번호가 해당 회차에 있으면 그다음주 출현번호를 카운트
+                                for (int j=1; j<7; j++){
+                                  resultBunho[num[i+1][j]].countLotto++; //해당번호 카운트
+                                } //for j
+                              } //if
+
+                              if(
+                                  num[i][1]==num[last_soonbun-1][5] || num[i][2]==num[last_soonbun-1][5] || num[i][3]==num[last_soonbun-1][5] ||
+                                  num[i][4]==num[last_soonbun-1][5] || num[i][5]==num[last_soonbun-1][5] || num[i][6]==num[last_soonbun-1][5]
+                              )
+                              {  //지난주 당천번호 다섯번재 번호가 해당 회차에 있으면 그다음주 출현번호를 카운트
+                                for (int j=1; j<7; j++){
+                                  resultBunho[num[i+1][j]].countLotto++; //해당번호 카운트
+                                } //for j
+                              } //if
+
+                              if(
+                                  num[i][1]==num[last_soonbun-1][6] || num[i][2]==num[last_soonbun-1][6] || num[i][3]==num[last_soonbun-1][6] ||
+                                  num[i][4]==num[last_soonbun-1][6] || num[i][5]==num[last_soonbun-1][6] || num[i][6]==num[last_soonbun-1][6]
+                              )
+                              {  //지난주 당천번호 여섯번재 번호가 해당 회차에 있으면 그다음주 출현번호를 카운트
+                                for (int j=1; j<7; j++){
+                                  resultBunho[num[i+1][j]].countLotto++; //해당번호 카운트
+                                } //for j
+                              } //if
+
+
+                            } //for i
+
+                            resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));  // 역순정렬
+                            resultBunho.removeWhere((item) => item.countLotto==0);  //0번 출현한 번호는 제거
 
 
                             setState(() {
@@ -1091,7 +1160,7 @@ class _Home1State extends State<Home1> {
                                 )
                             ),
                             alignment: Alignment.center,
-                            child: Text('지난주 당첨 번호로 분석', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.green),),
+                            child: Text('최종회차 당첨 번호 이후 출현한 번호 통계', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.green),),
                           ),
                         ),
 
@@ -1781,32 +1850,145 @@ class _Home1State extends State<Home1> {
 
       } //case 3 그동안 출현한 번호별 통계 출력
 
-      case 4 : {
-        return Center( //결과값 표시 존
+       case 4 : {
 
 
-          child: Container(
-              height: 100,
-              width:disWidthSize,
-              //MediaQuery.of(context).size.width - 50,
-              color: Colors.grey[100],
-              alignment: Alignment.center,
+         return Center( //결과값 표시 존
 
-              child:
-              Column(
-                children: [
-                  Text('지난주 당첨 번호  '+
+
+           child: Container(
+             //height: 100,
+             width:disWidthSize,
+             //MediaQuery.of(context).size.width - 50,
+             color: Colors.grey[100],
+             alignment: Alignment.center,
+
+             child:
+             Column(
+
+               mainAxisAlignment: MainAxisAlignment.start,
+               crossAxisAlignment: CrossAxisAlignment.center,
+               children: [
+
+                 SizedBox(height: 15,),
+
+                 Text((last_soonbun-1).toString()+'회 1등 번호  '+
                       num[last_soonbun-1][1].toString()+', '+
                       num[last_soonbun-1][2].toString()+', '+
                       num[last_soonbun-1][3].toString()+', '+
                       num[last_soonbun-1][4].toString()+', '+
                       num[last_soonbun-1][5].toString()+', '+
-                      num[last_soonbun-1][6].toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: 23, fontWeight: FontWeight.bold,  color: Colors.black),),
-                ],
-              ),
+                      num[last_soonbun-1][6].toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: 23, fontWeight: FontWeight.bold,  color: Colors.blueAccent),),
+                 SizedBox(height: 15,),
 
-          ),
-        );
+                 Text('(각 번호별로 당첨후 바로 다음주에 출현한 번호 통계)', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.blueAccent),),
+                 SizedBox(height: 15,),
+
+                 Row(
+                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                   crossAxisAlignment: CrossAxisAlignment.center,
+                   children: [
+                     Container(width: 80, height:30, alignment : Alignment.center, child:Text('번  호', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),),
+
+                     Container(width:150, height:30, alignment : Alignment.center, child: Text('출현 횟수', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                     //Container(width:60, height:30, alignment : Alignment.center, child: Text('확  률', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                     Container(width:130, height:30, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+
+                   ],
+                 ),
+
+                 Divider(thickness: 1, height: 1, color: Colors.black45),
+
+
+                 for(int iji=0; iji<resultBunho.length; iji++)
+                   Column(
+                     children: [
+                       Row(
+                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                         crossAxisAlignment: CrossAxisAlignment.center,
+                         children: [
+                           Container(width: 80, height:30, alignment : Alignment.center, child:Text(resultBunho[iji].numLotto.toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),),
+
+                           Container(width:150, height:30, alignment : Alignment.center, child: Text(resultBunho[iji].countLotto.toString(), style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                          // Container(width:60, height:30, alignment : Alignment.center, child: Text(((resultBunho[iji].countLotto/(last_soonbun-1))*100).toStringAsFixed(2)+'%',
+                          //   style: TextStyle(fontFamily: 'sandol', fontSize: 15, fontWeight: FontWeight.bold,  color: Colors.deepOrange),)),
+                           InkWell(
+                             onTap: () { //통계별 번호 선택클릭시 동작
+
+
+                               // setState(() {
+                               //   bbbCheck(resultBunho[iji].numLotto.toInt());
+                               //   print(resultBunho[iji].numLotto);
+                               // });
+
+                               if(ii==6 || bunhoSangtae[resultBunho[iji].numLotto]==1){
+
+                                 return setState(() {
+
+                                 });}
+                               bunhoSangtae[resultBunho[iji].numLotto]=1;
+                               choice_Bunho[ii]=resultBunho[iji].numLotto.toString();
+                               ii++;
+
+
+
+
+                               var mTemp=0;
+                               setState(() {
+
+                                 if(ii > -1)
+                                 {
+                                   for(int i=0; i< ii+mTemp; i++)
+                                   {
+                                     //var aa=choice_Bunho[i].to
+                                     choice_Bunho_Int[i]=int.parse(choice_Bunho[i]);
+                                   }
+
+                                   choice_Bunho_Int.sort();
+
+                                   for(int i=0; i< ii+mTemp; i++)
+                                   {
+                                     //var aa=choice_Bunho[i].to
+                                     if(choice_Bunho_Int[i]!=46) {
+                                       choice_Bunho[i] = choice_Bunho_Int[i].toString();
+                                     }
+                                     else
+                                     {
+                                       choice_Bunho[i]=' ';
+                                     }
+
+                                   }
+
+                                 }
+
+                               });
+
+
+                             },
+                             child: Container(width:130, height:30, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+
+                           ),
+
+
+                         ],
+                       ),
+                       Divider(thickness: 1, height: 1, color: Colors.grey),
+                     ],
+                   ),
+
+
+
+                 SizedBox(height: 15,),
+
+
+               ],
+
+             ),
+
+           ),
+         );
+
+
       }  //case 4 지난주 당첨번호로 분석 출력
 
 
@@ -2876,7 +3058,8 @@ class _Home1State extends State<Home1> {
       1039,2,3,6,19,36,39,26,
       1040,8,16,26,29,31,36,11,
       1041,6,7,9,11,17,18,45,
-      1042,5,14,15,23,34,43,4
+      1042,5,14,15,23,34,43,4,
+      1043,3,5,12,22,26,31,19
     ];
 
     int ij=0;
