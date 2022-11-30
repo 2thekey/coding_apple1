@@ -1643,7 +1643,7 @@ class _Home1State extends State<Home1> {
                            Container(width:60, height:30, alignment : Alignment.center, child: Text(((resultBunho[iji].countLotto/naonCount)*100).toStringAsFixed(2)+'%',
                              style: TextStyle(fontFamily: 'sandol', fontSize: 15, fontWeight: FontWeight.bold,  color: Colors.deepOrange),)),
                            InkWell(
-                             onTap: (){ //함께 출현한 수 선택클릭시
+                             onTap: (){ //함께 출현한 수 선택클릭시 동작
 
 
                                // setState(() {

@@ -126,7 +126,7 @@ class _LottoHomeState extends State<LottoHome> {
                     //Dialog Main Title
                     title: Column(
                       children: <Widget>[
-                        new Text("'준비중....'", style: TextStyle(
+                        new Text("'준비중...'", style: TextStyle(
                             fontFamily: 'sandol',
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
