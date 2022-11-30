@@ -19,27 +19,35 @@ class _Home2State extends State<Home2> {
             SizedBox(height: 15,),
 
 
-            InkWell(  //그동안 출현한 번호별 통계
+            InkWell(  //
               onTap: (){
                 int resultcnt=0;
+                int targetNum=1;
 
                 //for(int i=1; i<last_soonbun-2; i++){
-                  for(int i=1; i<10; i++){
-                  for(int resultImsi=1; resultImsi < (45-num[i][1]);resultImsi++) {
-                    for(int j=1; j<10; j++) {
-                      if (num[i][1] + resultImsi == num[i + 1][1] ||
-                          num[i][1] + resultImsi == num[i + 1][2] ||
-                          num[i][1] + resultImsi == num[i + 1][3] ||
-                          num[i][1] + resultImsi == num[i + 1][4] ||
-                          num[i][1] + resultImsi == num[i + 1][5] ||
-                          num[i][1] + resultImsi == num[i + 1][6]) {
+
+                  for(int resultImsi=1; resultImsi < 45;resultImsi++) {
+                    resultcnt=0;
+                    //print('더하기'+resultImsi.toString());
+                    for(int j=1; j< last_soonbun-2 ; j++) {
+                      if (num[j][targetNum] + resultImsi == num[j + 1][1] ||
+                          num[j][targetNum] + resultImsi == num[j + 1][2] ||
+                          num[j][targetNum] + resultImsi == num[j + 1][3] ||
+                          num[j][targetNum] + resultImsi == num[j + 1][4] ||
+                          num[j][targetNum] + resultImsi == num[j + 1][5] ||
+                          num[j][targetNum] + resultImsi == num[j + 1][6]) {
+                        //print('있어 = '+i.toString()+'회'+num[i][1].toString()+'더하기'+resultImsi.toString());
                         resultcnt++;
+                        //break;
                       } //if
                     }//for j
+
+                      print(resultImsi.toString()+'='+resultcnt.toString());
+
                     //print('결과 = '+resultImsi.toString());
                   }//for resultImsi
 
-                } //for i
+
 
                 //print('회차 = '+i.toString());
 
@@ -64,7 +72,7 @@ class _Home2State extends State<Home2> {
                     )
                 ),
                 alignment: Alignment.center,
-                child: Text('짝수 & 홀수 출현 횟수', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepPurple),),
+                child: Text('두번째 번호에 더하기', style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.deepPurple),),
               ),
             ),
 
