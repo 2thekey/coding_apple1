@@ -35,6 +35,9 @@ var conWidth=40.0; //숫자한개 컨테이너 넓이
 
 double disWidthSize=420; //화면 사이즈
 double sizeboxWidth=16;
+double cspace=0;
+double sespace=0;
+
 
 int resultSangtae=0;
 
@@ -58,7 +61,8 @@ class _Home1State extends State<Home1> {
 
   var bunhoSangtae =List<int>.filled(46, 0);
 
-  var imgPath = '';
+
+  //var imgPath = '';
 
     @override
 
@@ -67,6 +71,20 @@ class _Home1State extends State<Home1> {
 
   Widget build(BuildContext context) {
       myget();
+
+
+
+      disWidthSize=MediaQuery.of(context).size.width - 10; //화면 사이즈
+      sizeboxWidth=disWidthSize*0.03; //숫자사이 간격
+
+      conHeight=disWidthSize*0.1;  //숫자한개 컨테이너 높이
+      conWidth=disWidthSize*0.1; //숫자한개 컨테이너 넓이
+      cspace=disWidthSize*0.04;
+      sespace=disWidthSize*0.03;
+
+
+
+
     return ListView(
       children: [
         Column(
@@ -94,7 +112,7 @@ class _Home1State extends State<Home1> {
               child: Container(
                   //height: 300,
                   //width: MediaQuery.of(context).size.width - 50,
-                  width: disWidthSize,
+                  width: disWidthSize+4,
                   //color: Colors.grey[100],
                   alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -116,21 +134,21 @@ class _Home1State extends State<Home1> {
                       Row(
 
                         children: [
-                          SizedBox(width: 20,),
+                          SizedBox(width: sespace,),
                           bbbCheck(1),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(2),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(3),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(4),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(5),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(6),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(7),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sespace,),
                         ],
                       ),
 
@@ -139,21 +157,21 @@ class _Home1State extends State<Home1> {
                       Row(
 
                         children: [
-                          SizedBox(width: 20,),
+                          SizedBox(width: sespace,),
                           bbbCheck(8),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(9),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(10),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(11),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(12),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(13),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(14),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sespace,),
                         ],
                       ),
 
@@ -162,21 +180,21 @@ class _Home1State extends State<Home1> {
                       Row(
 
                         children: [
-                          SizedBox(width: 20,),
+                          SizedBox(width: sespace,),
                           bbbCheck(15),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(16),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(17),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(18),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(19),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(20),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(21),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: sespace,),
                         ],
                       ),
 
@@ -185,21 +203,21 @@ class _Home1State extends State<Home1> {
                       Row(
 
                         children: [
-                          SizedBox(width: 20,),
+                          SizedBox(width: sespace,),
                           bbbCheck(22),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(23),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(24),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(25),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(26),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(27),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(28),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sespace,),
                         ],
                       ),
 
@@ -208,21 +226,21 @@ class _Home1State extends State<Home1> {
                       Row(
 
                         children: [
-                          SizedBox(width: 20,),
+                          SizedBox(width: sespace,),
                           bbbCheck(29),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(30),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(31),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(32),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(33),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(34),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(35),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sespace,),
                         ],
                       ),
 
@@ -231,21 +249,21 @@ class _Home1State extends State<Home1> {
                       Row(
 
                         children: [
-                          SizedBox(width: 20,),
+                          SizedBox(width: sespace,),
                           bbbCheck(36),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(37),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(38),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(39),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(40),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(41),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(42),
-                          SizedBox(width: 20,),
+                          SizedBox(width: sespace,),
                         ],
                       ),
 
@@ -254,13 +272,13 @@ class _Home1State extends State<Home1> {
                       Row(
 
                         children: [
-                          SizedBox(width: 20,),
+                          SizedBox(width: sespace,),
                           bbbCheck(43),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(44),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
                           bbbCheck(45),
-                          SizedBox(width: sizeboxWidth,),
+                          SizedBox(width: cspace,),
 
                           InkWell(
                             onTap: (){
@@ -312,7 +330,7 @@ class _Home1State extends State<Home1> {
                             child:
                             Container(
                               height: conHeight,
-                              width: conWidth*2+20,
+                              width: conWidth*2+cspace,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15.0),
                                   //color: Colors.grey[400],
@@ -328,7 +346,7 @@ class _Home1State extends State<Home1> {
                             ),
                           ),
 
-                          SizedBox(width: 20,),
+                          SizedBox(width: cspace,),
 
                           InkWell(
                             onTap: (){
@@ -344,7 +362,7 @@ class _Home1State extends State<Home1> {
                             },
                             child: Container(
                               height: conHeight,
-                              width: conWidth*2+20,
+                              width: conWidth*2+cspace,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15.0),
                                   //color: Colors.grey[400],
@@ -372,7 +390,7 @@ class _Home1State extends State<Home1> {
                         ],
                       ),
 
-                      SizedBox(height: 15,),
+                      SizedBox(height: sespace,),
 
                     ],
                   ),
