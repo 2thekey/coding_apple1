@@ -283,7 +283,7 @@ class _Home1State extends State<Home1> {
                           InkWell(
                             onTap: (){
 
-                              //자동선택 초기화
+                              //자동선택 초기화 시작
                               all_clear();
                               //자동선택 초기화 끝
 
