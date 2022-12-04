@@ -1679,7 +1679,7 @@ class _Home1State extends State<Home1> {
                                ),
                            ),
                            InkWell(
-                             onTap: (){ //함께 출현한 수 선택클릭시 동작
+                             onTap: (){ //함께 출현한 수 선택클릭시 동작~
 
 
                                // setState(() {
