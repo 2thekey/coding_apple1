@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 import 'home1.dart';
@@ -79,13 +80,27 @@ class _LottoHomeState extends State<LottoHome> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.info_outline, color: Color(0xFF545D68)),
-            onPressed: () {},
+            onPressed: () {
+
+              Fluttertoast.showToast(msg: 'jmt_message',
+                gravity: ToastGravity.CENTER,
+                backgroundColor: Colors.black,
+                fontSize: 20.0,
+                textColor: Colors.red,
+                //timeInSecForIosWeb: 1,
+                toastLength: Toast.LENGTH_SHORT,
+              );
+              //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("snack")));
+
+            },
           ),
         ],
 
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
+
+
 
 
 

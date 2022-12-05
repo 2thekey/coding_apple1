@@ -1,6 +1,7 @@
 //import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 // import 'package:fluttertoast/fluttertoast.dart';
 // import 'package:fluttertoast/fluttertoast_web.dart';
@@ -26,7 +27,7 @@ List<MyScore> resultBunho=[];
 var tonggyeCount=List<int>.filled(46, 0);
 
 var num=List.generate(last_soonbun,(i) => List.filled(8, 0, growable: true), growable:true);
-int last_soonbun=1044;
+int last_soonbun=1045;
 //int last_soonbun=6;
 List<int> dangchum_Count=[0,0,0,0,0,0];
 List<String> dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
@@ -84,7 +85,7 @@ class _Home1State extends State<Home1> {
       sespace=disWidthSize*0.03;
       font_Size=conWidth/2;
 
-
+ lottoToast('로만살 앱이 시작되었습니다. Good Luck!');
 
 
     return ListView(
@@ -357,6 +358,8 @@ class _Home1State extends State<Home1> {
                             onTap: (){
 
                               all_clear();
+
+
 
                               setState(() {
 
@@ -744,8 +747,11 @@ class _Home1State extends State<Home1> {
                             //print('3등 회차:  $dangchum3');
                             //print('2등 회차:  $dangchum2');
                             //print('1등 회차:  $dangchum1');
+                            lottoToast('조회가 완료되었습니다.');
 
                             setState(() {
+                              // const CircularProgressIndicator();
+                              // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("조회가 완료되었습니다.")));
 
 
 
@@ -1411,14 +1417,14 @@ class _Home1State extends State<Home1> {
                 borderRadius: BorderRadius.circular(5.0),
                 color: Colors.black,
                 border: Border.all(
-                    color: Colors.red,
+                    color: Colors.blue,
                     style: BorderStyle.solid,
                     width: 1
                 )),
 
             alignment: Alignment.center,
             child:
-            Text('$choiceNum', style: const TextStyle(fontFamily: 'sandol', fontSize: 25,   color: Colors.white),),
+            Text('$choiceNum', style:  TextStyle(fontFamily: 'sandol', fontSize: font_Size,   color: Colors.white),),
           ),
         );
       }
@@ -1639,7 +1645,10 @@ class _Home1State extends State<Home1> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(naonTotal, style: TextStyle(fontFamily: 'sandolout', fontSize: 19, fontWeight: FontWeight.bold,  color: Colors.blueAccent),),   //함께 출현한 수와 몇번 나왔는지 표시함
+                      FittedBox(
+                        child: Text(naonTotal, style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.blueAccent), ),   //함께 출현한 수와 몇번 나왔는지 표시함
+                      ),
+
                               ],
 
                   ),
@@ -1751,7 +1760,7 @@ class _Home1State extends State<Home1> {
 
               ),
 
-              //Text('함께출현한 수 표시', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)
+
 
           ),
         );
@@ -1783,11 +1792,11 @@ class _Home1State extends State<Home1> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(width: disWidthSize*0.19, height:conHeight, alignment : Alignment.center, child:Text('번  호', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),),
+                    Container(width: disWidthSize*0.19, height:conHeight, alignment : Alignment.center, child:Text('번  호', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
 
-                    Container(width:disWidthSize*0.35, height:conHeight, alignment : Alignment.center, child: Text('출현 횟수', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                    Container(width:disWidthSize*0.14, height:conHeight, alignment : Alignment.center, child: Text('확  률', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                    Container(width:disWidthSize*0.32, height:conHeight, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                    Container(width:disWidthSize*0.35, height:conHeight, alignment : Alignment.center, child: Text('출현 횟수', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                    Container(width:disWidthSize*0.14, height:conHeight, alignment : Alignment.center, child: Text('확  률', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                    Container(width:disWidthSize*0.32, height:conHeight, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
 
                   ],
                 ),
@@ -3106,7 +3115,8 @@ class _Home1State extends State<Home1> {
       1040,8,16,26,29,31,36,11,
       1041,6,7,9,11,17,18,45,
       1042,5,14,15,23,34,43,4,
-      1043,3,5,12,22,26,31,19
+      1043,3,5,12,22,26,31,19,
+      1044,12,17,20,26,28,36,4
     ];
 
     int ij=0;
@@ -3118,6 +3128,18 @@ class _Home1State extends State<Home1> {
     }
 
   }
+
+void lottoToast(String jmt_message) {
+  Fluttertoast.showToast(msg: jmt_message,
+    gravity: ToastGravity.CENTER,
+    backgroundColor: Colors.black,
+    fontSize: 20.0,
+    textColor: Colors.white,
+    timeInSecForIosWeb: 1,
+    toastLength: Toast.LENGTH_SHORT,
+
+  );
+} //토스트메시지 띄우기
 
 // void showToast(String message) {
 //   Fluttertoast.showToast(
