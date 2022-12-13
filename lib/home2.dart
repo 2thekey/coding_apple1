@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:coding_apple1/home1.dart';
+import 'home1.dart';
+import 'lottovar.dart';
 
 
 class Home2 extends StatefulWidget {

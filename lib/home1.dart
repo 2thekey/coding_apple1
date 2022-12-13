@@ -1,58 +1,11 @@
-//import 'dart:ffi';
+
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:get/get.dart';
 import 'button.dart';
-// import 'package:fluttertoast/fluttertoast.dart';
-//import 'package:fluttertoast/fluttertoast_web.dart';
-import 'package:toast/toast_web.dart';
-//import 'package:toast/toast.dart';
-
-class MyScore{
-  int numLotto;
-  int countLotto;
-
-  MyScore(this.numLotto, this.countLotto);
-
-  String toString(){
-    return '{ ${this.numLotto}, ${this.countLotto}}';
-  }
-}
-
-var ii=0;
-
-//var choice_Bunho=List<int>.filled(6, 46);
-var choice_Bunho=List<String>.filled(6, ' ');
-var choice_Bunho_Int=List<int>.filled(6, 46);
-List<MyScore> resultBunho=[];
-
-var tonggyeCount=List<int>.filled(46, 0);
-
-var num=List.generate(last_soonbun,(i) => List.filled(8, 0, growable: true), growable:true);
-int last_soonbun=1045;
-//int last_soonbun=6;
-List<int> dangchum_Count=[0,0,0,0,0,0];
-List<String> dangchum_Soonbun=[' ',' ',' ',' ',' ',' '];
-var conHeight=45.0;  //숫자한개 컨테이너 높이
-var conWidth=40.0; //숫자한개 컨테이너 넓이
-var conbgColor='white';
-
-double disWidthSize=420; //화면 사이즈
-double sizeboxWidth=16;
-double cspace=0;
-double sespace=0;
-double font_Size=22;
-
-
-int resultSangtae=0;
-
-int naonCount=0;  //함께 출현한 수에서 선택한 번호가 출현한 횟수
-String naonTotal=''; //함께 출현한 수 처리시, 선택한 번호묶어서 표시하기 위함
-
-// List<int> dangchum3=[0];
-// List<int> dangchum4=[0];
-// List<int> dangchum5=[0]; //배열로 이용
+import 'lottovar.dart';
+import 'package:http/http.dart' as http;
 
 
 
@@ -68,20 +21,24 @@ class _Home1State extends State<Home1> {
   var bunhoSangtae =List<int>.filled(46, 0);
 
 
-  //var imgPath = '';
 
   @override
 
-
+  void initState(){
+    myget();
+    super.initState();
+  }
 
 
   Widget build(BuildContext context) {
-    myget();
+
+
+
 
 
 
     disWidthSize=MediaQuery.of(context).size.width - 10; //화면 사이즈
-    sizeboxWidth=disWidthSize*0.03; //숫자사이 간격
+    sizeboxWidth=disWidthSize*0.03; //숫자사이 간격 조정
 
     conHeight=disWidthSize*0.1;  //숫자한개 컨테이너 높이
     conWidth=disWidthSize*0.1; //숫자한개 컨테이너 넓이
@@ -371,6 +328,7 @@ class _Home1State extends State<Home1> {
                               resultBunho.clear();
                               resultSangtae=0;
                               lottoToast('초기화 완료');
+
                             });
 
                           },
@@ -696,7 +654,7 @@ class _Home1State extends State<Home1> {
                                 case 1 :
                                 case 2 : break; //print('NO 당첨'); break;
                                 case 3 : dangchum_Count[5]++;
-                                if (dangchum_Count[5]%7 > 0 && dangchum_Count[5] >= 1) {
+                                if (dangchum_Count[5]%5 > 0 && dangchum_Count[5] >= 1) {
                                   dangchum_Soonbun[5]=dangchum_Soonbun[5]+num[i][0].toString()+','; break;
                                 }
                                 else {
@@ -743,6 +701,11 @@ class _Home1State extends State<Home1> {
                               dang=0;
                             }  //for i
                             resultSangtae=1;
+
+
+                            heart_count();
+                            lottoToast('조회 완료 ♥ x '+heartCount.toString());
+
                           }   //if-else 번호가 3개이상 선택시
 
                           //print('5등:'+dangchum5[0].toString()+',   4등:'+dangchum4[0].toString()+',   3등:'+dangchum3[0].toString()+
@@ -758,7 +721,7 @@ class _Home1State extends State<Home1> {
                           setState(() {
                             // const CircularProgressIndicator();
                             // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("조회가 완료되었습니다.")));
-                            lottoToast('조회가 완료되었습니다.');
+
 
                           });
 
@@ -1033,7 +996,10 @@ class _Home1State extends State<Home1> {
                             }
                             else {
                               resultSangtae = 2;
-                              lottoToast('조회가 완료되었습니다.');
+
+
+                              heart_count();
+                              lottoToast('조회 완료 ♥ x '+heartCount.toString());
                             }
 
                           });
@@ -1070,7 +1036,7 @@ class _Home1State extends State<Home1> {
                           setState(() {
 
                             resultSangtae=3;
-                            lottoToast('조회가 완료되었습니다.');
+                            lottoToast('조회 완료');
 
                           });
 
@@ -1161,7 +1127,9 @@ class _Home1State extends State<Home1> {
                           setState(() {
 
                             resultSangtae=4;
-                            lottoToast('조회가 완료되었습니다.');
+
+                            heart_count();
+                            lottoToast('조회 완료 ♥ x '+heartCount.toString());
 
                           });
 
@@ -1550,11 +1518,11 @@ class _Home1State extends State<Home1> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(width: disWidthSize*0.16, height:conHeight*2.7, alignment : Alignment.center, child:Text('5등', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
+                    Container(width: disWidthSize*0.16, height:conHeight*4.7, alignment : Alignment.center, child:Text('5등', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
 
-                    Container(width:disWidthSize*0.24, height:conHeight*2.7, alignment : Alignment.center, child: Text(dangchum_Count[5].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black))),
+                    Container(width:disWidthSize*0.24, height:conHeight*4.7, alignment : Alignment.center, child: Text(dangchum_Count[5].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black))),
 
-                    Container(width:disWidthSize*0.6, height:conHeight*2.7, alignment : Alignment.centerLeft, child: Wrap(children: [Text(dangchum_Soonbun[5])],)),
+                    Container(width:disWidthSize*0.6, height:conHeight*4.7, alignment : Alignment.centerLeft, child: Wrap(children: [Text(dangchum_Soonbun[5])],)),
 
                   ],
                 ),
@@ -1852,6 +1820,7 @@ class _Home1State extends State<Home1> {
       } //case 3 그동안 출현한 번호별 통계 출력
 
       case 4 : {
+        print('ddd='+last_soonbun.toString());
 
 
         return Center( //결과값 표시 존
@@ -1872,6 +1841,8 @@ class _Home1State extends State<Home1> {
               children: [
 
                 SizedBox(height: 15,),
+
+
 
                 FittedBox(
                   child: Text((last_soonbun-1).toString()+'회 1등 번호  '+
@@ -2023,7 +1994,9 @@ class _Home1State extends State<Home1> {
 
 void myget() async {
 
-  var num2 = [
+  var num2= new List.empty(growable: true);
+
+  num2 = [
     0,0,0,0,0,0,0,0,
     1,10,23,29,33,37,40,16,
     2,9,13,21,25,32,42,2,
@@ -3071,13 +3044,63 @@ void myget() async {
     1044,12,17,20,26,28,36,4
   ];
 
+
+  last_soonbun=num2[(num2.length)-8]+1;
+  //print(last_soonbun);
+
+
+  int last_http=last_soonbun;
+
+
+  for(var iii=last_http; iii < 2000; iii++) {
+    var url = Uri.parse("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=${iii}");
+    http.Response response = await http.get(url);
+    var data = jsonDecode(response.body);
+
+    if (data['drwNo'] != null) {
+
+      num2.add(data['drwNo']);
+      num2.add(data['drwtNo1']);
+      num2.add(data['drwtNo2']);
+      num2.add(data['drwtNo3']);
+      num2.add(data['drwtNo4']);
+      num2.add(data['drwtNo5']);
+      num2.add(data['drwtNo6']);
+      num2.add(data['bnusNo']);
+
+      // num[iii][0]=data['drwNo'];
+      // num[iii][1]=data['drwtNo1'];
+      // num[iii][2]=data['drwtNo2'];
+      // num[iii][3]=data['drwtNo3'];
+      // num[iii][4]=data['drwtNo4'];
+      // num[iii][5]=data['drwtNo5'];
+      // num[iii][6]=data['drwtNo6'];
+      // num[iii][7]=data['bnusNo'];
+    }
+    else {
+      last_soonbun=iii;
+
+      break;
+    }
+  }
+
+
   int ij=0;
-  for (int i = 0; i < last_soonbun; i++) {
-    for (int j = 0; j < 8; j++) {
-      num[i][j]=num2[ij];
+  for (int ikk = 0; ikk < last_soonbun; ikk++) {
+    for (int jkk = 0; jkk < 8; jkk++) {
+      num[ikk][jkk]=num2[ij];
       ij++;
     }
   }
+
+  print('fff'+last_soonbun.toString());
+
+
+
+
+
+
+
 
 }
 
@@ -3093,7 +3116,14 @@ void lottoToast(String jmt_message) {
   );
 } //토스트메시지 띄우기
 
+void heart_count(){
 
+  heartCount--;
+  if (heartCount==-1)
+    heartCount=0;
+
+  //print(heartCount.toString());
+}
 
 // void showToast(String message) {
 //   Fluttertoast.showToast(
