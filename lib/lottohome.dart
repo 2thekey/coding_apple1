@@ -15,6 +15,8 @@ import 'home4.dart';
 //import 'package:lomansal/lottovar.dart';
 import 'lottovar.dart';
 //import 'lottoad.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 
 
@@ -1306,42 +1308,42 @@ myget() async {
   //print(last_soonbun);
 
 
-  // int last_http = last_soonbun;
-  //
-  //
-  // for (var iii = last_http; iii < 2000; iii++) {
-  //   var url = Uri.parse(
-  //       "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=$iii");
-  //   http.Response response = await http.get(url);
-  //   var data = jsonDecode(response.body);
-  //
-  //   if (data['drwNo'] != null) {
-  //     num2.add(data['drwNo']);
-  //     num2.add(data['drwtNo1']);
-  //     num2.add(data['drwtNo2']);
-  //     num2.add(data['drwtNo3']);
-  //     num2.add(data['drwtNo4']);
-  //     num2.add(data['drwtNo5']);
-  //     num2.add(data['drwtNo6']);
-  //     num2.add(data['bnusNo']);
-  //
-  //
-  //
-  //     // num[iii][0]=data['drwNo'];
-  //     // num[iii][1]=data['drwtNo1'];
-  //     // num[iii][2]=data['drwtNo2'];
-  //     // num[iii][3]=data['drwtNo3'];
-  //     // num[iii][4]=data['drwtNo4'];
-  //     // num[iii][5]=data['drwtNo5'];
-  //     // num[iii][6]=data['drwtNo6'];
-  //     // num[iii][7]=data['bnusNo'];
-  //   }
-  //   else {
-  //     last_soonbun = iii;
-  //
-  //     break;
-  //   }
-  // }
+  int last_http = last_soonbun;
+  print('ok?');
+
+  for (var iii = last_http; iii < 2000; iii++) {
+    var url = Uri.parse(
+        "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=$iii");
+    http.Response response = await http.get(url);
+    var data = jsonDecode(response.body);
+
+    if (data['drwNo'] != null) {
+      print('ok!!');
+      num2.add(data['drwNo']);
+      num2.add(data['drwtNo1']);
+      num2.add(data['drwtNo2']);
+      num2.add(data['drwtNo3']);
+      num2.add(data['drwtNo4']);
+      num2.add(data['drwtNo5']);
+      num2.add(data['drwtNo6']);
+      num2.add(data['bnusNo']);
+
+
+      // num[iii][0]=data['drwNo'];
+      // num[iii][1]=data['drwtNo1'];
+      // num[iii][2]=data['drwtNo2'];
+      // num[iii][3]=data['drwtNo3'];
+      // num[iii][4]=data['drwtNo4'];
+      // num[iii][5]=data['drwtNo5'];
+      // num[iii][6]=data['drwtNo6'];
+      // num[iii][7]=data['bnusNo'];
+    }
+    else {
+      last_soonbun = iii;
+
+      break;
+    }
+  }
 
 
   int ij = 0;
@@ -1351,7 +1353,4 @@ myget() async {
       ij++;
     }
   }
-
-
 }
-
