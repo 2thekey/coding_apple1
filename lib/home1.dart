@@ -30,6 +30,7 @@ class _Home1State extends State<Home1> {
 
   void initState(){
     //showInterstitialAd();  //에드몹 전면광고테스트
+
     super.initState();
   }
 
@@ -55,7 +56,7 @@ class _Home1State extends State<Home1> {
     sespace=disWidthSize*0.03;
     font_Size=conWidth/2;
 
-
+    choiceBunhoColor();
 
 
     return ListView(
@@ -431,12 +432,13 @@ class _Home1State extends State<Home1> {
 
                           },
                           child: Container(
+
                             height: conHeight+3,
                             width: conWidth+3,
                             //color: Colors.orange,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                                color: Colors.black,
+                                color: choiceColors[0],
                                 shape: BoxShape.circle
                             ),
                             child:
@@ -464,7 +466,7 @@ class _Home1State extends State<Home1> {
                             //color: Colors.orange,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                                color: Colors.black,
+                                color: choiceColors[1],
                                 shape: BoxShape.circle
                             ),
                             child: FittedBox(
@@ -490,7 +492,7 @@ class _Home1State extends State<Home1> {
                             //color: Colors.orange,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                                color: Colors.black,
+                                color: choiceColors[2],
                                 shape: BoxShape.circle
                             ),
                             child: FittedBox(
@@ -516,7 +518,7 @@ class _Home1State extends State<Home1> {
                             //color: Colors.orange,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                                color: Colors.black,
+                                color: choiceColors[3],
                                 shape: BoxShape.circle
                             ),
                             child: FittedBox(
@@ -542,7 +544,7 @@ class _Home1State extends State<Home1> {
                             //color: Colors.orange,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                                color: Colors.black,
+                                color: choiceColors[4],
                                 shape: BoxShape.circle
                             ),
                             child: FittedBox(
@@ -568,7 +570,7 @@ class _Home1State extends State<Home1> {
                             //color: Colors.orange,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                                color: Colors.black,
+                                color: choiceColors[5],
                                 shape: BoxShape.circle
                             ),
                             child: FittedBox(
@@ -1807,293 +1809,310 @@ class _Home1State extends State<Home1> {
 
     switch(screen) {
       case 0 : {
-        return Center( //결과값 표시 존
+        return Column(
+          children: [
+            Center( //결과값 표시 존
 
 
-          child: Container(
-            height: 100,
-            width:disWidthSize,
-            //MediaQuery.of(context).size.width - 50,
-            color: Colors.grey[100],
-            alignment: Alignment.center,
+              child: Container(
+                height: 100,
+                width:disWidthSize,
+                //MediaQuery.of(context).size.width - 50,
+                color: Colors.grey[100],
+                alignment: Alignment.center,
 
-            child:
-            FittedBox(
-                child: Text('번호 선택 후 조회버튼 대기중...', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)
+                child:
+                FittedBox(
+                    child: Text('번호 선택 후 조회버튼 대기중...', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)
+                ),
+
+
+              ),
+
             ),
-
-
-          ),
-
+            SizedBox(height: 50,),
+          ],
         );
 
       }  //case 0 아무것도 선택 안했을때 출력
 
 
       case 1:{
-        return Center( //결과값 표시 존
+        return Column(
+          children: [
+            Center( //결과값 표시 존
 
 
-          child: Container(
-            //height: 350,
-            width:disWidthSize,
-            //MediaQuery.of(context).size.width - 50,
-            color: Colors.grey[100],
-            alignment: Alignment.topCenter,
+              child: Container(
+                //height: 350,
+                width:disWidthSize,
+                //MediaQuery.of(context).size.width - 50,
+                color: Colors.grey[100],
+                alignment: Alignment.topCenter,
 
-            child:
-            Column(
+                child:
+                Column(
 
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(width: disWidthSize*0.16, height:conHeight, alignment : Alignment.center, child:Text('등  수', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(width: disWidthSize*0.16, height:conHeight, alignment : Alignment.center, child:Text('등  수', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
 
-                    Container(width:disWidthSize*0.24, height:conHeight, alignment : Alignment.center, child: Text('당첨횟수', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                    Container(width:disWidthSize*0.6, height:conHeight, alignment : Alignment.center, child: Text('회           차', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                        Container(width:disWidthSize*0.24, height:conHeight, alignment : Alignment.center, child: Text('당첨횟수', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                        Container(width:disWidthSize*0.6, height:conHeight, alignment : Alignment.center, child: Text('회           차', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+
+                      ],
+                    ),
+
+                    Divider(thickness: 1, height: 1, color: Colors.black45),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(width: disWidthSize*0.16, height:conHeight, alignment : Alignment.center, child:Text('1등', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
+
+                        Container(width:disWidthSize*0.24, height:conHeight, alignment : Alignment.center, child: Text(dangchum_Count[1].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black))),
+
+                        Container(width:disWidthSize*0.6, height:conHeight, alignment : Alignment.centerLeft, child: Wrap(children: [Text(dangchum_Soonbun[1])],)),
+
+                      ],
+                    ),
+
+                    Divider(thickness: 1, height: 1, color: Colors.black45),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(width: disWidthSize*0.16, height:conHeight, alignment : Alignment.center,
+                          child:Text('2등', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
+
+                        Container(width:disWidthSize*0.24, height:conHeight, alignment : Alignment.center,
+                            child: Text(dangchum_Count[2].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black))),
+
+                        Container(width:disWidthSize*0.6, height:conHeight, alignment : Alignment.centerLeft,
+                            child: Wrap(children: [Text(dangchum_Soonbun[2])],)),
+
+                      ],
+                    ),
+
+                    Divider(thickness: 1, height: 1, color: Colors.black45),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(width: disWidthSize*0.16, height:conHeight, alignment : Alignment.center, child:Text('3등', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
+
+                        Container(width:disWidthSize*0.24, height:conHeight, alignment : Alignment.center, child: Text(dangchum_Count[3].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black))),
+
+                        Container(width:disWidthSize*0.6, height:conHeight, alignment : Alignment.centerLeft, child: Wrap(children: [Text(dangchum_Soonbun[3])],)),
+
+                      ],
+                    ),
+
+                    Divider(thickness: 1, height: 1, color: Colors.black45),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(width: disWidthSize*0.16, height:conHeight, alignment : Alignment.center, child:Text('4등', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
+
+                        Container(width:disWidthSize*0.24, height:conHeight, alignment : Alignment.center, child: Text(dangchum_Count[4].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black))),
+                        //Container(width:250, height:30, alignment : Alignment.center, child: Wrap(children: [Text(dangchum_Soonbun[4].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[1].length.toInt())-1))],)),
+                        Container(width:disWidthSize*0.6, height:conHeight, alignment : Alignment.centerLeft, child: Wrap(children: [Text(dangchum_Soonbun[4])],)),
+
+                      ],
+                    ),
+
+                    Divider(thickness: 1, height: 1, color: Colors.black45),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(width: disWidthSize*0.16, height:conHeight*4.7, alignment : Alignment.center, child:Text('5등', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
+
+                        Container(width:disWidthSize*0.24, height:conHeight*4.7, alignment : Alignment.center, child: Text(dangchum_Count[5].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black))),
+
+                        Container(width:disWidthSize*0.6, height:conHeight*4.7, alignment : Alignment.centerLeft, child: Wrap(children: [Text(dangchum_Soonbun[5])],)),
+
+                      ],
+                    ),
+
+                    Divider(thickness: 1, height: 1, color: Colors.black45),
+
+                    SizedBox(height: 15,),
+
 
                   ],
+
                 ),
 
-                Divider(thickness: 1, height: 1, color: Colors.black45),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(width: disWidthSize*0.16, height:conHeight, alignment : Alignment.center, child:Text('1등', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
-
-                    Container(width:disWidthSize*0.24, height:conHeight, alignment : Alignment.center, child: Text(dangchum_Count[1].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black))),
-
-                    Container(width:disWidthSize*0.6, height:conHeight, alignment : Alignment.centerLeft, child: Wrap(children: [Text(dangchum_Soonbun[1])],)),
-
-                  ],
-                ),
-
-                Divider(thickness: 1, height: 1, color: Colors.black45),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(width: disWidthSize*0.16, height:conHeight, alignment : Alignment.center,
-                      child:Text('2등', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
-
-                    Container(width:disWidthSize*0.24, height:conHeight, alignment : Alignment.center,
-                        child: Text(dangchum_Count[2].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black))),
-
-                    Container(width:disWidthSize*0.6, height:conHeight, alignment : Alignment.centerLeft,
-                        child: Wrap(children: [Text(dangchum_Soonbun[2])],)),
-
-                  ],
-                ),
-
-                Divider(thickness: 1, height: 1, color: Colors.black45),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(width: disWidthSize*0.16, height:conHeight, alignment : Alignment.center, child:Text('3등', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
-
-                    Container(width:disWidthSize*0.24, height:conHeight, alignment : Alignment.center, child: Text(dangchum_Count[3].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black))),
-
-                    Container(width:disWidthSize*0.6, height:conHeight, alignment : Alignment.centerLeft, child: Wrap(children: [Text(dangchum_Soonbun[3])],)),
-
-                  ],
-                ),
-
-                Divider(thickness: 1, height: 1, color: Colors.black45),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(width: disWidthSize*0.16, height:conHeight, alignment : Alignment.center, child:Text('4등', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
-
-                    Container(width:disWidthSize*0.24, height:conHeight, alignment : Alignment.center, child: Text(dangchum_Count[4].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black))),
-                    //Container(width:250, height:30, alignment : Alignment.center, child: Wrap(children: [Text(dangchum_Soonbun[4].replaceFirst(RegExp(r','), '', (dangchum_Soonbun[1].length.toInt())-1))],)),
-                    Container(width:disWidthSize*0.6, height:conHeight, alignment : Alignment.centerLeft, child: Wrap(children: [Text(dangchum_Soonbun[4])],)),
-
-                  ],
-                ),
-
-                Divider(thickness: 1, height: 1, color: Colors.black45),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(width: disWidthSize*0.16, height:conHeight*4.7, alignment : Alignment.center, child:Text('5등', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
-
-                    Container(width:disWidthSize*0.24, height:conHeight*4.7, alignment : Alignment.center, child: Text(dangchum_Count[5].toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black))),
-
-                    Container(width:disWidthSize*0.6, height:conHeight*4.7, alignment : Alignment.centerLeft, child: Wrap(children: [Text(dangchum_Soonbun[5])],)),
-
-                  ],
-                ),
-
-                Divider(thickness: 1, height: 1, color: Colors.black45),
-
-                SizedBox(height: 15,),
 
 
-              ],
+              ),
 
             ),
-
-
-
-          ),
-
+            SizedBox(height: 50,),
+          ],
         );
 
       }  //case 1 그동안 당첨내역 출력
 
       case 2: {  //함께 출현한 수
-        return Center( //결과값 표시 존
+        return Column(
+          children: [
+            Center( //결과값 표시 존
 
 
-          child: Container(
-            //height: 100,
-            width:disWidthSize,
-            //MediaQuery.of(context).size.width - 50,
-            color: Colors.grey[100],
-            alignment: Alignment.center,
+              child: Container(
+                //height: 100,
+                width:disWidthSize,
+                //MediaQuery.of(context).size.width - 50,
+                color: Colors.grey[100],
+                alignment: Alignment.center,
 
-            child:
-            Column(
+                child:
+                Column(
 
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FittedBox(
-                      child: Container(
-                        child: Text(naonTotal, style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.blueAccent), ),   //함께 출현한 수와 몇번 나왔는지 표시함
-                      ),
-                    ),
-
-                  ],
-
-                ),
-                Divider(thickness: 2, height: 1, color: Colors.blueAccent),
-                SizedBox(height: 15,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(width: disWidthSize*0.19, height:30, alignment : Alignment.center, child:Text('번  호', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        FittedBox(
+                          child: Container(
+                            child: Text(naonTotal, style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.blueAccent), ),   //함께 출현한 수와 몇번 나왔는지 표시함
+                          ),
+                        ),
 
-                    Container(width:disWidthSize*0.35, height:30, alignment : Alignment.center, child: Text('함께 출현한 횟수', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                    Container(width:disWidthSize*0.14, height:30, alignment : Alignment.center, child: Text('확  률', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                    Container(width:disWidthSize*0.32, height:30, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                      ],
 
-                  ],
-                ),
+                    ),
+                    Divider(thickness: 2, height: 1, color: Colors.blueAccent),
+                    SizedBox(height: 15,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(width: disWidthSize*0.19, height:30, alignment : Alignment.center, child:Text('번  호', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
 
-                Divider(thickness: 1, height: 1, color: Colors.black45),
+                        Container(width:disWidthSize*0.35, height:30, alignment : Alignment.center, child: Text('함께 출현한 횟수', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                        Container(width:disWidthSize*0.14, height:30, alignment : Alignment.center, child: Text('확  률', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                        Container(width:disWidthSize*0.32, height:30, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+
+                      ],
+                    ),
+
+                    Divider(thickness: 1, height: 1, color: Colors.black45),
 
 
-                for(int iji=0; iji<resultBunho.length; iji++)
-                  Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                    for(int iji=0; iji<resultBunho.length; iji++)
+                      Column(
                         children: [
-                          Container(width: disWidthSize*0.19, height:conHeight, alignment : Alignment.center, child:Text(resultBunho[iji].numLotto.toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(width: disWidthSize*0.19, height:conHeight, alignment : Alignment.center, child:Text(resultBunho[iji].numLotto.toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),),
 
-                          Container(width:disWidthSize*0.35, height:conHeight, alignment : Alignment.center, child: Text(resultBunho[iji].countLotto.toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                          Container(width:disWidthSize*0.14, height:conHeight, alignment : Alignment.center,
-                            child:
-                            FittedBox(
-                              child: Text(((resultBunho[iji].countLotto/naonCount)*100).toStringAsFixed(2)+'%',
-                                style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: (){ //함께 출현한 수 선택클릭시 동작~
-
-
-                              // setState(() {
-                              //   bbbCheck(resultBunho[iji].numLotto.toInt());
-                              //   print(resultBunho[iji].numLotto);
-                              // });
-
-                              if(ii==6 || bunhoSangtae[resultBunho[iji].numLotto]==1){
-
-                                return setState(() {
-
-                                });}
-                              bunhoSangtae[resultBunho[iji].numLotto]=1;
-                              choice_Bunho[ii]=resultBunho[iji].numLotto.toString();
-                              ii++;
+                              Container(width:disWidthSize*0.35, height:conHeight, alignment : Alignment.center, child: Text(resultBunho[iji].countLotto.toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                              Container(width:disWidthSize*0.14, height:conHeight, alignment : Alignment.center,
+                                child:
+                                FittedBox(
+                                  child: Text(((resultBunho[iji].countLotto/naonCount)*100).toStringAsFixed(2)+'%',
+                                    style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: (){ //함께 출현한 수 선택클릭시 동작~
 
 
+                                  // setState(() {
+                                  //   bbbCheck(resultBunho[iji].numLotto.toInt());
+                                  //   print(resultBunho[iji].numLotto);
+                                  // });
+
+                                  if(ii==6 || bunhoSangtae[resultBunho[iji].numLotto]==1){
+
+                                    return setState(() {
+
+                                    });}
+                                  bunhoSangtae[resultBunho[iji].numLotto]=1;
+                                  choice_Bunho[ii]=resultBunho[iji].numLotto.toString();
+                                  ii++;
 
 
-                              var mTemp=0;
-                              setState(() {
 
-                                if(ii > -1)
-                                {
-                                  for(int i=0; i< ii+mTemp; i++)
-                                  {
-                                    //var aa=choice_Bunho[i].to
-                                    choice_Bunho_Int[i]=int.parse(choice_Bunho[i]);
-                                  }
 
-                                  choice_Bunho_Int.sort();
+                                  var mTemp=0;
+                                  setState(() {
 
-                                  for(int i=0; i< ii+mTemp; i++)
-                                  {
-                                    //var aa=choice_Bunho[i].to
-                                    if(choice_Bunho_Int[i]!=46) {
-                                      choice_Bunho[i] = choice_Bunho_Int[i].toString();
-                                    }
-                                    else
+                                    if(ii > -1)
                                     {
-                                      choice_Bunho[i]=' ';
+                                      for(int i=0; i< ii+mTemp; i++)
+                                      {
+                                        //var aa=choice_Bunho[i].to
+                                        choice_Bunho_Int[i]=int.parse(choice_Bunho[i]);
+                                      }
+
+                                      choice_Bunho_Int.sort();
+
+                                      for(int i=0; i< ii+mTemp; i++)
+                                      {
+                                        //var aa=choice_Bunho[i].to
+                                        if(choice_Bunho_Int[i]!=46) {
+                                          choice_Bunho[i] = choice_Bunho_Int[i].toString();
+                                        }
+                                        else
+                                        {
+                                          choice_Bunho[i]=' ';
+                                        }
+
+                                      }
+
                                     }
 
-                                  }
-
-                                }
-
-                              });
+                                  });
 
 
-                            },
-                            child: Container(width:disWidthSize*0.32, height:conHeight, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                                },
+                                child: Container(width:disWidthSize*0.32, height:conHeight, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
 
+                              ),
+
+
+                            ],
                           ),
-
-
+                          Divider(thickness: 1, height: 1, color: Colors.grey),
                         ],
                       ),
-                      Divider(thickness: 1, height: 1, color: Colors.grey),
-                    ],
-                  ),
 
 
 
-                SizedBox(height: 15,),
+                    SizedBox(height: 15,),
 
 
-              ],
+                  ],
 
+                ),
+
+
+
+              ),
             ),
 
+            SizedBox(height: 50,),
 
-
-          ),
+          ],
         );
 
 
@@ -2101,131 +2120,136 @@ class _Home1State extends State<Home1> {
 
       case 3: {  //그동안 출현한 번호별 통계
 
-        return Center( //결과값 표시 존
+        return Column(
+          children: [
+            Center( //결과값 표시 존
 
 
-          child: Container(
-            //height: 100,
-            width:disWidthSize,
-            //MediaQuery.of(context).size.width - 50,
-            color: Colors.grey[100],
-            alignment: Alignment.center,
+              child: Container(
+                //height: 100,
+                width:disWidthSize,
+                //MediaQuery.of(context).size.width - 50,
+                color: Colors.grey[100],
+                alignment: Alignment.center,
 
-            child:
-            Column(
+                child:
+                Column(
 
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-
-                SizedBox(height: 15,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(width: disWidthSize*0.19, height:conHeight, alignment : Alignment.center, child:Text('번  호', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
 
-                    Container(width:disWidthSize*0.35, height:conHeight, alignment : Alignment.center, child: Text('출현 횟수', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                    Container(width:disWidthSize*0.14, height:conHeight, alignment : Alignment.center, child: Text('확  률', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                    Container(width:disWidthSize*0.32, height:conHeight, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                    SizedBox(height: 15,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(width: disWidthSize*0.19, height:conHeight, alignment : Alignment.center, child:Text('번  호', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
 
-                  ],
-                ),
+                        Container(width:disWidthSize*0.35, height:conHeight, alignment : Alignment.center, child: Text('출현 횟수', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                        Container(width:disWidthSize*0.14, height:conHeight, alignment : Alignment.center, child: Text('확  률', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                        Container(width:disWidthSize*0.32, height:conHeight, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
 
-                Divider(thickness: 1, height: 1, color: Colors.black45),
+                      ],
+                    ),
+
+                    Divider(thickness: 1, height: 1, color: Colors.black45),
 
 
-                for(int iji=0; iji<resultBunho.length; iji++)
-                  Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                    for(int iji=0; iji<resultBunho.length; iji++)
+                      Column(
                         children: [
-                          Container(width: disWidthSize*0.19, height:conHeight, alignment : Alignment.center, child:Text(resultBunho[iji].numLotto.toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(width: disWidthSize*0.19, height:conHeight, alignment : Alignment.center, child:Text(resultBunho[iji].numLotto.toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),),
 
-                          Container(width:disWidthSize*0.35, height:conHeight, alignment : Alignment.center, child: Text(resultBunho[iji].countLotto.toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                          Container(width:disWidthSize*0.14, height:conHeight, alignment : Alignment.center,
-                            child:
-                            FittedBox(
-                              child: Text(((resultBunho[iji].countLotto/(last_soonbun-1))*100).toStringAsFixed(2)+'%',
-                                style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () { //통계별 번호 선택클릭시 동작
-
-
-                              // setState(() {
-                              //   bbbCheck(resultBunho[iji].numLotto.toInt());
-                              //   print(resultBunho[iji].numLotto);
-                              // });
-
-                              if(ii==6 || bunhoSangtae[resultBunho[iji].numLotto]==1){
-
-                                return setState(() {
-
-                                });}
-                              bunhoSangtae[resultBunho[iji].numLotto]=1;
-                              choice_Bunho[ii]=resultBunho[iji].numLotto.toString();
-                              ii++;
+                              Container(width:disWidthSize*0.35, height:conHeight, alignment : Alignment.center, child: Text(resultBunho[iji].countLotto.toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                              Container(width:disWidthSize*0.14, height:conHeight, alignment : Alignment.center,
+                                child:
+                                FittedBox(
+                                  child: Text(((resultBunho[iji].countLotto/(last_soonbun-1))*100).toStringAsFixed(2)+'%',
+                                    style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: () { //통계별 번호 선택클릭시 동작
 
 
+                                  // setState(() {
+                                  //   bbbCheck(resultBunho[iji].numLotto.toInt());
+                                  //   print(resultBunho[iji].numLotto);
+                                  // });
+
+                                  if(ii==6 || bunhoSangtae[resultBunho[iji].numLotto]==1){
+
+                                    return setState(() {
+
+                                    });}
+                                  bunhoSangtae[resultBunho[iji].numLotto]=1;
+                                  choice_Bunho[ii]=resultBunho[iji].numLotto.toString();
+                                  ii++;
 
 
-                              var mTemp=0;
-                              setState(() {
 
-                                if(ii > -1)
-                                {
-                                  for(int i=0; i< ii+mTemp; i++)
-                                  {
-                                    //var aa=choice_Bunho[i].to
-                                    choice_Bunho_Int[i]=int.parse(choice_Bunho[i]);
-                                  }
 
-                                  choice_Bunho_Int.sort();
+                                  var mTemp=0;
+                                  setState(() {
 
-                                  for(int i=0; i< ii+mTemp; i++)
-                                  {
-                                    //var aa=choice_Bunho[i].to
-                                    if(choice_Bunho_Int[i]!=46) {
-                                      choice_Bunho[i] = choice_Bunho_Int[i].toString();
-                                    }
-                                    else
+                                    if(ii > -1)
                                     {
-                                      choice_Bunho[i]=' ';
+                                      for(int i=0; i< ii+mTemp; i++)
+                                      {
+                                        //var aa=choice_Bunho[i].to
+                                        choice_Bunho_Int[i]=int.parse(choice_Bunho[i]);
+                                      }
+
+                                      choice_Bunho_Int.sort();
+
+                                      for(int i=0; i< ii+mTemp; i++)
+                                      {
+                                        //var aa=choice_Bunho[i].to
+                                        if(choice_Bunho_Int[i]!=46) {
+                                          choice_Bunho[i] = choice_Bunho_Int[i].toString();
+                                        }
+                                        else
+                                        {
+                                          choice_Bunho[i]=' ';
+                                        }
+
+                                      }
+
                                     }
 
-                                  }
-
-                                }
-
-                              });
+                                  });
 
 
-                            },
-                            child: Container(width:disWidthSize*0.32, height:conHeight, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                                },
+                                child: Container(width:disWidthSize*0.32, height:conHeight, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
 
+                              ),
+
+
+                            ],
                           ),
-
-
+                          Divider(thickness: 1, height: 1, color: Colors.grey),
                         ],
                       ),
-                      Divider(thickness: 1, height: 1, color: Colors.grey),
-                    ],
-                  ),
 
 
 
-                SizedBox(height: 15,),
+                    SizedBox(height: 15,),
 
 
-              ],
+                  ],
 
+                ),
+
+              ),
             ),
-
-          ),
+            SizedBox(height: 50,),
+          ],
         );
 
 
@@ -2235,292 +2259,302 @@ class _Home1State extends State<Home1> {
         //print('ddd='+last_soonbun.toString());
 
 
-        return Center( //결과값 표시 존
+        return Column(
+          children: [
+            Center( //결과값 표시 존
 
 
-          child: Container(
-            //height: 100,
-            width:disWidthSize,
-            //MediaQuery.of(context).size.width - 50,
-            color: Colors.grey[100],
-            alignment: Alignment.center,
+              child: Container(
+                //height: 100,
+                width:disWidthSize,
+                //MediaQuery.of(context).size.width - 50,
+                color: Colors.grey[100],
+                alignment: Alignment.center,
 
-            child:
-            Column(
+                child:
+                Column(
 
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-
-                SizedBox(height: 15,),
-
-
-
-                FittedBox(
-                  child: Text((last_soonbun-1).toString()+'회 1등 번호  '+
-                      num[last_soonbun-1][1].toString()+', '+
-                      num[last_soonbun-1][2].toString()+', '+
-                      num[last_soonbun-1][3].toString()+', '+
-                      num[last_soonbun-1][4].toString()+', '+
-                      num[last_soonbun-1][5].toString()+', '+
-                      num[last_soonbun-1][6].toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size+3, fontWeight: FontWeight.bold,  color: Colors.blueAccent),),
-                ),
-
-                SizedBox(height: 15,),
-
-                FittedBox(
-                  child: Text('(각 번호별로 당첨후 바로 다음주에 출현한 번호 통계)', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.blueAccent),),
-                ),
-
-
-                SizedBox(height: 15,),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(width:disWidthSize*0.19, height:conHeight, alignment : Alignment.center, child:Text('번  호', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
 
-                    Container(width:disWidthSize*0.35, height:conHeight, alignment : Alignment.center, child: Text('출현 횟수', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
-
-                    Container(width:disWidthSize*0.31, height:conHeight, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
-
-                  ],
-                ),
-
-                Divider(thickness: 1, height: 1, color: Colors.black45),
+                    SizedBox(height: 15,),
 
 
-                for(int iji=0; iji<resultBunho.length; iji++)
-                  Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+
+                    FittedBox(
+                      child: Text((last_soonbun-1).toString()+'회 1등 번호  '+
+                          num[last_soonbun-1][1].toString()+', '+
+                          num[last_soonbun-1][2].toString()+', '+
+                          num[last_soonbun-1][3].toString()+', '+
+                          num[last_soonbun-1][4].toString()+', '+
+                          num[last_soonbun-1][5].toString()+', '+
+                          num[last_soonbun-1][6].toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size+3, fontWeight: FontWeight.bold,  color: Colors.blueAccent),),
+                    ),
+
+                    SizedBox(height: 15,),
+
+                    FittedBox(
+                      child: Text('(각 번호별로 당첨후 바로 다음주에 출현한 번호 통계)', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.blueAccent),),
+                    ),
+
+
+                    SizedBox(height: 15,),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(width:disWidthSize*0.19, height:conHeight, alignment : Alignment.center, child:Text('번  호', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
+
+                        Container(width:disWidthSize*0.35, height:conHeight, alignment : Alignment.center, child: Text('출현 횟수', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+
+                        Container(width:disWidthSize*0.31, height:conHeight, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+
+                      ],
+                    ),
+
+                    Divider(thickness: 1, height: 1, color: Colors.black45),
+
+
+                    for(int iji=0; iji<resultBunho.length; iji++)
+                      Column(
                         children: [
-                          Container(width:disWidthSize*0.19, height:conHeight, alignment : Alignment.center, child:Text(resultBunho[iji].numLotto.toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(width:disWidthSize*0.19, height:conHeight, alignment : Alignment.center, child:Text(resultBunho[iji].numLotto.toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),),
 
-                          Container(width:disWidthSize*0.35, height:conHeight, alignment : Alignment.center, child: Text(resultBunho[iji].countLotto.toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                              Container(width:disWidthSize*0.35, height:conHeight, alignment : Alignment.center, child: Text(resultBunho[iji].countLotto.toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
 
-                          InkWell(
-                            onTap: () { //통계별 번호 선택클릭시 동작
-
-
-                              // setState(() {
-                              //   bbbCheck(resultBunho[iji].numLotto.toInt());
-                              //   print(resultBunho[iji].numLotto);
-                              // });
-
-                              if(ii==6 || bunhoSangtae[resultBunho[iji].numLotto]==1){
-
-                                return setState(() {
-
-                                });}
-                              bunhoSangtae[resultBunho[iji].numLotto]=1;
-                              choice_Bunho[ii]=resultBunho[iji].numLotto.toString();
-                              ii++;
+                              InkWell(
+                                onTap: () { //통계별 번호 선택클릭시 동작
 
 
+                                  // setState(() {
+                                  //   bbbCheck(resultBunho[iji].numLotto.toInt());
+                                  //   print(resultBunho[iji].numLotto);
+                                  // });
+
+                                  if(ii==6 || bunhoSangtae[resultBunho[iji].numLotto]==1){
+
+                                    return setState(() {
+
+                                    });}
+                                  bunhoSangtae[resultBunho[iji].numLotto]=1;
+                                  choice_Bunho[ii]=resultBunho[iji].numLotto.toString();
+                                  ii++;
 
 
-                              var mTemp=0;
-                              setState(() {
 
-                                if(ii > -1)
-                                {
-                                  for(int i=0; i< ii+mTemp; i++)
-                                  {
-                                    //var aa=choice_Bunho[i].to
-                                    choice_Bunho_Int[i]=int.parse(choice_Bunho[i]);
-                                  }
 
-                                  choice_Bunho_Int.sort();
+                                  var mTemp=0;
+                                  setState(() {
 
-                                  for(int i=0; i< ii+mTemp; i++)
-                                  {
-                                    //var aa=choice_Bunho[i].to
-                                    if(choice_Bunho_Int[i]!=46) {
-                                      choice_Bunho[i] = choice_Bunho_Int[i].toString();
-                                    }
-                                    else
+                                    if(ii > -1)
                                     {
-                                      choice_Bunho[i]=' ';
+                                      for(int i=0; i< ii+mTemp; i++)
+                                      {
+                                        //var aa=choice_Bunho[i].to
+                                        choice_Bunho_Int[i]=int.parse(choice_Bunho[i]);
+                                      }
+
+                                      choice_Bunho_Int.sort();
+
+                                      for(int i=0; i< ii+mTemp; i++)
+                                      {
+                                        //var aa=choice_Bunho[i].to
+                                        if(choice_Bunho_Int[i]!=46) {
+                                          choice_Bunho[i] = choice_Bunho_Int[i].toString();
+                                        }
+                                        else
+                                        {
+                                          choice_Bunho[i]=' ';
+                                        }
+
+                                      }
+
                                     }
 
-                                  }
-
-                                }
-
-                              });
+                                  });
 
 
-                            },
-                            child: Container(width:disWidthSize*0.31, height:conHeight, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                                },
+                                child: Container(width:disWidthSize*0.31, height:conHeight, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
 
+                              ),
+
+
+                            ],
                           ),
-
-
+                          Divider(thickness: 1, height: 1, color: Colors.grey),
                         ],
                       ),
-                      Divider(thickness: 1, height: 1, color: Colors.grey),
-                    ],
-                  ),
 
 
 
-                SizedBox(height: 15,),
+                    SizedBox(height: 15,),
 
 
-              ],
+                  ],
 
+                ),
+
+              ),
             ),
-
-          ),
+            SizedBox(height: 50,),
+          ],
         );
 
 
       }  //case 4 지난주 당첨번호로 분석 출력
 
       case 5: {  //해당번호 다음 출현한 번호
-        return Center( //결과값 표시 존
+        return Column(
+          children: [
+            Center( //결과값 표시 존
 
 
-          child: Container(
-            //height: 100,
-            width:disWidthSize,
-            //MediaQuery.of(context).size.width - 50,
-            color: Colors.grey[100],
-            alignment: Alignment.center,
+              child: Container(
+                //height: 100,
+                width:disWidthSize,
+                //MediaQuery.of(context).size.width - 50,
+                color: Colors.grey[100],
+                alignment: Alignment.center,
 
-            child:
-            Column(
+                child:
+                Column(
 
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FittedBox(
-                      child: Container(
-                        child: Text(naonTotal, style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.blueAccent), ),   //다음주 출현한 수와 몇번 나왔는지 표시함
-                      ),
-                    ),
-
-                  ],
-
-                ),
-                Divider(thickness: 2, height: 1, color: Colors.blueAccent),
-                SizedBox(height: 15,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(width: disWidthSize*0.19, height:30, alignment : Alignment.center, child:Text('번  호', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        FittedBox(
+                          child: Container(
+                            child: Text(naonTotal, style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.blueAccent), ),   //다음주 출현한 수와 몇번 나왔는지 표시함
+                          ),
+                        ),
 
-                    Container(width:disWidthSize*0.35, height:30, alignment : Alignment.center, child: Text('다음주 출현횟수', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                    Container(width:disWidthSize*0.14, height:30, alignment : Alignment.center, child: Text('확  률', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                    Container(width:disWidthSize*0.32, height:30, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                      ],
 
-                  ],
-                ),
+                    ),
+                    Divider(thickness: 2, height: 1, color: Colors.blueAccent),
+                    SizedBox(height: 15,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(width: disWidthSize*0.19, height:30, alignment : Alignment.center, child:Text('번  호', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),),
 
-                Divider(thickness: 1, height: 1, color: Colors.black45),
+                        Container(width:disWidthSize*0.35, height:30, alignment : Alignment.center, child: Text('다음주 출현횟수', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                        Container(width:disWidthSize*0.14, height:30, alignment : Alignment.center, child: Text('확  률', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                        Container(width:disWidthSize*0.32, height:30, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+
+                      ],
+                    ),
+
+                    Divider(thickness: 1, height: 1, color: Colors.black45),
 
 
-                for(int iji=0; iji<resultBunho.length; iji++)
-                  Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                    for(int iji=0; iji<resultBunho.length; iji++)
+                      Column(
                         children: [
-                          Container(width: disWidthSize*0.19, height:conHeight, alignment : Alignment.center, child:Text(resultBunho[iji].numLotto.toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(width: disWidthSize*0.19, height:conHeight, alignment : Alignment.center, child:Text(resultBunho[iji].numLotto.toString(), style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),),
 
-                          Container(width:disWidthSize*0.35, height:conHeight, alignment : Alignment.center, child: Text(resultBunho[iji].countLotto.toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
-                          Container(width:disWidthSize*0.14, height:conHeight, alignment : Alignment.center,
-                            child:
-                            FittedBox(
-                              child: Text(((resultBunho[iji].countLotto/naonCount)*100).toStringAsFixed(2)+'%',
-                                style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: (){ //함께 출현한 수 선택클릭시 동작~
-
-
-                              // setState(() {
-                              //   bbbCheck(resultBunho[iji].numLotto.toInt());
-                              //   print(resultBunho[iji].numLotto);
-                              // });
-
-                              if(ii==6 || bunhoSangtae[resultBunho[iji].numLotto]==1){
-
-                                return setState(() {
-
-                                });}
-                              bunhoSangtae[resultBunho[iji].numLotto]=1;
-                              choice_Bunho[ii]=resultBunho[iji].numLotto.toString();
-                              ii++;
+                              Container(width:disWidthSize*0.35, height:conHeight, alignment : Alignment.center, child: Text(resultBunho[iji].countLotto.toString(), style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                              Container(width:disWidthSize*0.14, height:conHeight, alignment : Alignment.center,
+                                child:
+                                FittedBox(
+                                  child: Text(((resultBunho[iji].countLotto/naonCount)*100).toStringAsFixed(2)+'%',
+                                    style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: (){ //함께 출현한 수 선택클릭시 동작~
 
 
+                                  // setState(() {
+                                  //   bbbCheck(resultBunho[iji].numLotto.toInt());
+                                  //   print(resultBunho[iji].numLotto);
+                                  // });
+
+                                  if(ii==6 || bunhoSangtae[resultBunho[iji].numLotto]==1){
+
+                                    return setState(() {
+
+                                    });}
+                                  bunhoSangtae[resultBunho[iji].numLotto]=1;
+                                  choice_Bunho[ii]=resultBunho[iji].numLotto.toString();
+                                  ii++;
 
 
-                              var mTemp=0;
-                              setState(() {
 
-                                if(ii > -1)
-                                {
-                                  for(int i=0; i< ii+mTemp; i++)
-                                  {
-                                    //var aa=choice_Bunho[i].to
-                                    choice_Bunho_Int[i]=int.parse(choice_Bunho[i]);
-                                  }
 
-                                  choice_Bunho_Int.sort();
+                                  var mTemp=0;
+                                  setState(() {
 
-                                  for(int i=0; i< ii+mTemp; i++)
-                                  {
-                                    //var aa=choice_Bunho[i].to
-                                    if(choice_Bunho_Int[i]!=46) {
-                                      choice_Bunho[i] = choice_Bunho_Int[i].toString();
-                                    }
-                                    else
+                                    if(ii > -1)
                                     {
-                                      choice_Bunho[i]=' ';
+                                      for(int i=0; i< ii+mTemp; i++)
+                                      {
+                                        //var aa=choice_Bunho[i].to
+                                        choice_Bunho_Int[i]=int.parse(choice_Bunho[i]);
+                                      }
+
+                                      choice_Bunho_Int.sort();
+
+                                      for(int i=0; i< ii+mTemp; i++)
+                                      {
+                                        //var aa=choice_Bunho[i].to
+                                        if(choice_Bunho_Int[i]!=46) {
+                                          choice_Bunho[i] = choice_Bunho_Int[i].toString();
+                                        }
+                                        else
+                                        {
+                                          choice_Bunho[i]=' ';
+                                        }
+
+                                      }
+
                                     }
 
-                                  }
-
-                                }
-
-                              });
+                                  });
 
 
-                            },
-                            child: Container(width:disWidthSize*0.32, height:conHeight, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
+                                },
+                                child: Container(width:disWidthSize*0.32, height:conHeight, alignment : Alignment.center, child: Text('선  택', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),)),
 
+                              ),
+
+
+                            ],
                           ),
-
-
+                          Divider(thickness: 1, height: 1, color: Colors.grey),
                         ],
                       ),
-                      Divider(thickness: 1, height: 1, color: Colors.grey),
-                    ],
-                  ),
 
 
 
-                SizedBox(height: 15,),
+                    SizedBox(height: 15,),
 
 
-              ],
+                  ],
 
+                ),
+
+
+
+              ),
             ),
-
-
-
-          ),
+            SizedBox(height: 50,),
+          ],
         );
 
 
@@ -2549,7 +2583,28 @@ class _Home1State extends State<Home1> {
 }
 
 
+choiceBunhoColor(){
+  for(var icolor=0; icolor<6;icolor++)
 
+  {
+    //print(choice_Bunho_Int[icolor]);
+    switch ((choice_Bunho_Int[icolor])){
+      case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10:
+      choiceColors[icolor]=  Colors.yellow; break;
+      case 11: case 12: case 13: case 14: case 15: case 16: case 17: case 18: case 19: case 20:
+      choiceColors[icolor]= Colors.lightBlueAccent; break;
+      case 21: case 22: case 23: case 24: case 25: case 26: case 27: case 28: case 29: case 30:
+      choiceColors[icolor]= Colors.redAccent; break;
+      case 31: case 32: case 33: case 34: case 35: case 36: case 37: case 38: case 39: case 40:
+      choiceColors[icolor]= Colors.grey; break;
+      case 41: case 42: case 43: case 44: case 45:
+      choiceColors[icolor]= Colors.green; break;
+      case 46:
+        choiceColors[icolor]= Colors.black; break;
+
+    }
+  }
+}
 
 
 

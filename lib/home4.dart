@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'lottoad.dart';
 import 'lottovar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home4 extends StatefulWidget {
   const Home4({Key? key}) : super(key: key);
@@ -25,59 +26,83 @@ class _Home4State extends State<Home4> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 15,),
-            Text('1. 로만살은?', style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
-            SizedBox(height: 15,),
+
             FittedBox(
-              child: Text('  - 지금까지의 로또 1등 당첨 번호 통계를 위한 앱입니다.\n\n'
-                  '  - 내가 좋아하는 로또번호를 대입하여 지금까지 당첨된 기록을 조회하거나\n\n'
-                  '  - 특정 번호와 그동안 함께 출현한 숫자들의 통계를 조회하기도 하고\n\n'
-                  ' - 특정 번호 출현 후 그 다음주에 나온 번호 통계 등을 조회할 수 있습니다.\n\n'
-                  ' - 꿈에서 나온 상징에 해당하는 번호를 조회할 수도 있지만,\n'
-                  '     아무런 과학적인 근거가 없는 내용으로 그냥 재미로 보시면 됩니다.', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.black),),
+              child: Text(' <로또만이 살길이다>(이하 "로만살")은\n'
+                ' 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고\n'
+                ' 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여\n'
+                ' 다음과 같이 개인정보 처리방침을 수립·공개합니다.\n\n'
+                ' ※ 이 개인정보처리방침은 2023년 1월 12일부터 적용됩니다.\n\n'
+                ' 제1조(개인정보의 처리 목적)\n'
+                ' < 로또만이 살길이다 >(이하 "로만살")은\n'
+                ' 개인정보를 일체 수집 및 보유하지 않으며, 이용 목적이 변경되는 경우에는\n'
+                ' 「개인정보 보호법」 제18조에 따라''별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.\n'
+                ' 단, 앱 내에서 제3자가 제공하는 광고플랫폼에 의해 광고 식별자가 수집될 수도 있습니다.\n'
+                ' 광고 식별자는 개인을 식별할 수 없고 비영구적이며, 기기의 설정을 변경하여 사용을 거부할 수 있습니다.\n\n'
+                ' 1. 회원가입 및 관리\n'
+                ' "해당없음"-"로만살"은 개인정보를 수집 또는 보관하지 않습니다.\n'
+                ' 2. 민원사무 처리\n'
+                ' "해당없음"-"로만살"은 개인정보를 수집 또는 보관하지 않습니다.\n'
+                ' 3. 재화 또는 서비스 제공\n'
+                ' "해당없음"-"로만살"은 개인정보를 수집 또는 보관하지 않습니다.\n'
+                ' 4. 마케팅 및 광고에의 활용\n'
+                ' "해당없음"-"로만살"은 개인정보를 수집 또는 보관하지 않습니다.\n'
+                ' 5. 개인영상정보\n'
+                ' "해당없음"-"로만살"은 개인정보를 수집 또는 보관하지 않습니다.\n'
+                ' 6. 기타\n'
+                ' "해당없음"-"로만살"은 개인정보를 수집 또는 보관하지 않습니다.\n\n'
+                ' 제2조(개인정보의 처리 및 보유 기간)\n'
+                ' ①< "로만살" >은 개인정보를 수집 또는 보관하지 않으며 처리할 개인정보를 가지고 있지 않습니다.\n\n'
+                ' 제3조(처리하는 개인정보의 항목)\n'
+                ' ①< "로만살" >은 개인정보를 수집 또는 보관하지 않으며 처리할 개인정보를 가지고 있지 않습니다.\n\n'
+                ' 제4조(개인정보의 제3자 제공에 관한 사항)\n'
+                ' ①< "로만살" >은 개인정보를 수집 또는 보관하지 않으며, 제3자에게 제공할 개인정보를 보유하고 있지 않습니다.\n\n'
+                ' 제5조(개인정보처리의 위탁에 관한 사항)\n'
+                ' ①< "로만살" >은(는) 개인정보를 수집 또는 보유하지 않으므로 개인정보 처리업무를 위탁하고 있지 않습니다.\n'
+                ' ②위탁업무의 내용이나 수탁자가 변경될 경우에는 지체없이 본 개인정보 처리방침을 통하여 공개하도록 하겠습니다.\n\n'
+                ' 제6조(개인정보의 파기절차 및 파기방법)\n'
+                ' ① < "로만살" > 은 개인정보를 수집 또는 보관하지 않습니다. 파기할 개인정보를 보유하고 있지 않습니다.\n\n'
+                ' 제7조(정보주체와 법정대리인의 권리·의무 및 그 행사방법에 관한 사항)\n'
+                ' ①< "로만살" >은 개인정보를 수집 또는 보관하지 않으며 처리할 개인정보를 가지고 있지 않습니다.\n\n'
+                ' 제8조(개인정보의 안전성 확보조치에 관한 사항)\n'
+                ' <"로만살" >은 개인정보를 수집 또는 보관하지 않으며 처리할 개인정보를 가지고 있지 않습니다.\n\n'
+                ' 제9조(개인정보를 자동으로 수집하는 장치의 설치·운영 및 그 거부에 관한 사항)\n'
+                ' "로만살"은 정보주체의 이용정보를 저장하고 수시로 불러오는 ‘쿠키(cookie)’를 사용하지 않습니다.\n\n'
+                ' 제10조(행태정보의 수집·이용·제공 및 거부 등에 관한 사항)\n'
+                ' 행태정보의 수집·이용·제공 및 거부등에 관한 사항\n'
+                ' <"로만살">은 온라인 맞춤형 광고 등을 위한 행태정보를 수집·이용·제공하지 않습니다.\n\n'
+                ' 제11조(추가적인 이용·제공 판단기준)\n'
+                ' "해당없음" - "로만살"은 개인정보를 수집 또는 보관하지 않으며 처리할 개인정보를 가지고 있지 않습니다.\n\n'
+                ' 제12조(가명정보를 처리하는 경우 가명정보 처리에 관한 사항)\n'
+                ' <"로만살" > 은 가명정보를 처리하고 있지 않습니다.\n\n'
+                ' 제13조 (개인정보 보호책임자에 관한 사항)\n'
+                ' ①"로만살"은 개인정보 처리에 관한 업무를 총괄해서 책임지고 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여\n'
+                ' 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.\n'
+                ' <개인정보 보호책임자>\n'
+                ' • 성명 :김미영\n'
+                ' • 직책 :개발자\n'
+                ' • 연락처 : 2thekey.01@gmail.com\n\n'
+                ' 제14조(정보주체의 권익침해에 대한 구제방법)\n'
+                ' 정보주체는 개인정보침해로 인한 구제를 받기 위하여 개인정보분쟁조정위원회, 한국인터넷진흥원 개인정보침해신고센터 등에\n'
+                ' 분쟁해결이나 상담 등을 신청할 수 있습니다.\n\n'
+                ' 이 밖에 기타 개인정보침해의 신고, 상담에 대하여는 아래의 기관에 문의하시기 바랍니다.\n'
+                ' 1. 개인정보분쟁조정위원회 : (국번없이) 1833-6972 (www.kopico.go.kr)\n'
+                ' 2. 개인정보침해신고센터 : (국번없이) 118 (privacy.kisa.or.kr)\n'
+                ' 3. 대검찰청 : (국번없이) 1301 (www.spo.go.kr)\n'
+                ' 4. 경찰청 : (국번없이) 182 (ecrm.cyber.go.kr)\n'
+                ' 「개인정보보호법」제35조(개인정보의 열람), 제36조(개인정보의 정정·삭제),\n'
+                ' 제37조(개인정보의 처리정지 등)의 규정에 의한\n'
+                ' 요구에 대하여 공공기관의 장이 행한 처분 또는부작위로 인하여 권리 또는 이익의 침해를 받은 자는\n'
+                ' 행정심판법이 정하는 바에 따라 행정심판을 청구할 수 있습니다.\n\n'
+                ' ※ 행정심판에 대해 자세한 사항은 중앙행정심판위원회(www.simpan.go.kr) 홈페이지를 참고하시기 바랍니다.\n\n'
+                ' 제15조(영상정보처리기기 운영·관리에 관한 사항)\n'
+                ' ①<"로만살" >은 영상정보처리기기를 설치·운영하고 있지 않습니다.\n\n'
+                ' 제16조(개인정보 처리방침 변경)\n'
+                ' ① 이 개인정보처리방침은 2023년 1월 12일부터 적용됩니다.\n',
+                style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-4,   color: Colors.black),),
             ),
 
-            SizedBox(height: 25,),
-            Text('2. 로만살의 개인정보 보호정책은?', style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
-            SizedBox(height: 15,),
-            FittedBox(
-              child: Text('  - 로만살은 어떠한 개인정보를 요구하지도 저장하지도 않습니다.\n\n'
-                  '  - 자세한 개인정보보호정책은\n'
-                  '     https://.... 을 참고하시면 됩니다.'
-                , style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.black),),
-            ),
 
-            SizedBox(height: 25,),
-            Text('3. 로또 분석 앱인가요?', style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
-            SizedBox(height: 15,),
-            FittedBox(
-              child: Text('  - 아닙니다. 하지만 당첨 번호 통계를 내다보니\n'
-                  '     뜻하지 않게 분석이 되긴 합니다만, 그 분석이라는 것도\n'
-                  '     지금까지의 출현한 당첨번호의 통계에 의해 확률적으로\n'
-                  '     많이 출현했던 번호의 조합이라고 할 수 있습니다.\n\n'
-                  '  - 통계에 의한 확률이라고는 하지만 아주 미미한 수준의\n'
-                  '     정확도를 가지고 있습니다.'
-                , style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.black),),
-            ),
-
-            SizedBox(height: 25,),
-            Text('4. 왜 만들었나요?', style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
-            SizedBox(height: 15,),
-            FittedBox(
-              child: Text('  - 로또 분석은 의미가 없다고 생각합니다.\n\n'
-                  '  - 각 회차별로 독립실행을 하기때문이지만,\n'
-                  '     기왕 구입할꺼면 1,2,3,4,5,6 보다는\n'
-                  '     좀 더 그럴싸한 번호를 구입하고 싶어서 만들었습니다.'
-                , style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.black),),
-            ),
-
-            SizedBox(height: 25,),
-            Text('5. 앱에 대해 건의하실 사항은?', style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
-            SizedBox(height: 15,),
-            FittedBox(
-              child: Text('  - 2thekey.01@gmail.com 으로\n'
-                  '     의견 보내 주시면 반영토록 노력하겠습니다.\n\n\n\n\n\n'
-                , style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.black),),
-            ),
 
 
 
