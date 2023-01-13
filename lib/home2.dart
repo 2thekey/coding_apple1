@@ -21,7 +21,7 @@ class _Home2State extends State<Home2> {
   Widget build(BuildContext context) {
 
     return Container(
-      width: disWidthSize,
+      //width: disWidthSize,
       //height: 600,
       child: Center(
         child:
