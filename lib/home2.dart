@@ -34,7 +34,7 @@ class _Home2State extends State<Home2> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 15,),
-                  Text('<제외수 목록 - 로또 통계론>', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
+                  Text('<제외수 목록 - 로또 통계론> ', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
 
                   SizedBox(height: 15,),
                   ElevatedButton(
