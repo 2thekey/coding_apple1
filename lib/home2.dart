@@ -39,7 +39,7 @@ class _Home2State extends State<Home2> {
                   SizedBox(height: 15,),
                   ElevatedButton(
                     child: Text(
-                      '1. 이전 1등 번호는 제외 '
+                      '1. 이전 1등 번호는 제외'
                       , style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.black),),
                     onPressed: ()  {
                     },
