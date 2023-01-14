@@ -34,7 +34,7 @@ class _Home2State extends State<Home2> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 15,),
-                  Text('<제외수 목록 - 로또 통계론> ', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
+                  Text('<제외수 목록 - 로또 통계론>  ', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
 
                   SizedBox(height: 15,),
                   ElevatedButton(
@@ -46,7 +46,7 @@ class _Home2State extends State<Home2> {
                   ),
                   SizedBox(height: 15,),
                   FittedBox(
-                    child: Text('- 매우 희박함\n\n'
+                    child: Text('- 매우 희박함 \n\n'
                         '- 대한민국의 경우 나온적 없음.\n'
                       , style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.black),),
                   ),
