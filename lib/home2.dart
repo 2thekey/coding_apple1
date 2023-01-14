@@ -62,7 +62,7 @@ class _Home2State extends State<Home2> {
                   SizedBox(height: 15,),
                   FittedBox(
                     child: Text('- 연속해서 4연번이 나온경우는 매우 희박함 \n\n'
-                        '- 우리나라의 경우 3연번은 몇차례 나온적 있음.\n\n'
+                        '- 우리나라의 경우 3연번은 몇차례 나온적 있음\n\n'
                         'ex) 1, 2, 3, 4, 16, 29 또는 9, 21, 22, 23, 24, 44\n'
                         , style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.black),),
                   ),
@@ -78,7 +78,7 @@ class _Home2State extends State<Home2> {
                   SizedBox(height: 15,),
                   FittedBox(
                     child: Text('- 같은 끝수가 3개이상 되는 경우는 20% 미만\n\n'
-                        'ex) 1, 11 21, 24, 36, 49 또는 9, 19, 21, 39, 44, 45\n'
+                        'ex) 1, 11 21, 24, 36, 49 또는 9, 19, 29, 36, 44, 45\n'
                       , style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.black),),
                   ),
 
