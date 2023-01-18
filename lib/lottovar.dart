@@ -291,7 +291,7 @@ void heartcharge(BuildContext context) {
                 Timer(const Duration(seconds: 2),(){
                   //Get.offAll(const MainPage());
                   Navigator.pop(context);
-                  lottoToast('♥ 가 충전되었습니다.', context);
+                  lottoToast('♥ 충전완료 X 7', context);
                   heartCount=7;
                 });
 
