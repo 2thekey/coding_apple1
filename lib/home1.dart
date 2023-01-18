@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'button.dart';
 import 'lottovar.dart';
+import 'package:webviewx/webviewx.dart';
 //import 'lottoad.dart';
 
 
@@ -63,6 +64,17 @@ class _Home1State extends State<Home1> {
       children: [
         Column(
           children: [
+            Column(
+              children: [
+                WebViewX(
+                    width: 380,
+                    height: 120,
+                    initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-SVq5IjZhW5MZMnOt" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                    initialSourceType: SourceType.html
+                ),
+
+              ],
+            ),
             // Container(
             //   width: disWidthSize,
             //   height: 100,
@@ -80,7 +92,7 @@ class _Home1State extends State<Home1> {
             //   child: Text('AD1'),
             //
             // ),
-            SizedBox(height: 15,),
+            //SizedBox(height: 15,),
 
             Center( //로또번호 표시 존
               child: Container(
@@ -331,6 +343,8 @@ class _Home1State extends State<Home1> {
                           onTap: (){
 
                             all_clear();
+
+
 
 
 
@@ -716,9 +730,9 @@ class _Home1State extends State<Home1> {
                             resultSangtae=1;
 
 
-                            heart_count();
+                            heart_count(context);
 
-                            if(heartCount>-1)
+                            if(heartCount>0)
                               lottoToast('조회 완료 ♥ x '+heartCount.toString(),context);
 
                           }   //if-else 번호가 3개이상 선택시
@@ -1085,9 +1099,9 @@ class _Home1State extends State<Home1> {
                               resultSangtae = 2;
 
 
-                              heart_count();
+                              heart_count(context);
 
-                              if(heartCount>-1)
+                              if(heartCount>0)
                                 lottoToast('조회 완료 ♥ x '+heartCount.toString(),context);
                             }
 
@@ -1406,9 +1420,9 @@ class _Home1State extends State<Home1> {
                               resultSangtae = 5;
 
 
-                              heart_count();
+                              heart_count(context);
 
-                              if(heartCount>-1)
+                              if(heartCount>0)
                                 lottoToast('조회 완료 ♥ x '+heartCount.toString(),context);
                             }
 
@@ -1461,7 +1475,7 @@ class _Home1State extends State<Home1> {
 
                       InkWell(  //지난주 당첨 번호로 분석
                         onTap: (){
-
+                          //url_link(); //쿠팡방문
                           all_clear();
                           for(int jj=0; jj<46; jj++) {
                             resultBunho.add(MyScore(jj, 0));
@@ -1553,7 +1567,20 @@ class _Home1State extends State<Home1> {
                       SizedBox(height: 15,),
                       FittedBox(
                         child: Text('※ 모든 통계는 보너스번호를 제외한 통계입니다.\n     오직 1등이 목표니까요.', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
-                      )
+                      ),
+
+                      Column(
+                        children: [
+                          WebViewX(
+                              width: 440,
+                              height: 190,
+                              initialContent: '<script src="https://ads-partners.coupang.com/g.js"></script><script> new PartnersCoupang.G({"id":632413,"template":"carousel","trackingCode":"AF7493713","width":"400","height":"120"});   </script>'
+                                  '<p><font size="1.5" color="red"> ※ 본 사이트는 쿠팡 파트너스 활동을 통해,일정액의 수수료를 제공받을 수 있습니다.</font></p>',
+                              initialSourceType: SourceType.html
+                          ),
+
+                        ],
+                      ),
 
                     ],
                   ),
@@ -2605,7 +2632,6 @@ choiceBunhoColor(){
     }
   }
 }
-
 
 
 

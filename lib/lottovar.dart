@@ -1,8 +1,14 @@
+import 'dart:async';
 import 'dart:js';
 
 import 'package:fluttertoast/fluttertoast.dart';
 //import 'package:fluttertoast/fluttertoast_web.dart';
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
+import 'dart:js' as js;
+import 'package:url_launcher/url_launcher.dart';
+
+
 //import 'lottoad.dart';
 
 
@@ -61,7 +67,7 @@ String naonTotal=''; //함께 출현한 수 처리시, 선택한 번호묶어서
 
 var hiveBox;
 
-void heart_count() async{
+void heart_count(BuildContext context) async{
 
 
   heartCount--;
@@ -69,7 +75,8 @@ void heart_count() async{
     //showRewardedAd();  //리워드전면광고 불러오기
     //showInterstitialAd();  //에드몹 전면광고로 리워드 광고 대체
     //lottoToast('하트 충전이 필요합니다.',context);
-    heartCount=10;
+    heartcharge(context);
+
   }
 
    else {
@@ -245,14 +252,75 @@ void lottoToast2(BuildContext context) {
   );
 } //토스트메시지 띄우기
 
-// void lottoToast(String message,BuildContext context) {
-//
-//   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
-//
-//   // Fluttertoast.showToast(
-//   //     msg: message,
-//   //     backgroundColor: Colors.red,
-//   //     toastLength: Toast.LENGTH_SHORT,
-//   //     gravity: ToastGravity.BOTTOM_LEFT);
-// }
+
+void heartcharge(BuildContext context) {
+  showDialog(
+      context: context,
+      builder: (context) => StatefulBuilder(builder: (context, setState) {
+      //Dialog안에 setState를 적용하려면 StateFulbuilder를 꼭 적용해야 한다.
+
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            //팝업창에 radius를 주기위한 옵션
+              borderRadius: BorderRadius.all(Radius.circular(32.0))),
+          contentPadding: EdgeInsets.only(top: 0, left: 5,),
+          //default 패딩값을 없앨 수 있다.
+          content:Container(
+            width: disWidthSize,
+            height: 100,
+            alignment: Alignment.center,
+            child: Center(
+              child:
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: 15,),
+                  Text('♥ 충전이 필요합니다.\n\n확인 버튼을 누르면 쿠팡페이지 방문후 충전됩니다.', style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size-2, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
+                ],
+              ),
+
+            ),
+          ),
+          actions: <Widget>[
+            new ElevatedButton(
+              child: new Text("확인"),
+              onPressed: () {
+               url_link();
+
+                Timer(const Duration(seconds: 2),(){
+                  //Get.offAll(const MainPage());
+                  Navigator.pop(context);
+                  lottoToast('♥ 가 충전되었습니다.', context);
+                  heartCount=7;
+                });
+
+
+              },
+            ),
+          ],
+        );
+      }  //builder
+      )
+  );
+} //하트충전 띄우기
+
+
+url_link() async{
+
+  const url = 'https://link.coupang.com/a/MERGJ?img%20src=%22https://ads-partners.coupang.com/banners/632747?subId=&traceId=V0-301-879dd1202e5c73b2-I632747&w=320&h=50%22';
+
+  // html.window.open(url, 'new tab');
+
+  await js.context.callMethod('open', [url]);
+
+
+
+  // if (await canLaunch(url)) {
+  //   await launch(url,forceWebView: true, forceSafariVC: true,);
+  // } else {
+  //   throw 'Could not launch $url';
+  // }
+
+}
 

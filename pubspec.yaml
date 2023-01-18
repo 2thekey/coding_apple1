@@ -45,6 +45,7 @@ dependencies:
   hive_generator: ^2.0.0
   build_runner: ^2.3.3
   url_launcher: ^6.1.7
+  webviewx: ^0.2.1
   #google_mobile_ads: ^2.3.0
 
 dev_dependencies:
