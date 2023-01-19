@@ -37,18 +37,18 @@ class _Home3State extends State<Home3> {
         children: [
           Container(
             padding: EdgeInsets.only(left: 10),
-            //color: Colors.bla,
-            alignment: Alignment.centerLeft,
+            //color: Colors.red,
+            alignment: Alignment.center,
             child:
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: 15,),
 
 
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     InkWell(  //버튼
                       onTap: (){
@@ -223,10 +223,6 @@ class _Home3State extends State<Home3> {
                         ],
                       ),
 
-
-
-
-
                       // Text.rich(
                       //   TextSpan(
                       //
@@ -400,7 +396,7 @@ Map lottoDream={
   '1':'임금(왕),대통령,태극기,흰머리,할아버지,할머니,갓난아이,지팡이,칫솔,양치질,끈(줄),전봇대,깡패,건달,일본,부처님',
   '2':'비행기,헬기,날다,달리기,마라톤,별,행성,인사,거수경례,빗자루,어머니,얼음,안개,외국인,새장',
   '3': '우산,축구공,풍선,바둑,장기,춤,박쥐,인형,호랑이,표범,왕관,인삼,삼성(기업),장난감,영어,사투리,글씨,글자,삼각자,삼촌',
-  '4':'벌레,개미,모기,파리,나비,번데기,오징어,낙지,상어,미역,새우,가재,항구,해수욕장,모래,수족관,폭포,계곡,약수터,지게,국민은행,신호등,다이야몬드,거울',
+  '4':'벌레,개미,모기,파리,나비,번데기,오징어,낙지,상어,미역,새우,가재,항구,해수욕장,모래,수족관,폭포,계곡,약수터,지게,국민은행,신호등,다이아몬드,거울',
   '5':'어묵,오뎅,오리,쥐,오리,오곡(콩,조,수수등),5천원권,동굴,수리,장모,조카,외환은행,물기둥,분수,모기장,어린이날',
   '6':'호수,연못,난초,진흙밭,진주,대파,부추,시금치,배추,호스,타이어,바퀴,선배,박물관,도박',
   '7':'산길,말,황금,수건,신용카드,무지개,고가다리,육교,두부,소금,기저귀,무우,교실,네잎클로바,화투',

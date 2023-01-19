@@ -291,7 +291,7 @@ void heartcharge(BuildContext context) {
                 Timer(const Duration(seconds: 2),(){
                   //Get.offAll(const MainPage());
                   Navigator.pop(context);
-                  lottoToast('♥ 충전완료 X 7', context);
+                  lottoToast_button('♥ 충전완료 X 7', context);
                   heartCount=7;
                 });
 
@@ -324,3 +324,62 @@ url_link() async{
 
 }
 
+void lottoToast_button(String jmt_message, BuildContext context) {
+  // Fluttertoast.showToast(msg: jmt_message,
+  //   gravity: ToastGravity.CENTER,
+  //   backgroundColor: Colors.black,
+  //   fontSize: 20.0,
+  //   textColor: Colors.white,
+  //   timeInSecForIosWeb: 1,
+  //   toastLength: Toast.LENGTH_SHORT,
+
+  showDialog(
+      context: context,
+      builder: (context) => StatefulBuilder(builder: (context, setState) {
+//Dialog안에 setState를 적용하려면 StateFulbuilder를 꼭 적용해야 한다.
+
+        // Future.delayed(Duration(seconds: 3), () {
+        //   Navigator.pop(context);
+        // }
+        // );
+
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            //팝업창에 radius를 주기위한 옵션
+              borderRadius: BorderRadius.all(Radius.circular(32.0))),
+          contentPadding: EdgeInsets.only(top: 0, left: 5,),
+          //default 패딩값을 없앨 수 있다.
+          content:Container(
+            width: disWidthSize,
+            height: 50,
+            alignment: Alignment.center,
+            child: Center(
+              child:
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 15,),
+                    Text(jmt_message, style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size-2, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
+
+                  ],
+                ),
+              ),
+
+            ),
+          ),
+          actions: <Widget>[
+            new ElevatedButton(
+              child: new Text("확인"),
+              onPressed: () {
+
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        );
+      }  //builder
+      )
+  );
+}
