@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webviewx/webviewx.dart';
 import 'lottovar.dart';
 //import 'lottoad.dart';
 
@@ -44,6 +45,13 @@ class _Home3State extends State<Home3> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                WebViewX(
+                    width: 440,
+                    height: 190,
+                    initialContent: '<script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({"id":633524,"template":"carousel","trackingCode":"AF7493713","width":"400","height":"120"});</script>'
+                        '<p><font size="1.5" color="red"> ※ 본 사이트는 쿠팡 파트너스 활동을 통해,일정액의 수수료를 제공받을 수 있습니다.</font></p>',
+                    initialSourceType: SourceType.html
+                ),
                 SizedBox(height: 15,),
 
 
@@ -237,6 +245,13 @@ class _Home3State extends State<Home3> {
 
                       for (var k in lottoDream.keys)
                         numCall(k),
+
+                      WebViewX(
+                          width: 380,
+                          height: 120,
+                          initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-SVq5IjZhW5MZMnOt" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                          initialSourceType: SourceType.html
+                      ),
                     ],
                   ),
 

@@ -283,20 +283,22 @@ void heartcharge(BuildContext context) {
             ),
           ),
           actions: <Widget>[
-            new ElevatedButton(
-              child: new Text("확인"),
-              onPressed: () {
-               url_link();
+            Center(
+              child: new ElevatedButton(
+                child: new Text("확인"),
+                onPressed: () {
+                 url_link();
 
-                Timer(const Duration(seconds: 2),(){
-                  //Get.offAll(const MainPage());
-                  Navigator.pop(context);
-                  lottoToast_button('♥ 충전완료 X 7', context);
-                  heartCount=7;
-                });
+                  Timer(const Duration(seconds: 2),(){
+                    //Get.offAll(const MainPage());
+                    Navigator.pop(context);
+                    lottoToast_button('♥ 충전완료 X 7', context);
+                    heartCount=7;
+                  });
 
 
-              },
+                },
+              ),
             ),
           ],
         );
@@ -309,8 +311,10 @@ void heartcharge(BuildContext context) {
 url_link() async{
 
   const url = 'https://link.coupang.com/a/MERGJ?img%20src=%22https://ads-partners.coupang.com/banners/632747?subId=&traceId=V0-301-879dd1202e5c73b2-I632747&w=320&h=50%22';
+ // const url = '<script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({"id":633524,"template":"carousel","trackingCode":"AF7493713","width":"400","height":"120"});</script>';
 
-  // html.window.open(url, 'new tab');
+
+  //html.window.open(url, 'new tab');
 
   await js.context.callMethod('open', [url]);
 
@@ -350,7 +354,7 @@ void lottoToast_button(String jmt_message, BuildContext context) {
           contentPadding: EdgeInsets.only(top: 0, left: 5,),
           //default 패딩값을 없앨 수 있다.
           content:Container(
-            width: disWidthSize,
+            width: 100,
             height: 50,
             alignment: Alignment.center,
             child: Center(
@@ -370,12 +374,14 @@ void lottoToast_button(String jmt_message, BuildContext context) {
             ),
           ),
           actions: <Widget>[
-            new ElevatedButton(
-              child: new Text("확인"),
-              onPressed: () {
+            Center(
+              child: new ElevatedButton(
+                child: new Text("확인"),
+                onPressed: () {
 
-                Navigator.pop(context);
-              },
+                  Navigator.pop(context);
+                },
+              ),
             ),
           ],
         );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webviewx/webviewx.dart';
 //import 'lottoad.dart';
 import 'lottovar.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -25,6 +26,12 @@ class _Home4State extends State<Home4> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            WebViewX(
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-SVq5IjZhW5MZMnOt" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
             SizedBox(height: 15,),
 
             FittedBox(
@@ -101,6 +108,8 @@ class _Home4State extends State<Home4> {
                 ' ① 이 개인정보처리방침은 2023년 1월 12일부터 적용됩니다.\n',
                 style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-4,   color: Colors.black),),
             ),
+
+
 
 
 

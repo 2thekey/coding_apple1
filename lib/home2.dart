@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webviewx/webviewx.dart';
 //import 'lottoad.dart';
 import 'lottovar.dart';
 
@@ -23,6 +24,7 @@ class _Home2State extends State<Home2> {
     return Container(
       //width: disWidthSize,
       //height: 600,
+      //color: Colors.red,
       child: Center(
         child:
         ListView(
@@ -30,9 +32,15 @@ class _Home2State extends State<Home2> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  WebViewX(
+                      width: 380,
+                      height: 120,
+                      initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-SVq5IjZhW5MZMnOt" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                      initialSourceType: SourceType.html
+                  ),
                   SizedBox(height: 15,),
                   Text('<현재까지 가능한 제외수 목록 - 로또 통계론>', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
 
@@ -132,6 +140,13 @@ class _Home2State extends State<Home2> {
                   FittedBox(
                     child: Text('- 6:0   5:1   1:5   0:6은 피하라\n'
                       , style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.black),),
+                  ),
+                  WebViewX(
+                      width: 440,
+                      height: 190,
+                      initialContent: '<script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({"id":633524,"template":"carousel","trackingCode":"AF7493713","width":"400","height":"120"});</script>'
+                          '<p><font size="1.5" color="red"> ※ 본 사이트는 쿠팡 파트너스 활동을 통해,일정액의 수수료를 제공받을 수 있습니다.</font></p>',
+                      initialSourceType: SourceType.html
                   ),
 
 
