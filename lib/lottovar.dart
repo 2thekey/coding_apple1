@@ -276,7 +276,7 @@ void heartcharge(BuildContext context) {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(height: 15,),
-                  Text('♥ 충전이 필요합니다.\n\n확인 버튼을 누르면 쿠팡페이지 방문후 충전됩니다.', style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size-2, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
+                  Text('♥ 충전이 필요합니다.\n\n확인 버튼을 누르면 쿠팡페이지 방문 후 충전됩니다.', style: TextStyle(fontFamily: 'sandolout', fontSize: font_Size-2, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
                 ],
               ),
 
