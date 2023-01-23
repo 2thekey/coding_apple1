@@ -109,6 +109,15 @@ class _Home4State extends State<Home4> {
                 style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-4,   color: Colors.black),),
             ),
 
+            SizedBox(height: 5,),
+            WebViewX(
+                width: 380,
+                height: 70,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-pJOTQlzq6a7PuIxX" data-ad-width = "320" data-ad-height = "50"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
+
+
 
 
 

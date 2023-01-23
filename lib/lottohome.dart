@@ -179,7 +179,7 @@ class _LottoHomeState extends State<LottoHome> {
         backgroundColor: Colors.white,
         selectedItemColor: Colors.deepOrange,
         //unselectedItemColor: Colors.grey.withOpacity(.60),
-        unselectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.black,
         selectedFontSize: 14,
         unselectedFontSize: 12,
         currentIndex: _selectedIndex,

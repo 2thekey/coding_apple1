@@ -79,7 +79,7 @@ class _Home1State extends State<Home1> {
                          // text: '\n[최근1등] 1051회(2023. 01. 21.)', // default text style
                           children: <TextSpan>[
                             TextSpan(text:'\n[최근 1등 번호]', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.blue),),
-                            TextSpan(text:'  1051회(2023. 1. 21.)  18명  ', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
+                            TextSpan(text:'  1051회(`23.1.21.) 18명', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
                             TextSpan(text:'  21, 26, 30, 32, 33, 35 + 44', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.red),),
                             TextSpan(text:'\n[당첨지역]', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.blue),),
                             TextSpan(text:' 서울-강동구,강서구,중랑구 / 대구-서구,수성구 / 인천-계양구,미추홀구,서구 / 경기 - 안산,안성,포천,춘천 / 충북-충주 / 충남-당진 / 전남-여수 / 경북-영주 / 경남-남해,합천', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
@@ -88,7 +88,15 @@ class _Home1State extends State<Home1> {
                         ),
                       ),
 
-                  SizedBox(height: 10,),
+                   SizedBox(height: 5,),
+                      WebViewX(
+                          width: 380,
+                          height: 70,
+                          initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-pJOTQlzq6a7PuIxX" data-ad-width = "320" data-ad-height = "50"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                          initialSourceType: SourceType.html
+                      ),
+
+                      SizedBox(height: 5,),
 
                     ],
                   ),
