@@ -89,7 +89,7 @@ class _Home1State extends State<Home1> {
                       ),
 
                    SizedBox(height: 5,),
-                      WebViewX(
+                      WebViewX(  //파이어베이스 애드핏
                           width: 380,
                           height: 70,
                           initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-pJOTQlzq6a7PuIxX" data-ad-width = "320" data-ad-height = "50"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
@@ -1654,12 +1654,19 @@ class _Home1State extends State<Home1> {
 
             SizedBox(height: 25,),
 
-            WebViewX(
+            WebViewX(  //naepo 애드핏
                 width: 380,
                 height: 120,
                 initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-SVq5IjZhW5MZMnOt" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
                 initialSourceType: SourceType.html
             ),
+    WebViewX( //lotto.naepo 애드핏
+    width: 380,
+    height: 120,
+        initialContent: '<ins class="kakao_ad_area" style="display:none;"  data-ad-unit = "DAN-d3WQ21d4nsWDCLEI"  data-ad-width = "320"  data-ad-height = "100"></ins>  <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+    initialSourceType: SourceType.html
+    ),
+
 
 
           ],
