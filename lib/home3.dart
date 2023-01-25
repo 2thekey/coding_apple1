@@ -45,10 +45,10 @@ class _Home3State extends State<Home3> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                WebViewX( //파이어베이스 애드 핏
+                WebViewX(  //파이어베이스 애드핏
                     width: 380,
                     height: 70,
-                    initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-pJOTQlzq6a7PuIxX" data-ad-width = "320" data-ad-height = "50"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                    initialContent: '<ins class="kakao_ad_area" style="display:none;"  data-ad-unit = "DAN-QUoyeFZomUFBedbD"  data-ad-width = "320"  data-ad-height = "50"></ins>  <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
                     initialSourceType: SourceType.html
                 ),
 
@@ -249,12 +249,7 @@ class _Home3State extends State<Home3> {
                         numCall(k),
 
 
-                      WebViewX( //lotto.naepo 애드핏
-                          width: 380,
-                          height: 120,
-                          initialContent: '<ins class="kakao_ad_area" style="display:none;"  data-ad-unit = "DAN-d3WQ21d4nsWDCLEI"  data-ad-width = "320"  data-ad-height = "100"></ins>  <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-                          initialSourceType: SourceType.html
-                      ),
+
                     ],
                   ),
 

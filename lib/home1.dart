@@ -92,9 +92,11 @@ class _Home1State extends State<Home1> {
                       WebViewX(  //파이어베이스 애드핏
                           width: 380,
                           height: 70,
-                          initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-pJOTQlzq6a7PuIxX" data-ad-width = "320" data-ad-height = "50"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                          initialContent: '<ins class="kakao_ad_area" style="display:none;"  data-ad-unit = "DAN-QUoyeFZomUFBedbD"  data-ad-width = "320"  data-ad-height = "50"></ins>  <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
                           initialSourceType: SourceType.html
                       ),
+
+
 
                       SizedBox(height: 5,),
 
@@ -1599,18 +1601,7 @@ class _Home1State extends State<Home1> {
                         child: Text('※ 모든 통계는 보너스번호를 제외한 통계입니다.\n     오직 1등이 목표니까요.', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
                       ),
 
-                      Column(
-                        children: [
-                          WebViewX(
-                              width: 440,
-                              height: 190,
-                              initialContent: '<script src="https://ads-partners.coupang.com/g.js"></script><script> new PartnersCoupang.G({"id":632413,"template":"carousel","trackingCode":"AF7493713","width":"400","height":"120"});   </script>'
-                                  '<p><font size="1.5" color="red"> ※ 본 사이트는 쿠팡 파트너스 활동을 통해,일정액의 수수료를 제공받을 수 있습니다.</font></p>',
-                              initialSourceType: SourceType.html
-                          ),
 
-                        ],
-                      ),
 
                     ],
                   ),
@@ -1654,18 +1645,7 @@ class _Home1State extends State<Home1> {
 
             SizedBox(height: 25,),
 
-            WebViewX(  //naepo 애드핏
-                width: 380,
-                height: 120,
-                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-SVq5IjZhW5MZMnOt" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-                initialSourceType: SourceType.html
-            ),
-    WebViewX( //lotto.naepo 애드핏
-    width: 380,
-    height: 120,
-        initialContent: '<ins class="kakao_ad_area" style="display:none;"  data-ad-unit = "DAN-d3WQ21d4nsWDCLEI"  data-ad-width = "320"  data-ad-height = "100"></ins>  <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-    initialSourceType: SourceType.html
-    ),
+
 
 
 
@@ -1880,6 +1860,7 @@ class _Home1State extends State<Home1> {
       case 0 : {
         return Column(
           children: [
+
             Center( //결과값 표시 존
 
 
@@ -1909,6 +1890,12 @@ class _Home1State extends State<Home1> {
       case 1:{
         return Column(
           children: [
+            // WebViewX( //lotto.naepo 애드핏
+            //     width: 380,
+            //     height: 120,
+            //     initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+            //     initialSourceType: SourceType.html
+            // ),
             Center( //결과값 표시 존
 
 
@@ -2037,7 +2024,14 @@ class _Home1State extends State<Home1> {
 
       case 2: {  //함께 출현한 수
         return Column(
+
           children: [
+            // WebViewX( //lotto.naepo 애드핏
+            //     width: 380,
+            //     height: 120,
+            //     initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+            //     initialSourceType: SourceType.html
+            // ),
             Center( //결과값 표시 존
 
 
@@ -2191,6 +2185,12 @@ class _Home1State extends State<Home1> {
 
         return Column(
           children: [
+            // WebViewX( //lotto.naepo 애드핏
+            //     width: 380,
+            //     height: 120,
+            //     initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+            //     initialSourceType: SourceType.html
+            // ),
             Center( //결과값 표시 존
 
 
@@ -2330,6 +2330,12 @@ class _Home1State extends State<Home1> {
 
         return Column(
           children: [
+            // WebViewX( //lotto.naepo 애드핏
+            //     width: 380,
+            //     height: 120,
+            //     initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+            //     initialSourceType: SourceType.html
+            // ),
             Center( //결과값 표시 존
 
 
@@ -2482,6 +2488,12 @@ class _Home1State extends State<Home1> {
       case 5: {  //해당번호 다음 출현한 번호
         return Column(
           children: [
+            // WebViewX( //lotto.naepo 애드핏
+            //     width: 380,
+            //     height: 120,
+            //     initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+            //     initialSourceType: SourceType.html
+            // ),
             Center( //결과값 표시 존
 
 

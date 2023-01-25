@@ -107,6 +107,7 @@ class _Home2State extends State<Home2> {
                   ),
 
                   SizedBox(height: 15,),
+
                   ElevatedButton(
                     child: Text(
                       '5. 2개의 쌍연번은 제외'
@@ -129,7 +130,14 @@ class _Home2State extends State<Home2> {
                     },
                   ),
                   SizedBox(height: 15,),
-                  SizedBox(height: 15,),
+                  // WebViewX(  //파이어베이스 애드핏
+                  //     width: 380,
+                  //     height: 70,
+                  //     initialContent: '<ins class="kakao_ad_area" style="display:none;"  data-ad-unit = "DAN-QUoyeFZomUFBedbD"  data-ad-width = "320"  data-ad-height = "50"></ins>  <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                  //     initialSourceType: SourceType.html
+                  // ),
+                  // SizedBox(height: 15,),
+                  // SizedBox(height: 15,),
                   ElevatedButton(
                     child: Text(
                       '7. 홀수와 짝수의 비율'
@@ -142,23 +150,7 @@ class _Home2State extends State<Home2> {
                     child: Text('- 6:0   5:1   1:5   0:6은 피하라\n'
                       , style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.black),),
                   ),
-                  SizedBox(height: 5,),
-                  WebViewX( //파이어베이스 애드핏
-                      width: 380,
-                      height: 70,
-                      initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-pJOTQlzq6a7PuIxX" data-ad-width = "320" data-ad-height = "50"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-                      initialSourceType: SourceType.html
-                  ),
-
-                  SizedBox(height: 5,),
-                  WebViewX(
-                      width: 440,
-                      height: 190,
-                      initialContent: '<script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({"id":633524,"template":"carousel","trackingCode":"AF7493713","width":"400","height":"120"});</script>'
-                          '<p><font size="1.5" color="red"> ※ 본 사이트는 쿠팡 파트너스 활동을 통해,일정액의 수수료를 제공받을 수 있습니다.</font></p>',
-                      initialSourceType: SourceType.html
-                  ),
-
+                  SizedBox(height: 25,),
 
 
 
