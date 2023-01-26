@@ -89,7 +89,7 @@ class _Home4State extends State<Home4> {
                 ' <개인정보 보호책임자>\n'
                 ' • 성명 :Satine Kim\n'
                 ' • 직책 :개발자\n'
-                ' • 연락처 : 2thekey.01@gmail.com\n'
+                ' • 연락처 : 2thekey.01@gmail.com \n'
                 ,
                 style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-4,   color: Colors.black),),
             ),
