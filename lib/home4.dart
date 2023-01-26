@@ -23,8 +23,8 @@ class _Home4State extends State<Home4> {
     return  ListView(
       children: [
         Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             WebViewX( //lotto.naepo 애드핏
                 width: 380,
@@ -35,6 +35,7 @@ class _Home4State extends State<Home4> {
             SizedBox(height: 15,),
 
             FittedBox(
+
               child: Text(' <로또만이 살길이다>(이하 "로만살")은\n'
                 ' (개인정보 보호법) 제30조에 따라 정보주체의 개인정보를 보호하고\n'
                 ' 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여\n'
@@ -83,10 +84,10 @@ class _Home4State extends State<Home4> {
                 ' 제12조(가명정보를 처리하는 경우 가명정보 처리에 관한 사항)\n'
                 ' <"로만살" > 은 가명정보를 처리하고 있지 않습니다.\n\n'
                 ' 제13조 (개인정보 보호책임자에 관한 사항)\n'
-                ' ①"로만살"은 개인정보 처리에 관한 업무를 총괄해서 책임지고 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여\n'
+                ' ①"로만살"은 개인정보 처리에 관한 업무를 총괄해서 책임지고 개인정보 처리와 관련한\n 정보주체의 불만처리 및 피해구제 등을 위하여\n'
                 ' 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.\n'
                 ' <개인정보 보호책임자>\n'
-                ' • 성명 :Satine202\n'
+                ' • 성명 :Satine Kim\n'
                 ' • 직책 :개발자\n'
                 ' • 연락처 : 2thekey.01@gmail.com\n'
                 ,
@@ -94,17 +95,17 @@ class _Home4State extends State<Home4> {
             ),
 
             SizedBox(height: 5,),
-            // WebViewX(  //파이어베이스 애드핏
-            //     width: 380,
-            //     height: 70,
-            //     initialContent: '<ins class="kakao_ad_area" style="display:none;"  data-ad-unit = "DAN-QUoyeFZomUFBedbD"  data-ad-width = "320"  data-ad-height = "50"></ins>  <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-            //     initialSourceType: SourceType.html
-            // ),
-            // SizedBox(height: 5,),
+            WebViewX(  //파이어베이스 애드핏
+                width: 380,
+                height: 70,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;"  data-ad-unit = "DAN-QUoyeFZomUFBedbD"  data-ad-width = "320"  data-ad-height = "50"></ins>  <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
+            SizedBox(height: 5,),
 
             FittedBox(
               child: Text(' 제14조(정보주체의 권익침해에 대한 구제방법)\n'
-                  ' 정보주체는 개인정보침해로 인한 구제를 받기 위하여 개인정보분쟁조정위원회, 한국인터넷진흥원 개인정보침해신고센터 등에\n'
+                  ' 정보주체는 개인정보침해로 인한 구제를 받기 위하여 개인정보분쟁조정위원회,\n 한국인터넷진흥원 개인정보침해신고센터 등에\n'
                   ' 분쟁해결이나 상담 등을 신청할 수 있습니다.\n\n'
                   ' 이 밖에 기타 개인정보침해의 신고, 상담에 대하여는 아래의 기관에 문의하시기 바랍니다.\n'
                   ' 1. 개인정보분쟁조정위원회 : (국번없이) 1833-6972 (www.kopico.go.kr)\n'

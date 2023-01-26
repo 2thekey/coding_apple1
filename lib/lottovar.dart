@@ -12,6 +12,7 @@ import 'package:url_launcher/url_launcher.dart';
 //import 'lottoad.dart';
 
 
+
 class MyScore{
   int numLotto;
   int countLotto;
@@ -75,7 +76,11 @@ void heart_count(BuildContext context) async{
     //showRewardedAd();  //리워드전면광고 불러오기
     //showInterstitialAd();  //에드몹 전면광고로 리워드 광고 대체
     //lottoToast('하트 충전이 필요합니다.',context);
-    heartcharge(context);
+
+    //heartcharge(context);
+
+    heartCount=7;
+    hiveBox.put('heart', heartCount);
 
   }
 

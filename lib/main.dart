@@ -8,6 +8,7 @@ import 'lottohome.dart';
 import 'lottovar.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:responsive_framework/responsive_framework.dart';
 
 //import 'dart:convert';
 //import 'package:http/http.dart' as http;
@@ -83,6 +84,18 @@ class _MyAppState extends State<MyApp> {
 
   Widget build(BuildContext context) {
     return  GetMaterialApp(
+     builder: (context, child) => ResponsiveWrapper.builder(
+         child,
+         maxWidth: 800,
+         minWidth: 430,
+         defaultScale: true,
+         breakpoints: [
+          ResponsiveBreakpoint.resize(430, name: MOBILE),
+          ResponsiveBreakpoint.autoScale(800, name: TABLET),
+          ResponsiveBreakpoint.resize(800, name: DESKTOP),
+         ],
+         background: Container(color: Color(0xFFF5F5F5))),
+
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'DongleRegular'),
       //home: LandingPage(),

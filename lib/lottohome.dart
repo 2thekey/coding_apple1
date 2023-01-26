@@ -1,3 +1,4 @@
+import 'package:coding_apple1/myappbar.dart';
 import 'package:flutter/material.dart';
 // import 'package:fluttertoast/fluttertoast.dart';
 // import 'package:fluttertoast/fluttertoast_web.dart';
@@ -88,7 +89,9 @@ class _LottoHomeState extends State<LottoHome> {
 
     return Scaffold(
 
-      appBar: AppBar(
+
+      appBar: //MyAppBar(),
+      AppBar(
 
         //centerTitle: true,
         title: const Text.rich(
@@ -106,21 +109,7 @@ class _LottoHomeState extends State<LottoHome> {
           ),
         ),
 
-        // leading: IconButton(
-        //   icon: Row(
-        //     children: [
-        //       Icon(Icons.favorite_border,color: Colors.black,),
-        //       //Text(' X ',style: TextStyle(fontFamily: 'sandolout', fontSize: 5, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
-        //       FittedBox(
-        //         child: Text(' 5',style: TextStyle(fontFamily: 'sandolout', fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.black),),
-        //       ),
-        //
-        //     ],
-        //   ),
-        //   onPressed: () {
-        //     print('menu button is clicked');
-        //   },
-        // ),
+
 
 
         //Text('로또만이 살 길이다!!!', style: TextStyle(fontFamily: 'sandolout',fontSize: 40,fontWeight: FontWeight.bold, color: Colors.black), ),
@@ -174,14 +163,15 @@ class _LottoHomeState extends State<LottoHome> {
       //   child: Icon(Icons.home),
       // ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      bottomNavigationBar:BottomNavigationBar(
+      bottomNavigationBar:
+      BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
         selectedItemColor: Colors.deepOrange,
         //unselectedItemColor: Colors.grey.withOpacity(.60),
         unselectedItemColor: Colors.black,
-        selectedFontSize: 14,
-        unselectedFontSize: 12,
+        selectedFontSize: 12,
+        unselectedFontSize: 10,
         currentIndex: _selectedIndex,
 
         showSelectedLabels: true,
@@ -249,7 +239,8 @@ class _LottoHomeState extends State<LottoHome> {
         items: bottomItems,
       ),
 
-      body: pages[_selectedIndex],
+
+      body:  pages[_selectedIndex],
     );
   }
 }

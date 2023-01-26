@@ -108,6 +108,14 @@ class _Home2State extends State<Home2> {
 
                   SizedBox(height: 15,),
 
+                  WebViewX(  //파이어베이스 애드핏
+                      width: 380,
+                      height: 70,
+                      initialContent: '<ins class="kakao_ad_area" style="display:none;"  data-ad-unit = "DAN-QUoyeFZomUFBedbD"  data-ad-width = "320"  data-ad-height = "50"></ins>  <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                      initialSourceType: SourceType.html
+                  ),
+                  SizedBox(height: 15,),
+
                   ElevatedButton(
                     child: Text(
                       '5. 2개의 쌍연번은 제외'
@@ -130,13 +138,7 @@ class _Home2State extends State<Home2> {
                     },
                   ),
                   SizedBox(height: 15,),
-                  // WebViewX(  //파이어베이스 애드핏
-                  //     width: 380,
-                  //     height: 70,
-                  //     initialContent: '<ins class="kakao_ad_area" style="display:none;"  data-ad-unit = "DAN-QUoyeFZomUFBedbD"  data-ad-width = "320"  data-ad-height = "50"></ins>  <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-                  //     initialSourceType: SourceType.html
-                  // ),
-                  // SizedBox(height: 15,),
+
                   // SizedBox(height: 15,),
                   ElevatedButton(
                     child: Text(

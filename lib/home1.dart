@@ -1890,12 +1890,12 @@ class _Home1State extends State<Home1> {
       case 1:{
         return Column(
           children: [
-            // WebViewX( //lotto.naepo 애드핏
-            //     width: 380,
-            //     height: 120,
-            //     initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-            //     initialSourceType: SourceType.html
-            // ),
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
             Center( //결과값 표시 존
 
 
@@ -2026,12 +2026,12 @@ class _Home1State extends State<Home1> {
         return Column(
 
           children: [
-            // WebViewX( //lotto.naepo 애드핏
-            //     width: 380,
-            //     height: 120,
-            //     initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-            //     initialSourceType: SourceType.html
-            // ),
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
             Center( //결과값 표시 존
 
 
@@ -2185,12 +2185,12 @@ class _Home1State extends State<Home1> {
 
         return Column(
           children: [
-            // WebViewX( //lotto.naepo 애드핏
-            //     width: 380,
-            //     height: 120,
-            //     initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-            //     initialSourceType: SourceType.html
-            // ),
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
             Center( //결과값 표시 존
 
 
@@ -2330,12 +2330,12 @@ class _Home1State extends State<Home1> {
 
         return Column(
           children: [
-            // WebViewX( //lotto.naepo 애드핏
-            //     width: 380,
-            //     height: 120,
-            //     initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-            //     initialSourceType: SourceType.html
-            // ),
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
             Center( //결과값 표시 존
 
 
@@ -2488,12 +2488,12 @@ class _Home1State extends State<Home1> {
       case 5: {  //해당번호 다음 출현한 번호
         return Column(
           children: [
-            // WebViewX( //lotto.naepo 애드핏
-            //     width: 380,
-            //     height: 120,
-            //     initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-            //     initialSourceType: SourceType.html
-            // ),
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
             Center( //결과값 표시 존
 
 
