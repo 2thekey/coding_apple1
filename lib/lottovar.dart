@@ -79,7 +79,7 @@ void heart_count(BuildContext context) async{
 
     //heartcharge(context);
 
-    heartCount=7;
+    heartCount=6;
     hiveBox.put('heart', heartCount);
 
   }
