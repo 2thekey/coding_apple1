@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'dart:html' as html;
 import 'dart:js' as js;
 import 'package:url_launcher/url_launcher.dart';
+import 'package:webviewx/webviewx.dart';
 
 
 //import 'lottoad.dart';
@@ -229,8 +230,15 @@ void lottoToast2(BuildContext context) {
                         SizedBox(height: 15,),
                         FittedBox(
                           child: Text('  - 2thekey.01@gmail.com 으로\n'
-                              '     의견 보내 주시면 반영토록 노력하겠습니다.\n\n\n\n\n\n'
+                              '     의견 보내 주시면 반영토록 노력하겠습니다.\n'
                             , style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.black),),
+                        ),
+
+                        WebViewX( //lotto.naepo 애드핏
+                            width: 380,
+                            height: 120,
+                            initialContent: '<ins class="kakao_ad_area" style="display:none;"  data-ad-unit = "DAN-d3WQ21d4nsWDCLEI"  data-ad-width = "320"  data-ad-height = "100"></ins>  <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                            initialSourceType: SourceType.html
                         ),
 
 
