@@ -1207,7 +1207,7 @@ class _Home1State extends State<Home1> {
 
                               resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));
                               // print(resultBunho);
-                              resultBunho.removeWhere((item) => item.countLotto==0);
+                              resultBunho.removeWhere((item) => item.numLotto==0);
                               // print(resultBunho);
                               break;
                             } //case 1
@@ -2639,7 +2639,7 @@ class _Home1State extends State<Home1> {
         );
 
 
-      } //case 5 함께 출현한 수 출력해당번호 다음 출현한 번호
+      } //case 5 해당번호 다음 출현한 번호
 
 
 
