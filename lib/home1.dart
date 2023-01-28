@@ -79,10 +79,11 @@ class _Home1State extends State<Home1> {
                          // text: '\n[최근1등] 1051회(2023. 01. 21.)', // default text style
                           children: <TextSpan>[
                             TextSpan(text:'\n[최근 1등 번호]', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.blue),),
-                            TextSpan(text:'  1051회(`23.1.21.) 18명', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
-                            TextSpan(text:'  21, 26, 30, 32, 33, 35 + 44', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.red),),
+                            TextSpan(text:'  1052회(`23.1.28.) 11명', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
+                            TextSpan(text:'  5, 17, 26, 27, 35, 38 + 1', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.red),),
                             TextSpan(text:'\n[당첨지역]', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.blue),),
-                            TextSpan(text:' 서울-강동구,강서구,중랑구 / 대구-서구,수성구 / 인천-계양구,미추홀구,서구 / 경기 - 안산,안성,포천,춘천 / 충북-충주 / 충남-당진 / 전남-여수 / 경북-영주 / 경남-남해,합천', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
+                            TextSpan(text:' 서울-강북구,영등포구 / 부산-서구,수영구 / 인천-계양구 / 광주-광산구(3),서구 / 대전-동구 / 경남-진주 /', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
+                            //TextSpan(text:' 확인중입니다', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
 
                           ],
                         ),
@@ -2714,45 +2715,45 @@ class _Home1State extends State<Home1> {
 
                       //시스템 분석 시작
 
-                      // const Text.rich(
-                      //   TextSpan(
-                      //
-                      //     children: <TextSpan>[
-                      //       TextSpan(text: '아직은 ', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.blue),),
-                      //       TextSpan(text: '로만살 시스템', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
-                      //       TextSpan(text: '이 추천 번호를 분석중입니다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.blue),),
-                      //       TextSpan(text: '통상적으로 ', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.blue),),
-                      //       TextSpan(text: '매주 수요일 전후', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
-                      //       TextSpan(text: '로 분석이 완료됩니다.\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.blue),),
-                      //
-                      //     ],
-                      //   ),
-                      // ),
+                      const Text.rich(
+                        TextSpan(
+
+                          children: <TextSpan>[
+                            //TextSpan(text: '아직은 ', style: TextStyle(fontFamily: 'sandol',fontSize: 21,fontWeight: FontWeight.bold, color: Colors.blue),),
+                            TextSpan(text: '로만살 시스템', style: TextStyle(fontFamily: 'sandol',fontSize: 21,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                            TextSpan(text: '이 추천 번호를 분석중입니다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 21,fontWeight: FontWeight.bold, color: Colors.blue),),
+                            //TextSpan(text: '통상적으로 ', style: TextStyle(fontFamily: 'sandol',fontSize: 21,fontWeight: FontWeight.bold, color: Colors.blue),),
+                            TextSpan(text: '매주 수요일에는 ', style: TextStyle(fontFamily: 'sandol',fontSize: 21,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                            TextSpan(text: '분석이 완료됩니다.\n', style: TextStyle(fontFamily: 'sandol',fontSize: 21,fontWeight: FontWeight.bold, color: Colors.blue),),
+
+                          ],
+                        ),
+                      ),
 
                       //시스템 분석 끝
 
 
                           //시스템 추천 번호 시작
 
-                      const Text.rich(
-                        TextSpan(
-
-                          children: <TextSpan>[
-                            TextSpan(text: '이번주 ', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
-                            TextSpan(text: '로만살 시스템', style: TextStyle(fontFamily: 'sandolout',fontSize: 24,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
-                            TextSpan(text: '은 4개 번호를 추천합니다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
-                            TextSpan(text: '12, 18, 30, 34\n\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
-
-                            TextSpan(text: '굳이 6개 추천을 원하신다면...\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
-                            TextSpan(text: '12, 15, 18, 30, 34, 40\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
-
-                            TextSpan(text: '로만살 - 로또만이 살길이다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
-                            TextSpan(text: 'https://lotto.naepo.xyz/', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
-
-                            //TextSpan(text: '!', style: TextStyle(fontFamily: 'sandolout',fontSize: 38,fontWeight: FontWeight.bold, color: Colors.black),),
-                          ],
-                        ),
-                      ),
+                      // const Text.rich(
+                      //   TextSpan(
+                      //
+                      //     children: <TextSpan>[
+                      //       TextSpan(text: '이번주 ', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
+                      //       TextSpan(text: '로만살 시스템', style: TextStyle(fontFamily: 'sandolout',fontSize: 24,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                      //       TextSpan(text: '은 4개 번호를 추천합니다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
+                      //       TextSpan(text: '12, 18, 30, 34\n\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                      //
+                      //       TextSpan(text: '굳이 6개 추천을 원하신다면...\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
+                      //       TextSpan(text: '12, 15, 18, 30, 34, 40\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                      //
+                      //       TextSpan(text: '로만살 - 로또만이 살길이다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
+                      //       TextSpan(text: 'https://lotto.naepo.xyz/', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
+                      //
+                      //       //TextSpan(text: '!', style: TextStyle(fontFamily: 'sandolout',fontSize: 38,fontWeight: FontWeight.bold, color: Colors.black),),
+                      //     ],
+                      //   ),
+                      // ),
 
                       //시스템 추천 번호 끝
 
