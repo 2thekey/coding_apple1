@@ -262,3 +262,62 @@ buttonCheck4(int rSangtae)
     }
   }
 }
+
+buttonCheck6(int rSangtae) //이번주 추천번호 버튼
+{
+  if(rSangtae==6) {
+    return Container(
+      width: disWidthSize,
+      height: conHeight + 5,
+
+      decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.circular(25.0),
+          border: Border.all(
+              color: Colors.black,
+              style: BorderStyle.solid,
+              width: 2
+          )
+      ),
+      alignment: Alignment.center,
+      child:
+      FittedBox(
+        child: Text('닥치고 '+last_soonbun.toString()+'회 번호 추천', style: TextStyle(
+            fontFamily: 'sandolout',
+            fontSize: font_Size,
+            fontWeight: FontWeight.bold,
+            color: Colors.white),),
+      ),
+
+    );
+  }
+
+  else{
+    {
+      return Container(
+        width: disWidthSize,
+        height: conHeight + 5,
+
+        decoration: BoxDecoration(
+            color: Colors.yellowAccent,
+            borderRadius: BorderRadius.circular(25.0),
+            border: Border.all(
+                color: Colors.black,
+                style: BorderStyle.solid,
+                width: 2
+            )
+        ),
+        alignment: Alignment.center,
+        child:
+        FittedBox(
+          child: Text('닥치고 '+last_soonbun.toString()+'회 번호 추천', style: TextStyle(
+              fontFamily: 'sandolout',
+              fontSize: font_Size,
+              fontWeight: FontWeight.bold,
+              color: Colors.black),),
+        ),
+
+      );
+    }
+  }
+}

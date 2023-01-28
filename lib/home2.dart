@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webviewx/webviewx.dart';
 //import 'lottoad.dart';
 import 'lottovar.dart';
 
@@ -23,6 +24,7 @@ class _Home2State extends State<Home2> {
     return Container(
       //width: disWidthSize,
       //height: 600,
+      //color: Colors.red,
       child: Center(
         child:
         ListView(
@@ -30,11 +32,18 @@ class _Home2State extends State<Home2> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+
+                  WebViewX( //lotto.naepo 애드핏
+                      width: 380,
+                      height: 120,
+                      initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                      initialSourceType: SourceType.html
+                  ),
                   SizedBox(height: 15,),
-                  Text('<제외수 목록 - 로또 통계론>  ', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
+                  Text('<현재까지 가능한 제외수 목록 - 로또 통계론>', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
 
                   SizedBox(height: 15,),
                   ElevatedButton(
@@ -46,7 +55,7 @@ class _Home2State extends State<Home2> {
                   ),
                   SizedBox(height: 15,),
                   FittedBox(
-                    child: Text('- 매우 희박함 \n\n'
+                    child: Text('- 매우 희박함\n\n'
                         '- 대한민국의 경우 나온적 없음.\n'
                       , style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.black),),
                   ),
@@ -62,7 +71,7 @@ class _Home2State extends State<Home2> {
                   SizedBox(height: 15,),
                   FittedBox(
                     child: Text('- 연속해서 4연번이 나온경우는 매우 희박함 \n\n'
-                        '- 우리나라의 경우 3연번은 몇차례 나온적 있음\n\n'
+                        '- 우리나라의 경우 3연번은 몇차례 나온적 있음.\n\n'
                         'ex) 1, 2, 3, 4, 16, 29 또는 9, 21, 22, 23, 24, 44\n'
                         , style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.black),),
                   ),
@@ -78,7 +87,7 @@ class _Home2State extends State<Home2> {
                   SizedBox(height: 15,),
                   FittedBox(
                     child: Text('- 같은 끝수가 3개이상 되는 경우는 20% 미만\n\n'
-                        'ex) 1, 11 21, 24, 36, 49 또는 9, 19, 29, 36, 44, 45\n'
+                        'ex) 1, 11 21, 24, 36, 49 또는 9, 19, 21, 39, 44, 45\n'
                       , style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.black),),
                   ),
 
@@ -98,6 +107,15 @@ class _Home2State extends State<Home2> {
                   ),
 
                   SizedBox(height: 15,),
+
+                  WebViewX(  //파이어베이스 애드핏
+                      width: 380,
+                      height: 70,
+                      initialContent: '<ins class="kakao_ad_area" style="display:none;"  data-ad-unit = "DAN-QUoyeFZomUFBedbD"  data-ad-width = "320"  data-ad-height = "50"></ins>  <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                      initialSourceType: SourceType.html
+                  ),
+                  SizedBox(height: 15,),
+
                   ElevatedButton(
                     child: Text(
                       '5. 2개의 쌍연번은 제외'
@@ -120,7 +138,8 @@ class _Home2State extends State<Home2> {
                     },
                   ),
                   SizedBox(height: 15,),
-                  SizedBox(height: 15,),
+
+                  // SizedBox(height: 15,),
                   ElevatedButton(
                     child: Text(
                       '7. 홀수와 짝수의 비율'
@@ -133,7 +152,7 @@ class _Home2State extends State<Home2> {
                     child: Text('- 6:0   5:1   1:5   0:6은 피하라\n'
                       , style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-3, fontWeight: FontWeight.bold,  color: Colors.black),),
                   ),
-
+                  SizedBox(height: 25,),
 
 
 

@@ -8,6 +8,7 @@ import 'lottohome.dart';
 import 'lottovar.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:responsive_framework/responsive_framework.dart';
 
 //import 'dart:convert';
 //import 'package:http/http.dart' as http;
@@ -83,6 +84,18 @@ class _MyAppState extends State<MyApp> {
 
   Widget build(BuildContext context) {
     return  GetMaterialApp(
+     builder: (context, child) => ResponsiveWrapper.builder(
+         child,
+         maxWidth: 800,
+         minWidth: 430,
+         defaultScale: true,
+         breakpoints: [
+          ResponsiveBreakpoint.resize(430, name: MOBILE),
+          ResponsiveBreakpoint.autoScale(800, name: TABLET),
+          ResponsiveBreakpoint.resize(800, name: DESKTOP),
+         ],
+         background: Container(color: Color(0xFFF5F5F5))),
+
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'DongleRegular'),
       //home: LandingPage(),
@@ -1145,7 +1158,9 @@ myget() async {
     1046, 7, 16, 25, 29, 35, 36, 28,
     1047, 2, 20, 33, 40, 42, 44, 32,
     1048, 6,12,17,21,32,39,30,
-    1049, 3,5,13,20,21,37,17
+    1049, 3,5,13,20,21,37,17,
+    1050, 6,12,31,35,38,43,17,
+    1051, 21, 26, 30, 32, 33, 35, 44
   ];
 
    last_soonbun = num2[(num2.length) - 8] + 1;

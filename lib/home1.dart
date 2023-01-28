@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'button.dart';
 import 'lottovar.dart';
+import 'package:webviewx/webviewx.dart';
 //import 'lottoad.dart';
 
 
@@ -63,6 +64,49 @@ class _Home1State extends State<Home1> {
       children: [
         Column(
           children: [
+            Column(
+              children: [
+                Container(
+                  width: disWidthSize,
+                  //height: 100,
+                  //color: Colors.blue,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+
+                      const Text.rich(
+                        TextSpan(
+                         // text: '\n[최근1등] 1051회(2023. 01. 21.)', // default text style
+                          children: <TextSpan>[
+                            TextSpan(text:'\n[최근 1등 번호]', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.blue),),
+                            TextSpan(text:'  1051회(`23.1.21.) 18명', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
+                            TextSpan(text:'  21, 26, 30, 32, 33, 35 + 44', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.red),),
+                            TextSpan(text:'\n[당첨지역]', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.blue),),
+                            TextSpan(text:' 서울-강동구,강서구,중랑구 / 대구-서구,수성구 / 인천-계양구,미추홀구,서구 / 경기 - 안산,안성,포천,춘천 / 충북-충주 / 충남-당진 / 전남-여수 / 경북-영주 / 경남-남해,합천', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
+
+                          ],
+                        ),
+                      ),
+
+                   SizedBox(height: 5,),
+                      WebViewX(  //파이어베이스 애드핏
+                          width: 380,
+                          height: 70,
+                          initialContent: '<ins class="kakao_ad_area" style="display:none;"  data-ad-unit = "DAN-QUoyeFZomUFBedbD"  data-ad-width = "320"  data-ad-height = "50"></ins>  <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                          initialSourceType: SourceType.html
+                      ),
+
+
+
+                      SizedBox(height: 5,),
+
+                    ],
+                  ),
+                ),
+
+
+              ],
+            ),
             // Container(
             //   width: disWidthSize,
             //   height: 100,
@@ -80,7 +124,7 @@ class _Home1State extends State<Home1> {
             //   child: Text('AD1'),
             //
             // ),
-            SizedBox(height: 15,),
+            //SizedBox(height: 15,),
 
             Center( //로또번호 표시 존
               child: Container(
@@ -331,6 +375,8 @@ class _Home1State extends State<Home1> {
                           onTap: (){
 
                             all_clear();
+
+
 
 
 
@@ -716,9 +762,9 @@ class _Home1State extends State<Home1> {
                             resultSangtae=1;
 
 
-                            heart_count();
+                            heart_count(context);
 
-                            if(heartCount>-1)
+                            if(heartCount>0)
                               lottoToast('조회 완료 ♥ x '+heartCount.toString(),context);
 
                           }   //if-else 번호가 3개이상 선택시
@@ -1085,9 +1131,9 @@ class _Home1State extends State<Home1> {
                               resultSangtae = 2;
 
 
-                              heart_count();
+                              heart_count(context);
 
-                              if(heartCount>-1)
+                              if(heartCount>0)
                                 lottoToast('조회 완료 ♥ x '+heartCount.toString(),context);
                             }
 
@@ -1161,7 +1207,7 @@ class _Home1State extends State<Home1> {
 
                               resultBunho.sort((b, a) => a.countLotto.compareTo(b.countLotto));
                               // print(resultBunho);
-                              resultBunho.removeWhere((item) => item.countLotto==0);
+                              resultBunho.removeWhere((item) => item.numLotto==0);
                               // print(resultBunho);
                               break;
                             } //case 1
@@ -1406,9 +1452,9 @@ class _Home1State extends State<Home1> {
                               resultSangtae = 5;
 
 
-                              heart_count();
+                              heart_count(context);
 
-                              if(heartCount>-1)
+                              if(heartCount>0)
                                 lottoToast('조회 완료 ♥ x '+heartCount.toString(),context);
                             }
 
@@ -1461,7 +1507,7 @@ class _Home1State extends State<Home1> {
 
                       InkWell(  //지난주 당첨 번호로 분석
                         onTap: (){
-
+                          //url_link(); //쿠팡방문
                           all_clear();
                           for(int jj=0; jj<46; jj++) {
                             resultBunho.add(MyScore(jj, 0));
@@ -1537,6 +1583,7 @@ class _Home1State extends State<Home1> {
                           setState(() {
 
                             resultSangtae=4;
+                            lottoToast('조회 완료',context);
 
                             //showRewardedAd(); //리워드 전면광고
                             //showInterstitialAd();  //에드몹 전면광고로 대체
@@ -1551,9 +1598,36 @@ class _Home1State extends State<Home1> {
                       ),
 
                       SizedBox(height: 15,),
+
+
+                      InkWell(  //이번주 추천번호 추천
+                        onTap: (){
+                          //url_link(); //쿠팡방문
+                          all_clear();
+                          lottoToast('조회 완료',context);
+                          setState(() {
+
+                            resultSangtae=6;
+
+                            //showRewardedAd(); //리워드 전면광고
+                            //showInterstitialAd();  //에드몹 전면광고로 대체
+
+                            //lottoToast('조회 완료 ♥ x '+heartCount.toString());
+
+                          });
+
+                        },
+                        child:
+                        buttonCheck6(resultSangtae),  // 버튼6 '이번주 추천번호 버튼 처리
+                      ),
+
+
+                      SizedBox(height: 15,),
                       FittedBox(
                         child: Text('※ 모든 통계는 보너스번호를 제외한 통계입니다.\n     오직 1등이 목표니까요.', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
-                      )
+                      ),
+
+
 
                     ],
                   ),
@@ -1596,6 +1670,7 @@ class _Home1State extends State<Home1> {
             // ),
 
             SizedBox(height: 25,),
+
 
 
 
@@ -1811,6 +1886,7 @@ class _Home1State extends State<Home1> {
       case 0 : {
         return Column(
           children: [
+
             Center( //결과값 표시 존
 
 
@@ -1840,6 +1916,12 @@ class _Home1State extends State<Home1> {
       case 1:{
         return Column(
           children: [
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
             Center( //결과값 표시 존
 
 
@@ -1968,7 +2050,14 @@ class _Home1State extends State<Home1> {
 
       case 2: {  //함께 출현한 수
         return Column(
+
           children: [
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
             Center( //결과값 표시 존
 
 
@@ -2122,6 +2211,12 @@ class _Home1State extends State<Home1> {
 
         return Column(
           children: [
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
             Center( //결과값 표시 존
 
 
@@ -2261,6 +2356,12 @@ class _Home1State extends State<Home1> {
 
         return Column(
           children: [
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
             Center( //결과값 표시 존
 
 
@@ -2413,6 +2514,12 @@ class _Home1State extends State<Home1> {
       case 5: {  //해당번호 다음 출현한 번호
         return Column(
           children: [
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
             Center( //결과값 표시 존
 
 
@@ -2558,8 +2665,117 @@ class _Home1State extends State<Home1> {
         );
 
 
-      } //case 5 함께 출현한 수 출력해당번호 다음 출현한 번호
+      }  //case 5 해당번호 다음 출현한 번호
 
+    //case6 이번주 추천 번호 결과값 표시
+      case 6: {  //이번주 추천 번호 결과값 표시
+
+        return Column(
+          children: [
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
+            Center( //결과값 표시 존
+
+
+              child: Container(
+                //height: 100,
+                width:disWidthSize,
+                //MediaQuery.of(context).size.width - 50,
+                color: Colors.yellow,
+                //color: Colors.grey[100],
+                alignment: Alignment.center,
+
+                child:
+                Column(
+
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+
+                    SizedBox(height: 15,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(width: disWidthSize*0.9, height:conHeight, alignment : Alignment.center, child:Text('금주 추천 번호입니다. 참고용으로만 활용 하세요', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-1, fontWeight: FontWeight.bold,  color: Colors.black),),),
+                      ],
+                    ),
+
+                    Divider(thickness: 1, height: 1, color: Colors.black45),
+                    SizedBox(height: 15,),
+
+                    Container(
+                      alignment: Alignment.center,
+                      child:
+
+                      //시스템 분석 시작
+
+                      // const Text.rich(
+                      //   TextSpan(
+                      //
+                      //     children: <TextSpan>[
+                      //       TextSpan(text: '아직은 ', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.blue),),
+                      //       TextSpan(text: '로만살 시스템', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                      //       TextSpan(text: '이 추천 번호를 분석중입니다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.blue),),
+                      //       TextSpan(text: '통상적으로 ', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.blue),),
+                      //       TextSpan(text: '매주 수요일 전후', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                      //       TextSpan(text: '로 분석이 완료됩니다.\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.blue),),
+                      //
+                      //     ],
+                      //   ),
+                      // ),
+
+                      //시스템 분석 끝
+
+
+                          //시스템 추천 번호 시작
+
+                      const Text.rich(
+                        TextSpan(
+
+                          children: <TextSpan>[
+                            TextSpan(text: '이번주 ', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
+                            TextSpan(text: '로만살 시스템', style: TextStyle(fontFamily: 'sandolout',fontSize: 24,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                            TextSpan(text: '은 4개 번호를 추천합니다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
+                            TextSpan(text: '12, 18, 30, 34\n\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+
+                            TextSpan(text: '굳이 6개 추천을 원하신다면...\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
+                            TextSpan(text: '12, 15, 18, 30, 34, 40\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+
+                            TextSpan(text: '로만살 - 로또만이 살길이다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
+                            TextSpan(text: 'https://lotto.naepo.xyz/', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
+
+                            //TextSpan(text: '!', style: TextStyle(fontFamily: 'sandolout',fontSize: 38,fontWeight: FontWeight.bold, color: Colors.black),),
+                          ],
+                        ),
+                      ),
+
+                      //시스템 추천 번호 끝
+
+
+                    ),
+
+                    SizedBox(height: 15,),
+
+
+                  ],
+
+                ),
+
+
+
+              ),
+            ),
+            SizedBox(height: 50,),
+          ],
+        );
+
+
+      }
 
 
     }
@@ -2605,7 +2821,6 @@ choiceBunhoColor(){
     }
   }
 }
-
 
 
 
