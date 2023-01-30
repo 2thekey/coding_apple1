@@ -80,6 +80,8 @@ void heart_count(BuildContext context) async{
 
     //heartcharge(context);
 
+
+    adToast_button(context);
     heartCount=6;
     hiveBox.put('heart', heartCount);
 
@@ -323,13 +325,13 @@ void heartcharge(BuildContext context) {
 
 url_link() async{
 
-  const url = 'https://link.coupang.com/a/MERGJ?img%20src=%22https://ads-partners.coupang.com/banners/632747?subId=&traceId=V0-301-879dd1202e5c73b2-I632747&w=320&h=50%22';
+  //const url = 'https://link.coupang.com/a/MERGJ?img%20src=%22https://ads-partners.coupang.com/banners/632747?subId=&traceId=V0-301-879dd1202e5c73b2-I632747&w=320&h=50%22';
  // const url = '<script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({"id":633524,"template":"carousel","trackingCode":"AF7493713","width":"400","height":"120"});</script>';
 
 
   //html.window.open(url, 'new tab');
 
-  await js.context.callMethod('open', [url]);
+  //await js.context.callMethod('open', [url,'_self']);
 
 
 
@@ -392,6 +394,66 @@ void lottoToast_button(String jmt_message, BuildContext context) {
                 child: new Text("확인"),
                 onPressed: () {
 
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+          ],
+        );
+      }  //builder
+      )
+  );
+}
+
+void adToast_button(BuildContext context) async {
+  showDialog(
+      context: context,
+      builder: (context) => StatefulBuilder(builder: (context, setState) {
+//Dialog안에 setState를 적용하려면 StateFulbuilder를 꼭 적용해야 한다.
+
+        Future.delayed(Duration(seconds: 3), () {
+          Navigator.pop(context);
+        }
+        );
+
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            //팝업창에 radius를 주기위한 옵션
+              borderRadius: BorderRadius.all(Radius.circular(32.0))),
+          contentPadding: EdgeInsets.only(top: 0, left: 5,),
+          //default 패딩값을 없앨 수 있다.
+          content:Container(
+            width: 415,
+            height: 170,
+            alignment: Alignment.center,
+            child: Center(
+              child:
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 5,),
+                    WebViewX( //lotto.naepo 애드핏
+                        width: 380,
+                        height: 120,
+                        initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                        initialSourceType: SourceType.html
+                    ),
+                    SizedBox(height: 5,),
+                    Text('조회가 완료 되었습니다.', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-2, fontWeight: FontWeight.bold,  color: Colors.deepOrange),),
+
+                  ],
+                ),
+              ),
+
+            ),
+          ),
+          actions: <Widget>[
+            Center(
+              child: new ElevatedButton(
+                child: new Text("닫 기 (3초후 자동닫힘)"),
+                onPressed: () {
                   Navigator.pop(context);
                 },
               ),

@@ -8,7 +8,7 @@ import 'package:coding_apple1/main.dart';
 import 'dart:convert';
 //import 'package:http/http.dart' as http;
 
-
+import 'dart:js' as js;
 import 'home1.dart';
 import 'home2.dart';
 import 'home3.dart';
@@ -94,18 +94,25 @@ class _LottoHomeState extends State<LottoHome> {
       AppBar(
 
         //centerTitle: true,
-        title: const Text.rich(
-          TextSpan(
-            text: 'Hello', // default text style
-            children: <TextSpan>[
-              TextSpan(text: '로', style: TextStyle(fontFamily: 'sandolout',fontSize: 35,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
-              TextSpan(text: '또', style: TextStyle(fontFamily: 'sandolout',fontSize: 23,fontWeight: FontWeight.bold, color: Colors.black),),
-              TextSpan(text: '만', style: TextStyle(fontFamily: 'sandolout',fontSize: 35,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
-              TextSpan(text: '이', style: TextStyle(fontFamily: 'sandolout',fontSize: 23,fontWeight: FontWeight.bold, color: Colors.black),),
-              TextSpan(text: ' 살', style: TextStyle(fontFamily: 'sandolout',fontSize: 35,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
-              TextSpan(text: '길이다     ', style: TextStyle(fontFamily: 'sandolout',fontSize: 23,fontWeight: FontWeight.bold, color: Colors.black),),
-              //TextSpan(text: '!', style: TextStyle(fontFamily: 'sandolout',fontSize: 38,fontWeight: FontWeight.bold, color: Colors.black),),
-            ],
+        title: InkWell(
+          onTap: (){
+            const url = 'https://lotto.naepo.xyz/';
+            js.context.callMethod('open', [url,'_self']);
+
+          },
+          child: const Text.rich(
+            TextSpan(
+             // text: 'Hello', // default text style
+              children: <TextSpan>[
+                TextSpan(text: '로', style: TextStyle(fontFamily: 'sandolout',fontSize: 35,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                TextSpan(text: '또', style: TextStyle(fontFamily: 'sandolout',fontSize: 23,fontWeight: FontWeight.bold, color: Colors.black),),
+                TextSpan(text: '만', style: TextStyle(fontFamily: 'sandolout',fontSize: 35,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                TextSpan(text: '이', style: TextStyle(fontFamily: 'sandolout',fontSize: 23,fontWeight: FontWeight.bold, color: Colors.black),),
+                TextSpan(text: ' 살', style: TextStyle(fontFamily: 'sandolout',fontSize: 35,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                TextSpan(text: '길이다     ', style: TextStyle(fontFamily: 'sandolout',fontSize: 23,fontWeight: FontWeight.bold, color: Colors.black),),
+                //TextSpan(text: '!', style: TextStyle(fontFamily: 'sandolout',fontSize: 38,fontWeight: FontWeight.bold, color: Colors.black),),
+              ],
+            ),
           ),
         ),
 
