@@ -79,10 +79,10 @@ class _Home1State extends State<Home1> {
                          // text: '\n[최근1등] 1051회(2023. 01. 21.)', // default text style
                           children: <TextSpan>[
                             TextSpan(text:'\n[최근 1등 번호]', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.blue),),
-                            TextSpan(text:'  1052회(`23.1.28.) 11명', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
-                            TextSpan(text:'  5, 17, 26, 27, 35, 38 + 1', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.red),),
+                            TextSpan(text:'  1053회(`23.2.4.) 7명', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
+                            TextSpan(text:'  22, 26, 29, 30, 34, 45 + 15', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.red),),
                             TextSpan(text:'\n[당첨지역]', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.blue),),
-                            TextSpan(text:' 서울-강북구,영등포구 / 부산-서구,수영구 / 인천-계양구 / 광주-광산구(3),서구 / 대전-동구 / 경남-진주 /', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
+                            TextSpan(text:' 서울-마포구,중구 / 대구-북구 / 대전-서구 / 경기-김포,남양주 / 경북-포항 /', style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold, color: Colors.black),),
                             //TextSpan(text:' 확인중입니다', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
                           ],
                         ),
@@ -1623,6 +1623,31 @@ class _Home1State extends State<Home1> {
                         buttonCheck6(resultSangtae),  // 버튼6 '이번주 추천번호 버튼 처리
                       ),
 
+                      SizedBox(height: 15,),
+
+
+                      InkWell(  //이번주 추천번호 버튼클릭시
+                        onTap: (){
+                          //url_link(); //쿠팡방문
+                          adToast_button(context);
+                          all_clear();
+                          //lottoToast('조회 완료',context);
+                          setState(() {
+
+                            resultSangtae=7;
+
+                            //showRewardedAd(); //리워드 전면광고
+                            //showInterstitialAd();  //에드몹 전면광고로 대체
+
+                            //lottoToast('조회 완료 ♥ x '+heartCount.toString());
+
+                          });
+
+                        },
+                        child:
+                        buttonCheck7(resultSangtae),  // 버튼7 '이번주 제외수번호 버튼 처리
+                      ),
+
 
                       SizedBox(height: 15,),
                       FittedBox(
@@ -2743,10 +2768,10 @@ class _Home1State extends State<Home1> {
                             TextSpan(text: '이번주 ', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
                             TextSpan(text: '로만살 시스템', style: TextStyle(fontFamily: 'sandolout',fontSize: 24,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
                             TextSpan(text: '은 3개 번호를 추천합니다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
-                            TextSpan(text: '11, 21, 26\n\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                            TextSpan(text: '33, 1, 14\n\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
 
                             TextSpan(text: '굳이 6개 추천을 원하신다면...\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
-                            TextSpan(text: '4, 11, 18, 21, 26, 36\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                            TextSpan(text: '1, 14, 21, 29, 33, 36\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
 
                             TextSpan(text: '로만살 - 로또만이 살길이다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
                             TextSpan(text: 'https://lotto.naepo.xyz/', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
@@ -2777,7 +2802,114 @@ class _Home1State extends State<Home1> {
         );
 
 
-      }
+      }  //case6 닥치고 금주 추천번호 끝
+
+    //case7 이번주 제외수 번호 결과값 표시
+      case 7: {  //이번주 제외수 번호 결과값 표시
+
+        return Column(
+          children: [
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
+            Center( //결과값 표시 존
+
+
+              child: Container(
+                //height: 100,
+                width:disWidthSize,
+                //MediaQuery.of(context).size.width - 50,
+                //color: Colors.grey,
+                color: Colors.grey[300],
+                alignment: Alignment.center,
+
+                child:
+                Column(
+
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+
+                    SizedBox(height: 15,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(width: disWidthSize*0.9, height:conHeight, alignment : Alignment.center, child:Text('금주 제외수 번호입니다. 참고용으로만 활용 하세요', style: TextStyle(fontFamily: 'sandol', fontSize: font_Size-1, fontWeight: FontWeight.bold,  color: Colors.black),),),
+                      ],
+                    ),
+
+                    Divider(thickness: 1, height: 1, color: Colors.black45),
+                    SizedBox(height: 15,),
+
+                    Container(
+                      alignment: Alignment.center,
+                      child:
+
+                      //시스템 제외수 분석 시작
+
+                      // const Text.rich(
+                      //   TextSpan(
+                      //
+                      //     children: <TextSpan>[
+                      //       TextSpan(text: '아직은 ', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.blue),),
+                      //       TextSpan(text: '로만살 시스템', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                      //       TextSpan(text: '이 제외수 번호를 분석중입니다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.blue),),
+                      //       TextSpan(text: '통상적으로 ', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.blue),),
+                      //       TextSpan(text: '매주 수요일 전후', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                      //       TextSpan(text: '로 분석이 완료됩니다.\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.blue),),
+                      //
+                      //     ],
+                      //   ),
+                      // ),
+
+                      //시스템 제외수 분석 끝
+
+
+                      //시스템 제외수 번호 시작
+
+                      const Text.rich(
+                        TextSpan(
+
+                          children: <TextSpan>[
+                            TextSpan(text: '이번주 ', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
+                            TextSpan(text: '로만살 시스템', style: TextStyle(fontFamily: 'sandolout',fontSize: 24,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                            TextSpan(text: '이 분석한 제외수입니다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
+                            TextSpan(text: '24, 20, 23, 30, 35, 41\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+
+                            TextSpan(text: '로만살 - 로또만이 살길이다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
+                            TextSpan(text: 'https://lotto.naepo.xyz/', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
+
+                            //TextSpan(text: '!', style: TextStyle(fontFamily: 'sandolout',fontSize: 38,fontWeight: FontWeight.bold, color: Colors.black),),
+                          ],
+                        ),
+                      ),
+
+                      //시스템 제외수 번호 끝
+
+
+                    ),
+
+                    SizedBox(height: 15,),
+
+
+                  ],
+
+                ),
+
+
+
+              ),
+            ),
+            SizedBox(height: 50,),
+          ],
+        );
+
+
+      }  //case7 금주 제외수 번호 끝
 
 
     }
