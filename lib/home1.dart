@@ -79,10 +79,10 @@ class _Home1State extends State<Home1> {
                          // text: '\n[최근1등] 1051회(2023. 01. 21.)', // default text style
                           children: <TextSpan>[
                             TextSpan(text:'\n[최근 1등 번호]', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.blue),),
-                            TextSpan(text:'  1053회(`23.2.4.) 7명', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
-                            TextSpan(text:'  22, 26, 29, 30, 34, 45 + 15', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.red),),
+                            TextSpan(text:'  1054회(`23.2.11.) 9명', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
+                            TextSpan(text:'  14, 19, 27, 28, 30, 45 + 33', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.red),),
                             TextSpan(text:'\n[당첨지역]', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.blue),),
-                            TextSpan(text:' 서울-마포구,중구 / 대구-북구 / 대전-서구 / 경기-김포,남양주 / 경북-포항 /', style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold, color: Colors.black),),
+                            TextSpan(text:' 서울-송파구/부산-기장/인천-부평구/울산-남구/경기-화성/충북-청주/\n                   전남-목포/경남-진주,창원/', style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold, color: Colors.black),),
                             //TextSpan(text:' 확인중입니다', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold, color: Colors.black),),
                           ],
                         ),
@@ -1933,6 +1933,12 @@ class _Home1State extends State<Home1> {
               ),
 
             ),
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
             SizedBox(height: 50,),
           ],
         );
@@ -1943,12 +1949,7 @@ class _Home1State extends State<Home1> {
       case 1:{
         return Column(
           children: [
-            WebViewX( //lotto.naepo 애드핏
-                width: 380,
-                height: 120,
-                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-                initialSourceType: SourceType.html
-            ),
+
             Center( //결과값 표시 존
 
 
@@ -2069,6 +2070,13 @@ class _Home1State extends State<Home1> {
               ),
 
             ),
+            SizedBox(height: 15,),
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
             SizedBox(height: 50,),
           ],
         );
@@ -2079,12 +2087,7 @@ class _Home1State extends State<Home1> {
         return Column(
 
           children: [
-            WebViewX( //lotto.naepo 애드핏
-                width: 380,
-                height: 120,
-                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-                initialSourceType: SourceType.html
-            ),
+
             Center( //결과값 표시 존
 
 
@@ -2225,6 +2228,13 @@ class _Home1State extends State<Home1> {
 
               ),
             ),
+            SizedBox(height: 15,),
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
 
             SizedBox(height: 50,),
 
@@ -2238,12 +2248,7 @@ class _Home1State extends State<Home1> {
 
         return Column(
           children: [
-            WebViewX( //lotto.naepo 애드핏
-                width: 380,
-                height: 120,
-                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-                initialSourceType: SourceType.html
-            ),
+
             Center( //결과값 표시 존
 
 
@@ -2370,6 +2375,13 @@ class _Home1State extends State<Home1> {
 
               ),
             ),
+            SizedBox(height: 15,),
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
             SizedBox(height: 50,),
           ],
         );
@@ -2383,12 +2395,7 @@ class _Home1State extends State<Home1> {
 
         return Column(
           children: [
-            WebViewX( //lotto.naepo 애드핏
-                width: 380,
-                height: 120,
-                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-                initialSourceType: SourceType.html
-            ),
+
             Center( //결과값 표시 존
 
 
@@ -2531,6 +2538,13 @@ class _Home1State extends State<Home1> {
 
               ),
             ),
+            SizedBox(height: 15,),
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
             SizedBox(height: 50,),
           ],
         );
@@ -2541,12 +2555,7 @@ class _Home1State extends State<Home1> {
       case 5: {  //해당번호 다음 출현한 번호
         return Column(
           children: [
-            WebViewX( //lotto.naepo 애드핏
-                width: 380,
-                height: 120,
-                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-                initialSourceType: SourceType.html
-            ),
+
             Center( //결과값 표시 존
 
 
@@ -2687,6 +2696,13 @@ class _Home1State extends State<Home1> {
 
               ),
             ),
+            SizedBox(height: 15,),
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
             SizedBox(height: 50,),
           ],
         );
@@ -2699,12 +2715,7 @@ class _Home1State extends State<Home1> {
 
         return Column(
           children: [
-            WebViewX( //lotto.naepo 애드핏
-                width: 380,
-                height: 120,
-                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-                initialSourceType: SourceType.html
-            ),
+
             Center( //결과값 표시 존
 
 
@@ -2768,10 +2779,10 @@ class _Home1State extends State<Home1> {
                             TextSpan(text: '이번주 ', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
                             TextSpan(text: '로만살 시스템', style: TextStyle(fontFamily: 'sandolout',fontSize: 24,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
                             TextSpan(text: '은 3개 번호를 추천합니다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
-                            TextSpan(text: '33, 1, 14\n\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                            TextSpan(text: '18, 29, 33\n\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
 
                             TextSpan(text: '굳이 6개 추천을 원하신다면...\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
-                            TextSpan(text: '1, 14, 21, 29, 33, 36\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                            TextSpan(text: '8, 18, 27, 29, 33, 42\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
 
                             TextSpan(text: '로만살 - 로또만이 살길이다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
                             TextSpan(text: 'https://lotto.naepo.xyz/', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
@@ -2789,6 +2800,7 @@ class _Home1State extends State<Home1> {
                     SizedBox(height: 15,),
 
 
+
                   ],
 
                 ),
@@ -2797,6 +2809,13 @@ class _Home1State extends State<Home1> {
 
               ),
             ),
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
+            SizedBox(height: 15,),
             SizedBox(height: 50,),
           ],
         );
@@ -2809,12 +2828,7 @@ class _Home1State extends State<Home1> {
 
         return Column(
           children: [
-            WebViewX( //lotto.naepo 애드핏
-                width: 380,
-                height: 120,
-                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
-                initialSourceType: SourceType.html
-            ),
+
             Center( //결과값 표시 존
 
 
@@ -2878,7 +2892,7 @@ class _Home1State extends State<Home1> {
                             TextSpan(text: '이번주 ', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
                             TextSpan(text: '로만살 시스템', style: TextStyle(fontFamily: 'sandolout',fontSize: 24,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
                             TextSpan(text: '이 분석한 제외수입니다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
-                            TextSpan(text: '24, 20, 23, 30, 35, 41\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
+                            TextSpan(text: '23, 22, 9, 24, 5, 41\n\n\n', style: TextStyle(fontFamily: 'sandolout',fontSize: 33,fontWeight: FontWeight.bold, color: Colors.deepOrange),),
 
                             TextSpan(text: '로만살 - 로또만이 살길이다.\n\n', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
                             TextSpan(text: 'https://lotto.naepo.xyz/', style: TextStyle(fontFamily: 'sandol',fontSize: 22,fontWeight: FontWeight.bold, color: Colors.black),),
@@ -2904,7 +2918,14 @@ class _Home1State extends State<Home1> {
 
               ),
             ),
-            SizedBox(height: 50,),
+            SizedBox(height: 15,),
+            WebViewX( //lotto.naepo 애드핏
+                width: 380,
+                height: 120,
+                initialContent: '<ins class="kakao_ad_area" style="display:none;" data-ad-unit = "DAN-d3WQ21d4nsWDCLEI" data-ad-width = "320" data-ad-height = "100"></ins> <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>',
+                initialSourceType: SourceType.html
+            ),
+            SizedBox(height: 250,),
           ],
         );
 
